@@ -22,7 +22,7 @@ brew "gnupg"
 brew "htop"
 brew "lazygit"
 brew "neofetch"
-brew "neovim"
+brew "neovim", args: ["HEAD"]
 brew "nnn"
 brew "pinentry-mac"
 brew "powerlevel10k"
