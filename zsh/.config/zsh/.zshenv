@@ -19,4 +19,24 @@ export XDG_CACHE_HOME=$HOME/.cache
 export XDG_DATA_HOME=$HOME/.local/share
 
 for f in "$ZDOTDIR"/"$(uname)"/zshenv*.sh; do source "$f"; done
-for f in "$ZDOTDIR"/env/*.sh; do source "$f"; done
+
+
+#{{{Exporting to Path
+
+# Go
+path+=("/usr/local/go/bin")
+path+=("$HOME/go/bin")
+
+# Adds cargo binaries to path
+path+=("$HOME/.cargo/bin")
+
+#}}}
+
+#{{{Exporting Env Vars
+
+# nnn
+export NNN_FIFO=/tmp/nnn.fifo
+export NNN_USE_EDITOR=1
+export NNN_PLUG='f:fzopen;p:preview-tui;d:pdfview;'
+
+#}}}
