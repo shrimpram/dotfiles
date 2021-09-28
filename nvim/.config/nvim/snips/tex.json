@@ -1,30 +1,4 @@
 {
-    "Template": {
-        "prefix": "template-writing",
-        "body": [
-            "\\documentclass[${1|letterpaper,a4paper|}]{${2|article,report|}}",
-            "",
-            "\\usepackage{amsmath, amssymb}",
-            "\\usepackage{csquotes}",
-            "\\usepackage{hyperref}",
-            "\\usepackage{hyphenat}",
-            "\\usepackage{microtype}",
-            "",
-            "\\usepackage{ragged2e}",
-            "\\raggedright{}",
-            "",
-            "\\usepackage{setspace}",
-            "${3|\\double,\\single|}spacing",
-            "",
-            "\\author{Shreeram Modi}",
-            "\\title{$4}",
-            "\\date{${5:\\today}}",
-            "",
-            "\\begin{document}",
-            "$0",
-            "\\end{document}"
-        ]
-    },
     "Environment": {
       "prefix": "beg",
       "body": [
