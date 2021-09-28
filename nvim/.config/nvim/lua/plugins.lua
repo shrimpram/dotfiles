@@ -149,15 +149,15 @@ return require('packer').startup(function()
   use {
     'phaazon/hop.nvim',
     config = function()
-      vim.api.nvim_set_keymap( 'n', 's', "<CMD>HopChar2<CR>", {noremap = true, silent = true} )
-      vim.api.nvim_set_keymap( 'v', 's', "<CMD>HopChar2<CR>", {noremap = true, silent = true} )
-      vim.api.nvim_set_keymap( 'x', 's', "<CMD>HopChar2<CR>", {noremap = true, silent = true} )
-      vim.api.nvim_set_keymap( 'o', 's', "<CMD>HopChar2<CR>", {noremap = true, silent = true} )
+      vim.api.nvim_set_keymap( 'n', 'x', "<CMD>HopChar2<CR>", {noremap = true, silent = true} )
+      vim.api.nvim_set_keymap( 'v', 'x', "<CMD>HopChar2<CR>", {noremap = true, silent = true} )
+      vim.api.nvim_set_keymap( 'x', 'x', "<CMD>HopChar2<CR>", {noremap = true, silent = true} )
+      vim.api.nvim_set_keymap( 'o', 'x', "<CMD>HopChar2<CR>", {noremap = true, silent = true} )
       require('hop').setup {
-        keys = 'arstneiowfuy'
+        keys = 'arstneiouyzxcv'
       }
     end,
-    keys = { 's' },
+    keys = { 'x' },
   }
 
   --- Smooth scroll
