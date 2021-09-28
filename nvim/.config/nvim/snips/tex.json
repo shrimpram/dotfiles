@@ -128,10 +128,6 @@
         "prefix": "it",
         "body": "\\textit{${1:$TM_SELECTED_TEXT}}$0"
     },
-    "Underline": {
-        "prefix": "ul",
-        "body": "\\underline{${1:$TM_SELECTED_TEXT}}$0"
-    },
     "Paragraph": {
         "prefix": "par",
         "body": "\\paragraph{${1:$TM_SELECTED_TEXT}}$0"
@@ -155,5 +151,13 @@
     "invNorm": {
       "prefix": "inv",
       "body": "\\texttt{invNorm($1,$2,$3,${4|LEFT,CENTER,RIGHT|})}$0"
+    },
+    "ulem": {
+      "prefix": "ul",
+      "body": "${1|\\uline,\\uuline,\\uwave,\\sout,\\xout,\\dashuline,\\dotuline|}{${2:$TM_SELECTED_TEXT}}$0"
+    },
+    "item": {
+      "prefix": "en",
+      "body": "\\item ${1{$TM_SELECTED_TEXT}}"
     }
 }
