@@ -102,7 +102,6 @@ command! Dark set background=dark
 
 "}}}
 
-
 function! SynStack()
   if !exists('*synstack')
     return
