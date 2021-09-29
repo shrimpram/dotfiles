@@ -120,6 +120,10 @@
             "\\end{table}"
         ]
     },
+    "Emphasize": {
+      "prefix": "em",
+      "body": "\\emph{${1:$TM_SELECTED_TEXT}}$0"
+    },
     "Bold": {
         "prefix": "bf",
         "body": "\\textbf{${1:$TM_SELECTED_TEXT}}$0"
