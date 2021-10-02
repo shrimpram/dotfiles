@@ -87,3 +87,11 @@ cask "syncthing"
 cask "tor-browser"
 cask "visual-studio-code"
 cask "whatsapp"
+
+# Stuff for Emacs
+
+brew "automake"
+brew "isync"
+brew "mu", args: ["with-emacs"]
+brew "openssl@3"
+brew "pkg-config"
