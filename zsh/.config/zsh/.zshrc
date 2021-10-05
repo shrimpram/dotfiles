@@ -17,10 +17,3 @@ for f in "$ZDOTDIR"/scripts/*.sh; do source $f; done
 source "$(brew --prefix)/opt/fzf-tab/fzf-tab.plugin.zsh"
 source "$(brew --prefix)/opt/powerlevel10k/powerlevel10k.zsh-theme"
 for f in "$ZDOTDIR"/"$(uname)"/zshrc*.sh; do source $f; done
-export PATH="/opt/homebrew/bin:$PATH"
-
-export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
-export PATH="/opt/homebrew/lib/ruby/gems/3.0.0/bin:$PATH"
-
-export PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:${PATH}"
-export MANPATH="/opt/homebrew/opt/coreutils/libexec/gnuman:${MANPATH}"
