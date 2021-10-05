@@ -94,4 +94,5 @@ brew "automake"
 brew "isync"
 brew "mu", args: ["with-emacs"]
 brew "openssl@3"
+brew "hunspell"
 brew "pkg-config"
