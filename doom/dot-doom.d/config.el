@@ -110,7 +110,8 @@
 
 ;; Customize tabs to make it like vim
 (setq-default tab-width 2)
-(setq indent-tabs-mode nil)
+(setq-default indent-tabs-mode nil)
+(setq evil-shift-width 2)
 
 ;; Evil maps
 (define-key evil-normal-state-map (kbd "j") 'evil-next-visual-line)
