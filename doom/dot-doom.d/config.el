@@ -121,3 +121,9 @@
 
 ;; Evil snipe (sneak) should search through buffer, not just line
 (setq evil-snipe-scope 'buffer)
+
+;; Disable centaur tabs when entering ispell
+(add-hook 'ispell-update-post-hook
+          (lambda ()
+            (with-current-buffer ispell-choices-buffer
+              (centaur-tabs-local-mode))))
