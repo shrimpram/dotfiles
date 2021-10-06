@@ -118,3 +118,6 @@
 (define-key evil-normal-state-map (kbd "k") 'evil-previous-visual-line)
 (define-key evil-visual-state-map (kbd "j") 'evil-next-visual-line)
 (define-key evil-visual-state-map (kbd "k") 'evil-previous-visual-line)
+
+;; Evil snipe (sneak) should search through buffer, not just line
+(setq evil-snipe-scope 'buffer)
