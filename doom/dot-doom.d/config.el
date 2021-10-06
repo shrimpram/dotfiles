@@ -96,10 +96,12 @@
 ;; Org capture templates
 (after! org
   (setq org-capture-templates
-        '(("t" "Todo" entry (file+olp "~/Dropbox/org/todo.org" "Inbox")
+        '(("t" "Todo" entry (file+olp "~/Dropbox/org/inbox.org" "Inbox")
            "* TODO %?\n %i\n")
-          ("m" "Email" entry (file+olp "~/Dropbox/org/todo.org" "Follow Up")
-           "* TODO Follow up with %:from on %:subject%?\n %a\n %i\n"))))
+          ("m" "Email" entry (file+olp "~/Dropbox/org/inbox.org" "Follow Up")
+           "* TODO Follow up with %:from on %:subject%?\n %a\n %i\n")
+          ("a" "Appointment" entry (file "~/Dropbox/org/gcal.org")
+           "* %?\n %i"))))
 
 
 ;; So that RefTeX also recognizes \addbibresource. Note that you
