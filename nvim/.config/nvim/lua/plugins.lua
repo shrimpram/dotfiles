@@ -137,14 +137,6 @@ return require('packer').startup(function()
     end
   }
 
-  use {
-    'akinsho/org-bullets.nvim',
-    config = function()
-      require("org-bullets").setup {
-        symbols = { "◉", "○", "✸", "✿" }
-      }
-    end}
-
   --- Search
   use {
     'romainl/vim-cool',
