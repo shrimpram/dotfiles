@@ -83,9 +83,11 @@ return require('packer').startup(function()
   --- File Tree (lua NERDTree)
   use {
     'kyazdani42/nvim-tree.lua',
-    config = [[require('config.nvim-tree')]],
     requires = { 'kyazdani42/nvim-web-devicons' },
     keys = { '<leader>nt', '<leader>nf',  },
+    config = function()
+      require('config.nvim-tree')
+    end,
   }
 
 
