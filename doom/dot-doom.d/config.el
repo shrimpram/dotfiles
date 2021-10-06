@@ -58,12 +58,12 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
-
 ;; MU4E Config
 
+;; Add mu to path
+(add-to-list 'load-path "/opt/homebrew/Cellar/mu/1.6.6/share/emacs/site-lisp/mu/mu4e")
+
 (use-package mu4e
-  :ensure nil
-  :load-path "/opt/homebrew/Cellar/mu/1.6.6/share/emacs/site-lisp/mu/mu4e"
   :defer 20 ; Wait until 20 seconds after startup
   :config
 
