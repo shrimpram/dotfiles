@@ -96,3 +96,8 @@ brew "mu", args: ["with-emacs"]
 brew "openssl@3"
 brew "hunspell"
 brew "pkg-config"
+
+
+# Workflow
+brew "task"
+brew "taskwarrior-tui"
