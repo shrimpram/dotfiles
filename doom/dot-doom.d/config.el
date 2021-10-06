@@ -103,6 +103,8 @@
           ("a" "Appointment" entry (file "~/Dropbox/org/gcal.org")
            "* %?\n %i"))))
 
+;; Org show deadlines 2 days in the future
+(setq org-deadline-warning-days 2)
 
 ;; So that RefTeX also recognizes \addbibresource. Note that you
 ;; can't use $HOME in path for \addbibresource but that "~"
