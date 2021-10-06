@@ -1,17 +1,16 @@
 ;; -*- no-byte-compile: t; -*-
 ;;; $DOOMDIR/packages.el
-;;;
-
-; Org gcal sync
-(package! org-gcal)
 
 (package! evil-mu4e)
 
-; Export Org files to reveal.js
+;; Export Org files to reveal.js
 (package! ox-reveal)
 
-; Pretty OP bibtex references
+;; Pretty OP bibtex references
 (package! org-ref)
+
+;; Org mode -> HTML email
+(package! org-mime)
 
 ;; To install a package with Doom you must declare them here and run 'doom sync'
 ;; on the command line, then restart Emacs for the changes to take effect -- or
