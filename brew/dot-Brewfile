@@ -50,6 +50,8 @@ brew "youtube-dl"
 
 # Lang
 
+brew "asciidoc"
+brew "asciidoctor"
 brew "luarocks"
 brew "python"
 brew "ruby"
