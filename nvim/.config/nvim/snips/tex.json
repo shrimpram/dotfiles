@@ -162,6 +162,6 @@
     },
     "item": {
       "prefix": "en",
-      "body": "\\item ${1{$TM_SELECTED_TEXT}}"
+      "body": "\\item ${1{$TM_SELECTED_TEXT}}$0"
     }
 }
