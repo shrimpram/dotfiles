@@ -90,12 +90,6 @@ noremap <silent> <C-j> <C-w>j
 noremap <silent> <C-k> <C-w>k
 noremap <silent> <C-l> <C-w>l
 
-" Runs a script that cleans out tex build files whenever I close out of a .tex file.
-augroup texclean
-  autocmd!
-  autocmd VimLeave *.tex silent !latexmk -c
-augroup END
-
 " Quick way to switch between light and dark mode
 command! Light set background=light
 command! Dark set background=dark
