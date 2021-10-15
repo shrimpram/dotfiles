@@ -93,13 +93,29 @@ cask "whatsapp"
 # Stuff for Emacs
 
 brew "automake"
+brew "hunspell"
 brew "isync"
 brew "mu", args: ["with-emacs"]
 brew "openssl@3"
-brew "hunspell"
 brew "pkg-config"
+
+# Stuff for mutt
+
+brew "curl"
+brew "isync"
+brew "msmtp"
+brew "neomutt"
+brew "pass"
+
+# Optionals for mutt
+
+brew "abook"
+brew "lynx"
+brew "notmuch"
+brew "urlview"
 
 
 # Workflow
+
 brew "task"
 brew "taskwarrior-tui"
