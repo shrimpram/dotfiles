@@ -163,5 +163,9 @@
     "item": {
       "prefix": "en",
       "body": "\\item ${1{$TM_SELECTED_TEXT}}$0"
+    },
+    "overline": {
+      "prefix": "ol",
+      "body": "\\overline{${1:$TM_SELECTED_TEXT}}"
     }
 }
