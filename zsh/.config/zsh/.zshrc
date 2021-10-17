@@ -13,7 +13,6 @@ fi
 #}}}
 
 for f in "$ZDOTDIR"/rc/*.sh; do source $f; done
-for f in "$ZDOTDIR"/scripts/*.sh; do source $f; done
 source "$(brew --prefix)/opt/fzf-tab/fzf-tab.plugin.zsh"
 source "$(brew --prefix)/opt/powerlevel10k/powerlevel10k.zsh-theme"
 for f in "$ZDOTDIR"/"$(uname)"/zshrc*.sh; do source $f; done
