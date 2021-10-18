@@ -61,8 +61,9 @@ return require('packer').startup(function()
 
   --- Commenting
   use {
-    'tpope/vim-commentary',
-    keys = { 'gcc', 'gc' },
+    'numToStr/Comment.nvim',
+    keys = { 'gcc', 'gc', 'gb', 'gcA', 'gco', 'gcO' },
+    config = function() require('comment').setup() end,
   }
 
 
