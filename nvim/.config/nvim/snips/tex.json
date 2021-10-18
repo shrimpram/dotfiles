@@ -63,10 +63,6 @@
         "prefix": "*",
         "body": "\\cdot"
     },
-    "Ldots": {
-        "prefix": "...",
-        "body": "\\ldots"
-    },
     "Section": {
         "prefix": "sec",
         "body": [
