@@ -19,7 +19,6 @@ return require('packer').startup(function()
     },
     config = function() require('config.treesitter') end,
     run = ':TSUpdate',
-    branch = '0.5-compat'
   }
 
   -- Git
