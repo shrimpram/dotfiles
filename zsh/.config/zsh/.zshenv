@@ -50,3 +50,6 @@ export PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:${PATH}"
 export MANPATH="/opt/homebrew/opt/coreutils/libexec/gnuman:${MANPATH}"
 
 path+=("/Users/shreeram/.local/bin")
+
+path+=("/Users/shreeram/Library/Python/3.8/bin/")
+path+=("/Users/shreeram/Library/Python/3.9/bin/")
