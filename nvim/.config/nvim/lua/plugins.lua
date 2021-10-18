@@ -17,7 +17,7 @@ return require('packer').startup(function()
     requires = {
       {'nvim-treesitter/playground', opt = true}
     },
-    config = [[require('config.treesitter')]],
+    config = function() require('config.treesitter') end,
     run = ':TSUpdate',
     branch = '0.5-compat'
   }
@@ -28,13 +28,13 @@ return require('packer').startup(function()
     {
       'lewis6991/gitsigns.nvim',
       requires = { 'nvim-lua/plenary.nvim', opt = true },
-      config = [[require('config.gitsigns')]],
+      config = function() require('config.gitsigns') end,
       event = 'VimEnter',
     },
     {
       'TimUntersberger/neogit',
       requires = { 'nvim-lua/plenary.nvim', opt = true },
-      config = [[require('neogit').setup{}]],
+      config = function() require('neogit').setup{} end,
       setup = map( 'n', '<leader>ng', [[<CMD>Neogit<CR>]], {noremap = true, silent = true} ),
       cmd = 'Neogit'
     },
@@ -45,7 +45,7 @@ return require('packer').startup(function()
     'nvim-telescope/telescope.nvim',
     requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}},
     event = 'VimEnter',
-    config = [[require('config.telescope')]]
+    config = function() require('config.telescope') end,
   }
 
   -- Text formatting
@@ -106,7 +106,7 @@ return require('packer').startup(function()
   use {
     'hrsh7th/vim-vsnip',
     ft = 'tex',
-    config = [[require('config.vsnip')]],
+    config = function() require('config.vsnip') end,
   }
 
   --- Completion
@@ -170,14 +170,14 @@ return require('packer').startup(function()
   --- Smooth scroll
   use {
     'karb94/neoscroll.nvim',
-    config = [[require('neoscroll').setup{}]],
+    config = function() require('neoscroll').setup{} end,
     event = 'WinScrolled',
   }
 
   --- Statusline
   use {
     'ojroques/nvim-hardline',
-    config = [[require('hardline').setup { theme = 'stella' }]]
+    config = function() require('hardline').setup { theme = 'stella' } end,
   }
 
   --- Async building
@@ -191,7 +191,7 @@ return require('packer').startup(function()
       vim.api.nvim_set_keymap( 'n', ']l', [[<CMD>lnext<CR>]], {noremap = true, silent = true} )
       vim.api.nvim_set_keymap( 'n', '[l', [[<CMD>lprev<CR>]], {noremap = true, silent = true} )
     end,
-    config = [[vim.cmd("call neomake#configure#automake('w')")]],
+    config = function() vim.cmd("call neomake#configure#automake('w')") end,
     event = 'BufWrite'
   }
 
@@ -215,17 +215,17 @@ return require('packer').startup(function()
     'rrethy/vim-hexokinase',
     run = 'make hexokinase',
     cmd = { 'HexokinaseToggle', 'HexokinaseTurnOn', 'HexokinaseTurnOff' },
-    config = [[vim.g.Hexokinase_highlighters = { 'virtual' }]]
+    config = function() vim.g.Hexokinase_highlighters = { 'virtual' } end,
   }
 
   --- Focus window
   use {
     'junegunn/goyo.vim',
     cmd = { 'Goyo' },
-    config = [[
-    vim.cmd('Gitsigns toggle_signs')
-    vim.cmd('set linebreak')
-    ]],
+    config = function()
+      vim.cmd('Gitsigns toggle_signs')
+      vim.cmd('set linebreak')
+    end,
   }
 
 
