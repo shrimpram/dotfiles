@@ -117,10 +117,10 @@ return require('packer').startup(function()
         \'<-'  : '\leftarrow',
         \'=>'  : '\implies',
         \'<='  : '\impliedby',
-        \'^'   : '^{<+++>}',
-        \'_'   : '_{<+++>}',
+        \'^'   : '^{<+++>}<++>',
+        \'_'   : '_{<+++>}<++>',
         \'/'   : '\frac{<+++>}{<++>}<++>',
-        \'sr'  : '\sqrt{<+++>}',
+        \'sr'  : '\sqrt{<+++>}<++>',
         \'lim' : '\lim_{<+++>} \to{<++>}<++>',
         \'sum' : '\sum_{<+++> = <++>}^{<++>}',
         \}
@@ -135,7 +135,7 @@ return require('packer').startup(function()
         \'ssec'  : '\subsection{<+++>}',
         \'sssec' : '\subsubsection{<+++>}',
         \'mi'    : '\(<+++>\)<++>',
-        \'md'    : "\\[\<CR>\t<+++>\<CR>\\]",
+        \'md'    : "\\[\<CR><+++>\<CR>\\]",
         \'ali'   : "\\begin{align}\<CR><+++>\<CR>\\end{align}",
         \'item'  : "\\begin{itemize}\<CR>\t\\item <+++>\<CR>\\end{itemize}",
         \'enum'  : "\\begin{enumerate}\<CR>\t\\item <+++>\<CR>\\end{enumerate}",
@@ -146,10 +146,10 @@ return require('packer').startup(function()
         \}
 
         let g:quicktex_asciidoc = {
-        \' ' : "\<ESC>:call search('<+.*+>')\<CR>\"_c/+>/e\<CR>",
+        \' '  : "\<ESC>:call search('<+.*+>')\<CR>\"_c/+>/e\<CR>",
         \'ul' : '[.underline]#<+++>#<++>',
         \'lt' : '[.line-through]#<+++>#<++>',
-        \'"' : '"`<+++>`"<++>',
+        \'"'  : '"`<+++>`"<++>',
         \'qt' : "[quote, <+++>, <++>]\<CR>----\<CR><++>\<CR>----",
         \'tb' : ".<+++>\<CR>|===\<CR>|<++>\<CR>|===",
         \}
