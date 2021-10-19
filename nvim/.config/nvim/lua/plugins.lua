@@ -102,6 +102,14 @@ return require('packer').startup(function()
     keys = { 'sa', 'sd', 'sr' }
   }
 
+  --- Auto Pairs
+  use {
+    'steelsojka/pears.nvim',
+    config = function()
+      require('config.pears')
+    end
+  }
+
   --- Snippets
   use {
     'hrsh7th/vim-vsnip',
