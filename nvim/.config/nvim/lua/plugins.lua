@@ -23,21 +23,23 @@ return require('packer').startup(function()
 
   -- Git
   use {
-    { 'rhysd/committia.vim' },
-    {
-      'lewis6991/gitsigns.nvim',
-      requires = { 'nvim-lua/plenary.nvim', opt = true },
-      config = function() require('config.gitsigns') end,
-      event = 'VimEnter',
-    },
-    {
+    'rhysd/committia.vim'
+  }
+
+  use {
+    'lewis6991/gitsigns.nvim',
+    requires = { 'nvim-lua/plenary.nvim', opt = true },
+    config = function() require('config.gitsigns') end,
+    event = 'VimEnter',
+  }
+
+    use {
       'TimUntersberger/neogit',
       requires = { 'nvim-lua/plenary.nvim', opt = true },
       config = function() require('neogit').setup{} end,
       setup = map( 'n', '<leader>ng', [[<CMD>Neogit<CR>]], {noremap = true, silent = true} ),
       cmd = 'Neogit'
-    },
-  }
+    }
 
   -- Telescope
   use {
