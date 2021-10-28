@@ -36,7 +36,7 @@
   htop
   lazygit
   neofetch
-  neovim
+  neovim-nightly
   nnn
   ripgrep
   stow
@@ -98,4 +98,13 @@
   urlview
 
   ];
+
+  /* Use neovim from head
+     See https://github.com/nix-community/neovim-nightly-overlay/ */
+  nixpkgs.overlays = [
+    (import (builtins.fetchTarball {
+             url = https://github.com/nix-community/neovim-nightly-overlay/archive/master.tar.gz;
+             }))
+  ];
+
 }
