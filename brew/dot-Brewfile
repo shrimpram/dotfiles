@@ -87,7 +87,6 @@ cask "signal"
 cask "slack"
 cask "spotify"
 cask "syncthing"
-cask "tor-browser"
 cask "visual-studio-code"
 cask "whatsapp"
 
