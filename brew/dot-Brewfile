@@ -9,58 +9,10 @@ tap "shrimpram/tap"
 
 # Core
 
-brew "bat"
-brew "coreutils"
-brew "exa"
-brew "fd"
 brew "fzf"
 brew "fzf-tab", args: ["HEAD"]
-brew "gawk"
-brew "git-crypt"
-brew "git-lfs"
-brew "gnu-sed"
-brew "gnupg"
-brew "htop"
-brew "lazygit"
-brew "neofetch"
-brew "neovim", args: ["HEAD"]
-brew "nnn"
 brew "pinentry-mac"
 brew "powerlevel10k"
-brew "ripgrep"
-brew "stow"
-brew "trash"
-brew "tree"
-brew "wget"
-brew "zoxide"
-brew "zsh"
-
-
-# Opt
-
-brew "buku"
-brew "haste-client"
-brew "hugo"
-brew "imagemagick"
-brew "moreutils"
-brew "pandoc"
-brew "poppler"
-brew "tesseract"
-brew "youtube-dl"
-
-
-# Lang
-
-brew "asciidoc"
-brew "asciidoctor"
-brew "luarocks"
-brew "python"
-brew "ruby"
-brew "rust"
-brew "shellcheck"
-brew "stylua"
-brew "vint"
-brew "write-good"
 
 
 # Cask
@@ -90,32 +42,6 @@ cask "syncthing"
 cask "visual-studio-code"
 cask "whatsapp"
 
-# Stuff for Emacs
-
-brew "automake"
-brew "hunspell"
-brew "isync"
-brew "mu", args: ["with-emacs"]
-brew "openssl@3"
-brew "pkg-config"
-
-# Stuff for mutt
-
-brew "curl"
-brew "isync"
-brew "msmtp"
-brew "neomutt"
-brew "pass"
-
 # Optionals for mutt
 
 brew "abook"
-brew "lynx"
-brew "notmuch"
-brew "urlview"
-
-
-# Workflow
-
-brew "task"
-brew "taskwarrior-tui"
