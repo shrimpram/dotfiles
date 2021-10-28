@@ -32,3 +32,7 @@ bind index \Cr untag-pattern
 set use_threads=yes
 
 color sidebar_highlight brightcyan default
+
+set postponed = "+[Gmail]/Drafts"
+set trash = "+[Gmail]/Trash"
+set record = "+[Gmail]/Sent Mail"
