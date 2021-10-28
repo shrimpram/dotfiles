@@ -7,6 +7,9 @@ endif
 update:
 	brew update
 	brew upgrade
+	nix-channel --update
+	nix-env -u
+	home-manager switch
 	nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 
 
