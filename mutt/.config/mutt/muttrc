@@ -19,8 +19,8 @@ macro index,pager Cr ";<copy-message>=Receipts<enter>" "copy mail to receipts"
 macro index,pager gt "<change-folder>=TODO<enter>" "go to todo"
 macro index,pager gd "<change-folder>=Trash<enter>" "go to trash"
 
-macro index,pager \Cn "<next-subthread>"
-macro index,pager \Cp "<previous-subthread>"
+bind index,pager \Cn next-subthread
+bind index,pager \Cp previous-subthread
 
 bind index,pager \Cl sidebar-open
 
