@@ -13,8 +13,8 @@ fi
 #}}}
 
 for f in "$ZDOTDIR"/rc/*.sh; do source $f; done
-source "$(brew --prefix)/opt/fzf-tab/fzf-tab.plugin.zsh"
-source "$(brew --prefix)/opt/powerlevel10k/powerlevel10k.zsh-theme"
+source "$HOME/.nix-profile/share/fzf-tab/fzf-tab.plugin.zsh"
+source "$HOME/.nix-profile/share/zsh-powerlevel10k/powerlevel10k.zsh-theme"
 for f in "$ZDOTDIR"/"$(uname)"/zshrc*.sh; do source $f; done
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
