@@ -23,14 +23,16 @@ data.location=~/.task
 #include /Users/shreeram/.nix-profile/share/doc/task/rc/dark-blue-256.theme
 #include /Users/shreeram/.nix-profile/share/doc/task/rc/dark-violets-256.theme
 #include /Users/shreeram/.nix-profile/share/doc/task/rc/dark-yellow-green.theme
-include /Users/shreeram/.nix-profile/share/doc/task/rc/dark-gray-256.theme
+#include /Users/shreeram/.nix-profile/share/doc/task/rc/dark-gray-256.theme
 #include /Users/shreeram/.nix-profile/share/doc/task/rc/dark-gray-blue-256.theme
 #include /Users/shreeram/.nix-profile/share/doc/task/rc/solarized-dark-256.theme
 #include /Users/shreeram/.nix-profile/share/doc/task/rc/solarized-light-256.theme
 #include /Users/shreeram/.nix-profile/share/doc/task/rc/no-color.theme
+include ~/.task/stella.theme
 
 # Date Format [[https://taskwarrior.org/docs/dates.html]]
 rc.dateformat = Y-M-DTH:N
 
 # Enable regexes for search filters
 regex=on
+news.version=2.6.0
