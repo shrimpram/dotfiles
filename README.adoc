@@ -1,0 +1,24 @@
+= My Dotfiles
+:icons: font
+
+== Installation
+. git clone this repo to `~/<somedir>`, e.g. `~/dotfiles`
+. cd to the dotfiles directory
+. You will need https://www.gnu.org/software/stow[GNU Stow] to setup the configs, install it however you want
+. Use `stow` to stow the modules you need. E.g. `stow nvim` will setup the neovim config
+
+[IMPORTANT]
+.Stowing global git config
+====
+To stow the global gitignore and gitconfig you will need to pass the option `--dotfiles` to stow.
+This is required because stow doesn't accept `.gitignore` for stowing, and so the global git ignore file doesn't get stowed.
+I later plan on moving this over to `home.nix` but until I do that you'll just need to use this workaround.
+====
+
+=== Installing programs
+. Install https://brew.sh[Homebrew] and https://nixos.org/download.html[Nix]
+. Stow the `nix` and `brew` directories
+. Run `make update`
+
+=== Setting up Neovim
+Neovim plugins need to be installed. After installing Homebrew and running `make update`, run `make nvim`
