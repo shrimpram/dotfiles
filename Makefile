@@ -1,4 +1,5 @@
 update:
+	brew bundle --global
 	brew update
 	brew upgrade
 	nix-channel --update
