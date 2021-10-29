@@ -3,16 +3,12 @@
 tap "homebrew/bundle"
 tap "homebrew/cask"
 tap "homebrew/core"
-tap "romkatv/powerlevel10k"
 tap "shrimpram/tap"
 
 
 # Core
 
-brew "fzf"
-brew "fzf-tab", args: ["HEAD"]
 brew "pinentry-mac"
-brew "powerlevel10k"
 
 
 # Cask
@@ -41,6 +37,7 @@ cask "spotify"
 cask "syncthing"
 cask "visual-studio-code"
 cask "whatsapp"
+
 
 # Optionals for mutt
 
