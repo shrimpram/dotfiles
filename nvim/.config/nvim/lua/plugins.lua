@@ -106,7 +106,11 @@ return require('packer').startup(function()
 
   --- Snippets
   use {
-    'brennier/quicktex',
+    'L3MON4D3/LuaSnip',
+    config = function()
+      require('config.luasnip')
+    end,
+    event = 'InsertEnter'
   }
 
   --[[ use {
