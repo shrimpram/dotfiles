@@ -1,12 +1,10 @@
-update:
 	brew bundle --global
+update: nvim
 	brew update
 	brew upgrade
 	nix-channel --update
 	nix-env -u
 	home-manager switch
-	nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
-
 
 nvim: nvim-packer
 	nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
