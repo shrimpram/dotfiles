@@ -51,26 +51,3 @@ let g:loaded_tutor_mode_plugin = 1
 ]])
 
 vim.cmd([[au TextYankPost * silent! lua vim.highlight.on_yank()]])
-
-
-
-map( 'n', 'w', '<CMD>w<CR>', {noremap=true, silent=true} )
-map( 'n', 'wq', '<CMD>wq<CR>', {noremap=true, silent=true} )
-
-map( 'v', '<', '<gv', {noremap=true, silent=true} )
-map( 'v', '>', '>gv', {noremap=true, silent=true} )
-
-map( 'n', 'j', [[v:count ? 'j' : 'gj']], {noremap=true, silent=true, expr=true} )
-map( 'n', 'k', [[v:count ? 'k' : 'gk']], {noremap=true, silent=true, expr=true} )
-map( 'v', 'j', [[v:count ? 'j' : 'gj']], {noremap=true, silent=true, expr=true} )
-map( 'v', 'k', [[v:count ? 'k' : 'gk']], {noremap=true, silent=true, expr=true} )
-
-map( 'n', '<M-j>', [[<cmd>lua require('utils').resize(false, 2)<CR>]], {noremap=true, silent=true} )
-map( 'n', '<M-k>', [[<cmd>lua require('utils').resize(false, -2)<CR>]], {noremap=true, silent=true} )
-map( 'n', '<M-l>', [[<cmd>lua require('utils').resize(true, 2)<CR>]], {noremap=true, silent=true} )
-map( 'n', '<M-h>', [[<cmd>lua require('utils').resize(true, -2)<CR>]], {noremap=true, silent=true} )
-
-map( 'n', '<C-h>', '<C-w>h', {noremap=true, silent=true} )
-map( 'n', '<C-j>', '<C-w>j', {noremap=true, silent=true} )
-map( 'n', '<C-k>', '<C-w>k', {noremap=true, silent=true} )
-map( 'n', '<C-l>', '<C-w>l', {noremap=true, silent=true} )

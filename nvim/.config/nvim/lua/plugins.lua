@@ -11,6 +11,19 @@ return require('packer').startup(function()
     event = 'VimEnter',
   }
 
+  -- Keybindings
+  use {
+    'folke/which-key.nvim',
+    event = 'VimEnter',
+    config = function()
+      require('config.mappings')
+    end,
+    requires = {
+      'LionC/nest.nvim',
+      opt = true,
+    },
+  }
+
   -- Treesitter
   use {
     'nvim-treesitter/nvim-treesitter',
@@ -37,7 +50,6 @@ return require('packer').startup(function()
       'TimUntersberger/neogit',
       requires = { 'nvim-lua/plenary.nvim', opt = true },
       config = function() require('neogit').setup{} end,
-      setup = map( 'n', '<leader>ng', [[<CMD>Neogit<CR>]], {noremap = true, silent = true} ),
       cmd = 'Neogit'
     }
 
@@ -46,7 +58,7 @@ return require('packer').startup(function()
     'nvim-telescope/telescope.nvim',
     requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}},
     event = 'VimEnter',
-    config = function() require('config.telescope') end,
+    config = function() vim.cmd([[command! Colorscheme Telescope colorscheme]]) end,
   }
 
   -- Text formatting
@@ -54,11 +66,6 @@ return require('packer').startup(function()
   --- Align
   use {
     'junegunn/vim-easy-align',
-    config = function()
-      vim.api.nvim_set_keymap( 'n', 'gl', [[<Plug>(EasyAlign)]], {} )
-      vim.api.nvim_set_keymap( 'x', 'gl', [[<Plug>(EasyAlign)]], {} )
-    end,
-    keys = { 'gl' }
   }
 
   --- Commenting
@@ -75,18 +82,16 @@ return require('packer').startup(function()
   use {
     'mbbill/undotree',
     config = function()
-      vim.api.nvim_set_keymap( 'n', '<leader>ut', [[<CMD>UndotreeToggle<CR>]], {noremap = true, silent = true} )
       vim.g.undotree_SetFocusWhenToggle = '1'
     end,
-    keys = '<leader>ut',
     cmd = 'UndotreeToggle'
   }
 
   --- File Tree (lua NERDTree)
   use {
     'kyazdani42/nvim-tree.lua',
-    requires = { 'kyazdani42/nvim-web-devicons' },
-    keys = { '<leader>nt', '<leader>nf',  },
+    requires = { 'kyazdani42/nvim-web-devicons', opt = true, },
+    cmd = { 'NvimTreeToggle', 'NvimTreeRefresh', 'NvimTreeFindFile' },
     config = function()
       require('config.nvim-tree')
     end,
@@ -112,44 +117,6 @@ return require('packer').startup(function()
     end,
     event = 'InsertEnter'
   }
-
-  --[[ use {
-    'hrsh7th/vim-vsnip',
-    ft = 'tex',
-    config = function() require('config.vsnip') end,
-  }
-
-  --- Completion
-  use {
-    'hrsh7th/nvim-cmp',
-    config = function()
-      vim.o.completeopt = 'menu,menuone,noinsert'
-
-      local cmp = require('cmp')
-      require('cmp').setup {
-        snippet = {
-          expand = function(args)
-            vim.fn["vsnip#anonymous"](args.body)
-          end,
-        },
-        mapping = {
-          ['<C-d>'] = cmp.mapping.scroll_docs(-4),
-          ['<C-f>'] = cmp.mapping.scroll_docs(4),
-          ['<C-Space>'] = cmp.mapping.complete(),
-          ['<C-e>'] = cmp.mapping.close(),
-          ['<CR>'] = cmp.mapping.confirm({ select = true }),
-        },
-        sources = {
-          { name = 'vsnip' },
-        },
-      }
-    end,
-  }
-
-  use {
-    'hrsh7th/cmp-vsnip',
-    event = 'InsertEnter *',
-  } --]]
 
 
   -- Utilities
@@ -187,7 +154,6 @@ return require('packer').startup(function()
   }
 
   --- Better movement
-
   use {
     'phaazon/hop.nvim',
     config = function()
@@ -272,7 +238,6 @@ return require('packer').startup(function()
 
 
   -- Colorschemes
-
   use {
     '$HOME/Documents/stella/vim-stella'
   }
