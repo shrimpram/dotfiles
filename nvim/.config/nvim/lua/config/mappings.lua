@@ -12,6 +12,9 @@ wk.setup {
     [[']],
     [[`]],
   },
+  hidden = {
+    '<Plug>',
+  },
 }
 
 nest.applyKeymaps {
