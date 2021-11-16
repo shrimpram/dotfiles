@@ -76,7 +76,6 @@
 
   automake
   hunspell
-  isync
   mu
   openssl
   pkg-config
