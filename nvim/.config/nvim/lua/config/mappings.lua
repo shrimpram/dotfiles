@@ -63,15 +63,15 @@ wk.register {
         b = { [[<CMD>lua require('gitsigns').reset_buffer()<CR>]], 'Reset Buffer' },
       },
     },
-    t = {
-      name = '+trees',
-      u = { '<CMD>UndotreeToggle<CR>', 'Undotree' },
-      n = {
-        name = 'NvimTree',
-        t = { '<CMD>NvimTreeToggle<CR>', 'Toggle NvimTree' },
-        r = { '<CMD>NvimTreeRefresh<CR>', 'Refresh NvimTree' },
-        f = { '<CMD>NvimTreeFindFile<CR>', 'Find Current File' },
-      },
+    n = {
+      name = '+nvim-tree',
+      t = { '<CMD>NvimTreeToggle<CR>', 'Toggle NvimTree' },
+      r = { '<CMD>NvimTreeRefresh<CR>', 'Refresh NvimTree' },
+      f = { '<CMD>NvimTreeFindFile<CR>', 'Find Current File' },
+    },
+    u = {
+      name = '+undo-tree',
+      t = { '<CMD>UndotreeToggle<CR>', 'Undotree' },
     },
     f = {
       name = '+finder',
