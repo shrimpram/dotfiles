@@ -1,5 +1,17 @@
 = My Dotfiles
+:toc:
+:source-highlighter: rouge
 :icons: font
+ifndef::env-github[:icons: font]
+ifdef::env-github[]
+:status:
+:outfilesuffix: .adoc
+:caution-caption: :fire:
+:important-caption: :exclamation:
+:note-caption: :paperclip:
+:tip-caption: :bulb:
+:warning-caption: :warning:
+endif::[]
 
 == Installation
 . git clone this repo to `~/<somedir>`, e.g. `~/dotfiles`
@@ -22,3 +34,29 @@ I later plan on moving this over to `home.nix` but until I do that you'll just n
 
 === Setting up Neovim
 Neovim plugins need to be installed. After installing Homebrew and running `make update`, run `make nvim`
+
+== Cron
+Cron is a job scheduler I use for various repetitive tasks that I don't want to have to do every day.
+
+=== Installation
+* Cron and crontab should be installed on most *nix machines
+* `cd cron` and run `crontab jobs.cron` to fill your user's crontab file with my cron jobs
+
+=== Explanation
+Below are explanations for every cron job in my file.
+
+---
+
+[source, cron]
+----
+0 * * * * mailsync
+----
+Syncs my mail inbox that I use with neomutt
+
+---
+
+[source, cron]
+----
+0 0 * * * make -C ~/dotfiles update
+----
+Runs the `update` make rule in the Makefile, which updates programs installed through both homebrew and nix.
