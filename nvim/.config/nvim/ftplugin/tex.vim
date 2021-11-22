@@ -3,7 +3,7 @@ set textwidth=72
 let os=substitute(system('uname'), '\n', '', '')
 
 let g:vimtex_compiler_latexmk_engines = {
-    \ '_'                : '-xelatex',
+    \ '_'                : '-lualatex',
     \}
 
 if os == 'Darwin'
