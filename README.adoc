@@ -19,17 +19,11 @@ endif::[]
 . You will need https://www.gnu.org/software/stow[GNU Stow] to setup the configs, install it however you want
 . Use `stow` to stow the modules you need. E.g. `stow nvim` will setup the neovim config
 
-[IMPORTANT]
-.Stowing global git config
-====
-To stow the global gitignore and gitconfig you will need to pass the option `--dotfiles` to stow.
-This is required because stow doesn't accept `.gitignore` for stowing, and so the global git ignore file doesn't get stowed.
-I later plan on moving this over to `home.nix` but until I do that you'll just need to use this workaround.
-====
-
 === Installing programs
 . Install https://brew.sh[Homebrew] and https://nixos.org/download.html[Nix]
+. Install https://github.com/nix-community/home-manager[Home Manager]
 . Stow the `nix` and `brew` directories
+. Run `brew bundle --global` and `home-manager switch`
 . Run `make update`
 
 === Setting up Neovim
