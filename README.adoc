@@ -26,9 +26,6 @@ endif::[]
 . Run `brew bundle --global` and `home-manager switch`
 . Run `make update`
 
-=== Setting up Neovim
-Neovim plugins need to be installed. After installing Homebrew and running `make update`, run `make nvim`
-
 == Cron
 Cron is a job scheduler I use for various repetitive tasks that I don't want to have to do every day.
 
