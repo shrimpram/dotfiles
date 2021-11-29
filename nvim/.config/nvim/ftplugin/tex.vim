@@ -1,4 +1,18 @@
-set textwidth=72
+function! ToggleWriteMode()
+  if &textwidth
+    setlocal textwidth=0
+  else
+    setlocal textwidth=72
+  endif
+
+  if &spell
+    setlocal nospell
+  else
+    setlocal spell
+  endif
+endfunction
+
+command Write call ToggleWriteMode()
 
 let os=substitute(system('uname'), '\n', '', '')
 
