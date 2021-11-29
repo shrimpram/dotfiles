@@ -55,7 +55,7 @@
   imagemagick
   moreutils
   pandoc
-  poppler
+  poppler_utils
   tesseract
   youtube-dl
 
