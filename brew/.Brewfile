@@ -42,3 +42,8 @@ cask "whatsapp"
 # Optionals for mutt
 
 brew "abook"
+
+# Optionals for nnn previews
+
+brew "ffmpeg"
+brew "ffmpegthumbnailer"
