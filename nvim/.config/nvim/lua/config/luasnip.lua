@@ -87,8 +87,8 @@ ls.snippets = {
     s("ol", {
       t("\\overline{"), i(1), t("}"),
     }),
-    s("ol", {
-      t("\\overline{"), i(1), t("}"),
+    s("rm", {
+      t("\\mathrm{"), i(1), t("}"),
     }),
     s("par", {
       t("\\paragraph{"), i(1), t("}"),
