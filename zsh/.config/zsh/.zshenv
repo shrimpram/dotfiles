@@ -48,6 +48,8 @@ export PATH="/opt/homebrew/lib/ruby/gems/3.0.0/bin:$PATH"
 export PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:${PATH}"
 export MANPATH="/opt/homebrew/opt/coreutils/libexec/gnuman:${MANPATH}"
 
+manpath+=("/Users/shreeram/.nix-profile/share/man")
+
 path+=("/Users/shreeram/.local/bin")
 
 path+=("/Users/shreeram/Library/Python/3.8/bin/")
