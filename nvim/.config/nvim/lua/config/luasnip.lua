@@ -134,10 +134,14 @@ ls.snippets = {
     s("<=", {
       t("\\impliedby"),
     }),
-    s("ali", {
-      t({"\\begin{align}", "\t"}),
+    s({trig = "ali(%*?)", wordTrig = true, regTrig = true}, {
+      t({"\\begin{align"}),
+      f(function(args, snip) return snip.captures[1] end, {}),
+      t({"}", "\t"}),
       i(1),
-      t({"", "\\end{align}"})
+      t({"", "\\end{align"}),
+      f(function(args, snip) return snip.captures[1] end, {}),
+      t({"}"}),
     }),
     s("enum", {
       t({"\\begin{enumerate}", "\t\\item "}),
