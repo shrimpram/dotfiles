@@ -178,6 +178,7 @@ CmdLine
 -v2 # Fancy verbosity
 -n3 # Suppress the parentheses error
 -n36 # Suppresses "put space after parentheses"
+-n1 # Suppress "command terminated with space" error
 }
 
 #####################################################################
