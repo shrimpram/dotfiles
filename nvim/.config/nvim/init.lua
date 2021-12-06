@@ -51,3 +51,21 @@ let g:loaded_tutor_mode_plugin = 1
 ]])
 
 vim.cmd([[au TextYankPost * silent! lua vim.highlight.on_yank()]])
+
+vim.cmd([[
+function! ToggleWriteMode()
+  if &textwidth
+    setlocal textwidth=0
+  else
+    setlocal textwidth=72
+  endif
+
+  if &spell
+    setlocal nospell
+  else
+    setlocal spell
+  endif
+endfunction
+
+command Write call ToggleWriteMode()
+]])
