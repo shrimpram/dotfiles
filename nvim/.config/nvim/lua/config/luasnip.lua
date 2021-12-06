@@ -125,6 +125,9 @@ ls.snippets = {
     s("*", {
       t("\\cdot"),
     }),
+    s("|", {
+      t("\\mid"),
+    }),
     s("->", {
       t("\\rightarrow"),
     }),
