@@ -90,6 +90,9 @@ ls.snippets = {
     s("rm", {
       t("\\mathrm{"), i(1), t("}"),
     }),
+    s("tt", {
+      t("\\text{"), i(1), t("}"),
+    }),
     s("par", {
       t("\\paragraph{"), i(1), t("}"),
     }),
