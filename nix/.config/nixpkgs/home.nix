@@ -29,6 +29,7 @@
   fd
   fzf
   gawk
+  gdu
   git-crypt
   git-lfs
   gnupg
@@ -36,8 +37,9 @@
   htop
   lazygit
   neofetch
-  neovim-nightly
+  neovim
   nnn
+  pass
   ripgrep
   stow
   tree
@@ -52,10 +54,12 @@
 
   haste-client
   hugo
+  terminal-notifier
   imagemagick
   moreutils
   pandoc
   poppler_utils
+  gnuplot
   tesseract
   youtube-dl
 
@@ -64,13 +68,13 @@
   asciidoc
   asciidoctor
   lua53Packages.luarocks
+  nodePackages.write-good
   python38
   ruby
   rustc
   shellcheck
   stylua
   vim-vint
-  nodePackages.write-good
 
   # Emacs
 
@@ -93,7 +97,6 @@
   msmtp
   neomutt
   notmuch
-  pass
   urlview
 
   ];
