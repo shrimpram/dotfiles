@@ -8,8 +8,6 @@ tap "shrimpram/tap"
 
 # Core
 
-brew "pinentry-mac"
-
 
 # Cask
 
@@ -18,7 +16,6 @@ cask "appcleaner"
 cask "authy"
 cask "discord"
 cask "dropbox"
-cask "emacs"
 cask "firefox"
 cask "flux"
 cask "iina"
@@ -35,6 +32,8 @@ cask "signal"
 cask "slack"
 cask "spotify"
 cask "syncthing"
+cask "gpg-suite"
+cask "skim"
 cask "visual-studio-code"
 cask "whatsapp"
 
