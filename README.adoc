@@ -26,28 +26,9 @@ endif::[]
 . Run `brew bundle --global` and `home-manager switch`
 . Run `make update`
 
-== Cron
-Cron is a job scheduler I use for various repetitive tasks that I don't want to have to do every day.
-
-=== Installation
-* Cron and crontab should be installed on most *nix machines
-* `cd cron` and run `crontab jobs.cron` to fill your user's crontab file with my cron jobs
-
-=== Explanation
-Below are explanations for every cron job in my file.
-
----
-
-[source, cron]
-----
-0 * * * * mailsync
-----
-Syncs my mail inbox that I use with neomutt
-
----
-
-[source, cron]
-----
-0 0 * * * make -C ~/dotfiles update
-----
-Runs the `update` make rule in the Makefile, which updates programs installed through both homebrew and nix.
+== Launchd
+https://launchd.info/[`launchd`] is a daemon/process management system
+specific to Mac OS. If you're familiar with
+https://en.wikipedia.org/wiki/Cron[`cron`], launchd fulfills the same
+main role of scheduling scripts and jobs but with added features and
+utility.
