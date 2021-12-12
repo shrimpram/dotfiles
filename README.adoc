@@ -16,7 +16,7 @@ endif::[]
 == Installation
 . git clone this repo to `~/<somedir>`, e.g. `~/dotfiles`
 . cd to the dotfiles directory
-. You will need https://www.gnu.org/software/stow[GNU Stow] to setup the configs, install it however you want
+. You will need https://www.gnu.org/software/stow[GNU Stow] to setup the configs
 . Use `stow` to stow the modules you need. E.g. `stow nvim` will setup the neovim config
 
 === Installing programs
