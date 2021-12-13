@@ -36,6 +36,7 @@ cask "gpg-suite"
 cask "skim"
 cask "visual-studio-code"
 cask "whatsapp"
+cask "zotero"
 
 
 # Optionals for mutt
