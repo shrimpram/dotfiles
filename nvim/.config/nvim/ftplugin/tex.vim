@@ -9,3 +9,5 @@ if os ==? 'Darwin'
 elseif os ==? 'Linux'
   let g:vimtex_view_general_viewer='zathura'
 endif
+
+set conceallevel=2
