@@ -8,6 +8,7 @@ tap "shrimpram/tap"
 
 # Core
 
+brew "gnu-sed"
 
 # Cask
 

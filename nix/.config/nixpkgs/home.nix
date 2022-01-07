@@ -33,7 +33,6 @@
   git-crypt
   git-lfs
   gnupg
-  gnused
   htop
   lazygit
   neofetch
