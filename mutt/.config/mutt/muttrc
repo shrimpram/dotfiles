@@ -24,8 +24,6 @@ bind index,pager \Cp previous-subthread
 
 bind index,pager \Cl sidebar-open
 
-macro index,pager T "<pipe-message>mutt2task<enter><save-message>=TODO<enter>" "make mail into a task"
-
 bind index \Ct tag-pattern
 bind index \Cr untag-pattern
 
