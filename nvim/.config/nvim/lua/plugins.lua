@@ -126,7 +126,7 @@ return require('packer').startup(function()
     'nvim-orgmode/orgmode',
     requires = { 'nvim-lua/plenary.nvim', opt = true },
     config = function()
-      require('orgmode').setup{
+      require('orgmode').setup {
         org_agenda_files = '~/Dropbox/org/*',
         org_default_notes_file = '~/Dropbox/org/inbox.org',
         org_deadline_warning_days = 2,
@@ -136,6 +136,18 @@ return require('packer').startup(function()
           t = { description = 'Task', template = '* TODO %?\n %u' },
           d = { description = 'Delay', template = '* WAIT %?\n %a\n %u' },
           h = { description = 'Here in the file', template = '* TODO %?\n %a\n %u' },
+        },
+        mappings = {
+          org = {
+            org_show_help = '?',
+            org_edit_src_show_help = '?'
+          },
+          agenda = {
+            org_agenda_show_help = '?'
+          },
+          capture = {
+            org_capture_show_help = '?'
+          },
         },
       }
     end
