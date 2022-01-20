@@ -17,7 +17,6 @@ ts_configs.setup {
     'javascript',
     'json',
     'jsonc',
-    'latex',
     'lua',
     'nix',
     'python',
