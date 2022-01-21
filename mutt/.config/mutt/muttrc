@@ -27,6 +27,9 @@ bind index,pager \Cl sidebar-open
 bind index \Ct tag-pattern
 bind index \Cr untag-pattern
 
+bind index,pager p recall-message
+bind index,pager P print-message
+
 set use_threads=yes
 
 color sidebar_highlight brightcyan default
