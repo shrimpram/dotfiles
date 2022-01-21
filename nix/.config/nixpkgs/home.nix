@@ -25,6 +25,7 @@
 
   bat
   coreutils
+  emacs
   exa
   fd
   fzf
@@ -39,6 +40,7 @@
   neovim
   nnn
   pass
+  redshift
   ripgrep
   stow
   tree
@@ -51,14 +53,15 @@
 
   # Opt
 
+  gnuplot
   haste-client
   hugo
-  terminal-notifier
   imagemagick
   moreutils
   pandoc
+  pdftk
   poppler_utils
-  gnuplot
+  terminal-notifier
   tesseract
   youtube-dl
 
