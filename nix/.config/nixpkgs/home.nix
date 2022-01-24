@@ -39,7 +39,6 @@
   neofetch
   neovim
   nnn
-  pass
   redshift
   ripgrep
   stow
@@ -119,5 +118,10 @@
         required = true;
       };
     };
+  };
+
+  programs.password-store = {
+    enable = true;
+    package = pkgs.pass.withExtensions (exts: [ exts.pass-otp ]);
   };
 }
