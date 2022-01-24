@@ -86,11 +86,6 @@
   openssl
   pkg-config
 
-  # Workflow
-
-  taskwarrior
-  taskwarrior-tui
-
   ## Mutt
 
   curl
