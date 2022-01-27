@@ -1,7 +1,5 @@
 let os=substitute(system('uname'), '\n', '', '')
 
-let g:vimtex_compiler_method = 'arara'
-
 let g:vimtex_compiler_arara = {
       \ 'options' : ['--log'],
       \}
