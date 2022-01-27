@@ -9,6 +9,7 @@ tap "shrimpram/tap"
 # Core
 
 brew "gnu-sed"
+brew "neovim"
 
 # Cask
 
