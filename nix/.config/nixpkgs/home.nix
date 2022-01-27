@@ -37,7 +37,6 @@
   htop
   lazygit
   neofetch
-  neovim
   nnn
   redshift
   ripgrep
