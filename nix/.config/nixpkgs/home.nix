@@ -37,7 +37,6 @@
   lazygit
   neofetch
   nnn
-  redshift
   ripgrep
   stow
   tree

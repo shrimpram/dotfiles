@@ -11,6 +11,7 @@ tap "shrimpram/tap"
 
 brew "gnu-sed"
 brew "neovim"
+brew "redshift"
 
 # Cask
 
