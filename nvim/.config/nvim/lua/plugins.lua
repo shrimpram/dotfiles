@@ -56,9 +56,21 @@ return require('packer').startup(function()
   -- Telescope
   use {
     'nvim-telescope/telescope.nvim',
-    requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}},
+    requires = {
+      {'nvim-lua/popup.nvim'},
+      {'nvim-lua/plenary.nvim'},
+      {'nvim-telescope/telescope-file-browser.nvim'},
+    },
     event = 'VimEnter',
-    config = function() vim.cmd([[command! Colorscheme Telescope colorscheme]]) end,
+    config = function()
+      vim.cmd([[command! Colorscheme Telescope colorscheme]])
+
+      require('telescope').setup {
+        extensions = { file_browser },
+      }
+
+      require('telescope').load_extension 'file_browser'
+    end,
   }
 
   -- Text formatting
