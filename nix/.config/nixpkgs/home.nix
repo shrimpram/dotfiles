@@ -1,9 +1,11 @@
 { config, pkgs, ... }:
 {
   imports = [
-    ./modules/kitty
+    ./modules/bat
     ./modules/git
+    ./modules/kitty
     ./modules/nnn
+    ./modules/password-store
     ./modules/zsh
   ];
 
@@ -102,28 +104,5 @@
         notmuch
         urlview
         ];
-  };
-
-  programs.bat = {
-    enable = true;
-    themes = {
-      stella = builtins.readFile (pkgs.fetchFromGitHub {
-          owner = "stella-scheme";
-          repo = "sublime";
-          rev = "534e49d5fde85c722c754cbb779f818f53cc7226";
-          sha256 = "02vw2igvpjwd1c7hjxrd74ayadlyspy2z0wd1c3wvbjmq851qnnc";
-          } + "/stella.tmTheme");
-    };
-    config = {
-      theme = "stella";
-      style = "full";
-      italic-text="always";
-      wrap="never";
-    };
-  };
-
-  programs.password-store = {
-    enable = true;
-    package = pkgs.pass.withExtensions (exts: [ exts.pass-otp ]);
   };
 }
