@@ -12,9 +12,10 @@
           url = "https://github.com/jarun/nnn";
           ref = "master";
           rev = "65eddfe7b9f02f685145005a8ffd3feb8d102ced";
-          name = "plugins";
-          });
+          }) + "/plugins";
     };
   };
-  programs.zsh.initExtra = builtins.readFile ./nnn.zsh;
+  programs.zsh.initExtra = ''
+    export NNN_FIFO=/tmp/nnn.fifo
+  '' + builtins.readFile ./nnn.zsh;
 }
