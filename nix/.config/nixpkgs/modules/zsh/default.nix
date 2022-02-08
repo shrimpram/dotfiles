@@ -19,7 +19,6 @@
       src = builtins.fetchGit {
         url = "https://github.com/aloxaf/fzf-tab";
         ref = "master";
-        name = "fzf-tab.plugin.zsh";
       };
       file = "fzf-tab.plugin.zsh";
     }
@@ -29,7 +28,6 @@
         url = "https://github.com/romkatv/powerlevel10k";
         ref = "master";
         rev = "8a676a9157d2b0e00e88d06456ac7317f11c0317";
-        name = "powerlevel10k.zsh-theme";
       };
       file = "powerlevel10k.zsh-theme";
     }
