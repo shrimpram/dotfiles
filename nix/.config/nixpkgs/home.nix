@@ -2,6 +2,7 @@
 {
   imports = [
     ./modules/bat
+    ./modules/fzf
     ./modules/git
     ./modules/kitty
     ./modules/nnn
@@ -43,7 +44,6 @@
         emacs
         exa
         fd
-        fzf
         gawk
         gdu
         git-crypt
