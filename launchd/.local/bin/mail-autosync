@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/shreeram/.nix-profile/bin:/opt/homebrew/bin"
 
 out="$(mailsync)"
 line="$(echo "$out" | tail -n1)"
