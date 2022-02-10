@@ -151,14 +151,14 @@ return require('packer').startup(function()
         },
         mappings = {
           org = {
-            org_show_help = '?',
-            org_edit_src_show_help = '?'
+            org_show_help = 'g?',
+            org_edit_src_show_help = 'g?'
           },
           agenda = {
-            org_agenda_show_help = '?'
+            org_agenda_show_help = 'g?'
           },
           capture = {
-            org_capture_show_help = '?'
+            org_capture_show_help = 'g?'
           },
         },
       }
