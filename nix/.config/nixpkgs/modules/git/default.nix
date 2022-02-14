@@ -9,7 +9,7 @@
     ignores = [ ".DS_Store" "*.icloud" "*.auctex-auto/" ];
     extraConfig = {
       core = {
-        pager = "${pkgs.neovim}/bin/neovim +Man!";
+        pager = "${pkgs.neovim}/bin/nvim +Man!";
       };
     };
   };
