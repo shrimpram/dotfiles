@@ -75,7 +75,7 @@ wk.register {
     },
     f = {
       name = '+finder',
-      f = { '<CMD>Telescope find_files<CR>', 'Find Files' },
+      f = { function() require('telescope.builtin').find_files({ follow = true, hidden = true, no_ignore = true, }) end, 'Find Files' },
       g = { '<CMD>Telescope git_files<CR>', 'Find Git Files' },
       l = { '<CMD>Telescope live_grep<CR>', 'Grep Project' },
       c = { '<CMD> Telescope current_buffer_fuzzy_find<CR>', 'Fuzzy Current Buffer' },
