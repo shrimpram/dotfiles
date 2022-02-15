@@ -7,4 +7,11 @@
       PASSWORD_STORE_DIR = "$HOME/.password-store";
     };
   };
+
+  programs.browserpass = {
+    enable = true;
+    browsers = [
+      "firefox"
+    ];
+  };
 }
