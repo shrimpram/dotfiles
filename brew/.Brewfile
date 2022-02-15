@@ -10,7 +10,6 @@ tap "shrimpram/tap"
 # Core
 
 brew "gnu-sed"
-brew "redshift"
 
 # Cask
 
@@ -21,6 +20,7 @@ cask "authy"
 cask "discord"
 cask "dropbox"
 cask "firefox"
+cask "flux"
 cask "foxitreader"
 cask "iina"
 cask "inform"
