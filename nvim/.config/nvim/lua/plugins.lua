@@ -146,8 +146,8 @@ return require('packer').startup(function()
         org_use_tag_inheritance = true,
         org_agenda_span = 'day',
         org_agenda_templates = {
+          e = { description = 'Event', template = '* %?\n %t\n %u' },
           t = { description = 'Task', template = '* TODO %?\n %u' },
-          d = { description = 'Delay', template = '* WAIT %?\n %a\n %u' },
           h = { description = 'Here in the file', template = '* TODO %?\n %a\n %u' },
         },
         mappings = {
