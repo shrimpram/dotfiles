@@ -38,7 +38,7 @@
       bindkey '^e' edit-command-line
       '' + builtins.readFile ./fzf-tab.zsh;
     initExtraBeforeCompInit = ''
-      _comp_options+=(globdots)
+      setopt globdots
       fpath+=(~/.nix-profile/share/zsh/site-functions/)
       fpath+=(~/.local/share/zsh/site-functions/)
       fpath+=(/opt/homebrew/share/zsh/site-functions)
