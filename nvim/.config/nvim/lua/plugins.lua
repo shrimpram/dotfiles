@@ -263,7 +263,7 @@ return require('packer').startup(function()
   use { 'lervag/vimtex', ft = 'tex' }
 
   -- Fountain
-  use 'vim-scripts/fountain.vim'
+  use { 'vim-scripts/fountain.vim', ft = 'fountain' }
 
 
   -- Colorschemes
