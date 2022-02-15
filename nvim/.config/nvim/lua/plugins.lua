@@ -139,6 +139,7 @@ return require('packer').startup(function()
     requires = { 'nvim-lua/plenary.nvim', opt = true },
     config = function()
       require('orgmode').setup {
+        org_indent_mode = 'noindent',
         org_agenda_files = '~/Dropbox/org/*',
         org_default_notes_file = '~/Dropbox/org/inbox.org',
         org_deadline_warning_days = 2,
