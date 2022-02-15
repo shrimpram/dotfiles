@@ -10,10 +10,10 @@ tap "shrimpram/tap"
 # Core
 
 brew "gnu-sed"
+brew "pinentry-mac"
 
 # Cask
 
-brew "pinentry-mac"
 cask "anki"
 cask "appcleaner"
 cask "authy"
