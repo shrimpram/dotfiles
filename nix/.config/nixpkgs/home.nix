@@ -36,6 +36,8 @@
       "$HOME/.local/bin"
       "/opt/homebrew/bin"
       "/usr/local/texlive/2021/bin/universal-darwin"
+      "$HOME/Library/Python/3.8/bin"
+      "$HOME/Library/Python/3.9/bin"
     ];
     packages = with pkgs; [
         # Core
