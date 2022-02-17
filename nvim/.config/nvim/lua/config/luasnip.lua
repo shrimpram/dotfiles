@@ -28,8 +28,8 @@ map( 's', '<S-Tab>', [[<CMD>lua require('luasnip').jump(-1)<CR>]], {silent=true}
 map( 'i', '<C-E>', [[luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>']], {silent=true, expr=true} )
 map( 's', '<C-E>', [[luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>']], {silent=true, expr=true} )
 
-map( 'i', '<C-E>', [[luasnip#choice_active() ? '<Plug>luasnip-prev-choice' : '<C-E>']], {silent=true, expr=true} )
-map( 's', '<C-E>', [[luasnip#choice_active() ? '<Plug>luasnip-prev-choice' : '<C-E>']], {silent=true, expr=true} )
+map( 'i', '<C-Y>', [[luasnip#choice_active() ? '<Plug>luasnip-prev-choice' : '<C-E>']], {silent=true, expr=true} )
+map( 's', '<C-Y>', [[luasnip#choice_active() ? '<Plug>luasnip-prev-choice' : '<C-E>']], {silent=true, expr=true} )
 
 ls.config.setup({
   history = true,
