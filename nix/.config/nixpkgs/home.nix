@@ -38,6 +38,8 @@
       "/usr/local/texlive/2021/bin/universal-darwin"
       "$HOME/Library/Python/3.8/bin"
       "$HOME/Library/Python/3.9/bin"
+      "$HOME/.gem/ruby/2.6.0/bin"
+      "$HOME/.gem/ruby/2.7.0/bin"
     ];
     packages = with pkgs; [
         # Core
