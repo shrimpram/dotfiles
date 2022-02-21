@@ -11,6 +11,7 @@ ts_configs.setup {
     'comment',
     'cpp',
     'css',
+    'fennel',
     'go',
     'html',
     'java',
