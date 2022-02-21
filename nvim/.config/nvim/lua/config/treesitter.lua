@@ -19,6 +19,7 @@ ts_configs.setup {
     'jsonc',
     'lua',
     'nix',
+    'org',
     'python',
     'regex',
     'rust',
@@ -28,22 +29,6 @@ ts_configs.setup {
   highlight = {
     enable = true,
     use_languagetree = true,
-  }
-}
-
-parser_config.org = {
-  install_info = {
-    url = 'https://github.com/milisims/tree-sitter-org',
-    revision = 'main',
-    files = {'src/parser.c', 'src/scanner.cc'},
+    additional_vim_regex_highlighting = {'org'},
   },
-  filetype = 'org',
-}
-
-require('nvim-treesitter.configs').setup {
-  highlight = {
-    enable = true,
-    additional_vim_regex_highlighting = {'org'}, -- Required since TS highlighter doesn't support all syntax features (conceal)
-  },
-  ensure_installed = {'org'},
 }

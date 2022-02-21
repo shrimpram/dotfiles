@@ -141,8 +141,13 @@ return require('packer').startup(function()
   --- Org Mode
   use {
     'nvim-orgmode/orgmode',
-    requires = { 'nvim-lua/plenary.nvim', opt = true },
+    requires = {
+      { 'nvim-lua/plenary.nvim', opt = true },
+      { 'nvim-treesitter/nvim-treesitter' },
+    },
     config = function()
+      require('orgmode').setup_ts_grammar()
+
       require('orgmode').setup {
         org_indent_mode = 'noindent',
         org_agenda_files = '~/Dropbox/org/*',
