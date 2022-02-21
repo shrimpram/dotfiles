@@ -57,19 +57,24 @@ return require('packer').startup(function()
   use {
     'nvim-telescope/telescope.nvim',
     requires = {
-      {'nvim-lua/popup.nvim'},
-      {'nvim-lua/plenary.nvim'},
+      {'nvim-lua/popup.nvim', opt = true},
+      {'nvim-lua/plenary.nvim', opt = true},
       {'nvim-telescope/telescope-file-browser.nvim'},
+      {'nvim-telescope/telescope-fzf-native.nvim', run = 'make'},
     },
     event = 'VimEnter',
     config = function()
       vim.cmd([[command! Colorscheme Telescope colorscheme]])
 
       require('telescope').setup {
-        extensions = { file_browser },
+        extensions = {
+          file_browser,
+          fzf,
+        },
       }
 
-      require('telescope').load_extension 'file_browser'
+      require('telescope').load_extension('file_browser')
+      require('telescope').load_extension('fzf')
     end,
   }
 
