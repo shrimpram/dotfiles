@@ -3,7 +3,8 @@ local nest = require('nest')
 
 wk.setup {
   plugins = {
-    spelling = true
+    registers = true,
+    spelling = true,
   },
   triggers = {
     '<leader>',
@@ -43,45 +44,65 @@ nest.applyKeymaps {
   }},
 }
 
-wk.register {
-  ['<leader>'] = {
-    w = {
-      name = '+write',
-      w = { '<CMD>w<CR>', 'Write Buffer' },
-      q = { '<CMD>wq<CR>', 'Write & Quit' },
-    },
-    g = {
-      name = '+git',
-      g = { '<CMD>Neogit<CR>', 'Neogit' },
-      b = { [[<CMD>lua require('gitsigns').blame_line(true)<CR>]], 'Blame Line' },
-      p = { [[<CMD>lua require('gitsigns').preview_hunk()<CR>]], 'Preview Hunk' },
-      s = { [[<CMD>lua require('gitsigns').stage_hunk()<CR>]], 'Stage Hunk' },
-      u = { [[<CMD>lua require('gitsigns').undo_stage_hunk()<CR>]], 'Undo Stage Hunk' },
-      r = {
-        name = '+reset',
-        h = { [[<CMD>lua require('gitsigns').reset_hunk()<CR>]], 'Reset Hunk' },
-        b = { [[<CMD>lua require('gitsigns').reset_buffer()<CR>]], 'Reset Buffer' },
-      },
-    },
-    n = {
-      name = '+nvim-tree',
-      t = { '<CMD>NvimTreeToggle<CR>', 'Toggle NvimTree' },
-      r = { '<CMD>NvimTreeRefresh<CR>', 'Refresh NvimTree' },
-      f = { '<CMD>NvimTreeFindFile<CR>', 'Find Current File' },
-    },
-    u = {
-      name = '+undo-tree',
-      t = { '<CMD>UndotreeToggle<CR>', 'Undotree' },
-    },
-    f = {
-      name = '+finder',
-      f = { function() require('telescope.builtin').find_files({ follow = true, hidden = true, no_ignore = true, }) end, 'Find Files' },
-      g = { '<CMD>Telescope git_files<CR>', 'Find Git Files' },
-      l = { '<CMD>Telescope live_grep<CR>', 'Grep Project' },
-      c = { '<CMD> Telescope current_buffer_fuzzy_find<CR>', 'Fuzzy Current Buffer' },
-      t = { '<CMD>Telescope file_browser<CR>', 'File Browser' },
-      q = { '<CMD>Telescope quickfix<CR>', 'Quickfix' },
-      b = { '<CMD>Telescope buffers show_all_buffers=true sort_lastused=true<CR>', 'Buffers' },
-    },
+
+wk.register({
+  w = {
+    name = '+write',
+    w = { '<CMD>w<CR>', 'Write Buffer' },
+    q = { '<CMD>wq<CR>', 'Write & Quit' },
   },
-}
+}, { prefix = '<leader>' })
+
+wk.register({
+  g = {
+    name = '+git',
+    g = { '<CMD>Neogit<CR>', 'Neogit' },
+    b = { [[<CMD>lua require('gitsigns').blame_line(true)<CR>]], 'Blame Line' },
+    p = { [[<CMD>lua require('gitsigns').preview_hunk()<CR>]], 'Preview Hunk' },
+    s = { [[<CMD>lua require('gitsigns').stage_hunk()<CR>]], 'Stage Hunk' },
+    u = { [[<CMD>lua require('gitsigns').undo_stage_hunk()<CR>]], 'Undo Stage Hunk' },
+    r = {
+      name = '+reset',
+      h = { [[<CMD>lua require('gitsigns').reset_hunk()<CR>]], 'Reset Hunk' },
+      b = { [[<CMD>lua require('gitsigns').reset_buffer()<CR>]], 'Reset Buffer' },
+    }
+  }
+}, { prefix = '<leader>' })
+
+wk.register({
+  g = {
+    name = '+git',
+    s = { [[<CMD>'<,'>lua require('gitsigns').stage_hunk()<CR>]], 'Stage Hunk' },
+    u = { [[<CMD>'<,'>lua require('gitsigns').undo_stage_hunk()<CR>]], 'Undo Stage Hunk' },
+    r = { [[<CMD>'<,'>lua require('gitsigns').reset_hunk()<CR>]], 'Reset Hunk' },
+  }
+}, { mode = 'v', prefix = '<leader>' })
+
+wk.register({
+  n = {
+    name = '+nvim-tree',
+    t = { '<CMD>NvimTreeToggle<CR>', 'Toggle NvimTree' },
+    r = { '<CMD>NvimTreeRefresh<CR>', 'Refresh NvimTree' },
+    f = { '<CMD>NvimTreeFindFile<CR>', 'Find Current File' },
+  }
+}, { prefix = '<leader>' })
+
+wk.register({
+  u = {
+    name = '+undo-tree',
+    t = { '<CMD>UndotreeToggle<CR>', 'Undotree' },
+  }
+}, { prefix = '<leader>' })
+
+wk.register({
+  f = {
+    name = '+finder',
+    f = { function() require('telescope.builtin').find_files({ follow = true, hidden = true, no_ignore = true, }) end, 'Find Files' },
+    g = { '<CMD>Telescope git_files<CR>', 'Find Git Files' },
+    l = { '<CMD>Telescope live_grep<CR>', 'Grep Project' },
+    c = { '<CMD> Telescope current_buffer_fuzzy_find<CR>', 'Fuzzy Current Buffer' },
+    t = { '<CMD>Telescope file_browser<CR>', 'File Browser' },
+    q = { '<CMD>Telescope quickfix<CR>', 'Quickfix' },
+    b = { '<CMD>Telescope buffers show_all_buffers=true sort_lastused=true<CR>', 'Buffers' }
+  }
+}, { prefix = '<leader>' })
