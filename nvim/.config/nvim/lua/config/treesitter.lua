@@ -25,6 +25,7 @@ ts_configs.setup {
     'regex',
     'rust',
     'toml',
+    'vim',
     'yaml'
   },
   highlight = {
