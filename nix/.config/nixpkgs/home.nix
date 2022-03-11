@@ -74,6 +74,8 @@
         pandoc
         pdftk
         poppler_utils
+        pubs
+        python39Packages.argcomplete
         terminal-notifier
         tesseract
         youtube-dl

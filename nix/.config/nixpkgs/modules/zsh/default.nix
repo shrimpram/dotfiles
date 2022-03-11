@@ -32,10 +32,16 @@
       file = "powerlevel10k.zsh-theme";
     }
     ];
+    completionInit = ''
+      autoload -Uz compinit bashcompinit
+      compinit
+      bashcompinit
+    '';
     initExtraFirst = builtins.readFile ./p10k-source.zsh;
     initExtra =  ''
       autoload edit-command-line; zle -N edit-command-line
       bindkey '^e' edit-command-line
+      eval "$(register-python-argcomplete pubs)"
       '' + builtins.readFile ./fzf-tab.zsh;
     initExtraBeforeCompInit = ''
       setopt globdots
