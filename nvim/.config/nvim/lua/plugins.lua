@@ -6,10 +6,6 @@ return require('packer').startup(function()
 
   use 'wbthomason/packer.nvim'
 
-  use {
-    'editorconfig/editorconfig-vim',
-    event = 'VimEnter',
-  }
 
   -- Keybindings
   use {
@@ -313,8 +309,5 @@ return require('packer').startup(function()
   --   -- 'nightsense/stellarized',
   --   cmd = { 'Colorscheme', 'colorscheme' },
   -- }
-
--- use { 'christoomey/vim-tmux-navigator' }
--- use { 'RyanMillerC/better-vim-tmux-resizer' }
 
 end)
