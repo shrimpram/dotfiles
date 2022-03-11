@@ -239,6 +239,7 @@ return require('packer').startup(function()
     setup = function()
       vim.g.neomake_verbose = 1
       vim.g.neomake_open_list = 2
+      vim.g.neomake_tex_enabled_makers = { 'chktex' }
       vim.g.neomake_error_sign = { text = '✖' }
       vim.g.neomake_warning_sign = { text = '‼' }
       vim.g.neomake_info_sign = { text = '' }
