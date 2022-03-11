@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env sh
 # Tangle files with Org mode
 
 emacs -Q --batch --eval "
