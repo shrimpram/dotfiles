@@ -1,0 +1,31 @@
+#!/usr/bin/env sh
+
+dark()
+{
+  cp "$HOME/.config/kitty/themes/stella-dark.conf" "$HOME/.config/kitty/current-theme.conf"
+
+  if [ "$(uname -s)" = "Darwin" ]; then
+    sed -Ei '.bak' '/colorscheme stella-light/ s/light/dark/' "$HOME/dotfiles/nvim/.config/nvim/init.lua"
+    rm "$HOME/dotfiles/nvim/.config/nvim/init.lua.bak"
+  elif [ "$(uname -s)" = "Linux" ]; then
+    sed -Ei '/colorscheme stella-light/ s/light/dark/' "$HOME/dotfiles/nvim/.config/nvim/init.lua"
+  fi
+}
+
+light()
+{
+  cp "$HOME/.config/kitty/themes/stella-light.conf" "$HOME/.config/kitty/current-theme.conf"
+
+  if [ "$(uname -s)" = "Darwin" ]; then
+    sed -Ei '.bak' '/colorscheme stella-dark/ s/dark/light/' "$HOME/dotfiles/nvim/.config/nvim/init.lua"
+    rm "$HOME/dotfiles/nvim/.config/nvim/init.lua.bak"
+  elif [ "$(uname -s)" = "Linux" ]; then
+    sed -Ei '/colorscheme stella-dark/ s/dark/light/' "$HOME/dotfiles/nvim/.config/nvim/init.lua"
+  fi
+}
+
+if [ "$1" = "light" ]; then
+  light
+elif [ "$1" = "dark" ]; then
+  dark
+fi
