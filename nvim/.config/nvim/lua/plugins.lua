@@ -210,8 +210,27 @@ return require('packer').startup(function()
 
   --- Statusline
   use {
-    'ojroques/nvim-hardline',
-    config = function() require('hardline').setup { theme = 'stella' } end,
+    'nvim-lualine/lualine.nvim',
+    config = function()
+      require('lualine').setup {
+        options = {
+          icons_enabled = true,
+          theme = 'auto',
+          component_separators = { left = '', right = '' },
+          section_separators = { left = '', right = '' },
+          always_divide_middle = true,
+        },
+        sections = {
+          lualine_b = {
+            {
+              'diff',
+              colored = false,
+              symbols = {added = '+', modified = '~', removed = '-'},
+            }
+          }
+        },
+      }
+    end,
   }
 
   --- Async building
