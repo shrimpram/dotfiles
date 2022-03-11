@@ -43,10 +43,10 @@ ls.config.setup({
 ls.snippets = {
   asciidoc = {
     s([["]], {
-    t([["`]]), i(1), t([[`"]])
+      t([["`]]), i(1), t([[`"]])
     }),
     s([[']], {
-    t([['`]]), i(1), t([[`']])
+      t([['`]]), i(1), t([[`']])
     }),
     s("ul", {
       t("[.underline]#"), i(1), t("#")
@@ -164,25 +164,28 @@ ls.snippets = {
       i(2),
       t({"", "\\end{"}), r(1), t("}"),
     }),
-    -- s({trig = "(.*)ci", wordTrig = true, regTrig = true}, {
-      --   f(function(args, snip) return {"\\"..snip.captures[1]} end, {}),
-      --   t("cite["), i(1), t("]"), t("{"), i(2), t("}")
-      -- }),
-      s("ci", {
-        t("\\"),
-        c(1, {
-          t("cite"),
-          t("autocite"),
-        }),
-        t("["), i(2), t("]"), t("{"), i(3), t("}")
+    s("ci", {
+      t("\\"),
+      c(1, {
+        t("cite"),
+        t("autocite"),
       }),
-      s("qt", {
-        t("\\textquote["), i(1), t("]"), t("["), i(2), t("]"), t("{"), i(3), t("}")
-      }),
-      s({trig = "qe(%*?)", wordTrig = true, regTrig = true}, {
-        t("\\enquote"),
-        f(function(args, snip) return snip.captures[1] end, {}),
-        t("{"), i(1), t("}")
-      }),
-    },
-  }
+      t("["), i(2), t("]"), t("{"), i(3), t("}")
+    }),
+    s("qt", {
+      t("\\textquote["), i(1), t("]"), t("["), i(2), t("]"), t("{"), i(3), t("}")
+    }),
+    s({trig = "qe(%*?)", wordTrig = true, regTrig = true}, {
+      t("\\enquote"),
+      f(function(args, snip) return snip.captures[1] end, {}),
+      t("{"), i(1), t("}")
+    }),
+  },
+  org = {
+    s("beg", {
+      t("#+begin_"), i(1),
+      t({"", ""}), i(2),
+      t({"", "#+end_"}), r(1),
+    }),
+  },
+}
