@@ -8,25 +8,7 @@
       size = 13;
     };
     extraConfig = ''
-      cursor #B4A5C8
-      foreground #998BAD
-      background #2B213C
-      color0 #2B213C
-      color8 #534566
-      color1 #C8917B
-      color9 #C8917B
-      color2  #ACC79B
-      color10 #ACC79B
-      color3  #C7C17D
-      color11 #C7C17D
-      color4  #A4A8D8
-      color12 #A4A8D8
-      color5  #C994FF
-      color13 #C994FF
-      color6  #9BBFD4
-      color14 #9BBFD4
-      color7  #888098
-      color15 #BDB6C7
+      include current-theme.conf
       '';
     keybindings = {
       "kitty_mod+enter" = "new_window_with_cwd";
@@ -59,6 +41,20 @@
       macos_titlebar_color = "background";
       macos_option_as_alt = "yes";
       shell_integration = "no-cursor";
+    };
+  };
+  home.file = with config; {
+    dark = {
+      source = builtins.fetchurl {
+        url = "https://raw.githubusercontent.com/Shrimpram/stella/master/kitty/stella-dark.conf";
+      };
+      target = "${home.homeDirectory}/.config/kitty/themes/stella-dark.conf";
+    };
+    light = {
+      source = builtins.fetchurl {
+        url = "https://raw.githubusercontent.com/Shrimpram/stella/master/kitty/stella-light.conf";
+      };
+      target = "${home.homeDirectory}/.config/kitty/themes/stella-light.conf";
     };
   };
 }
