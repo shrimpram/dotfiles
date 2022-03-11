@@ -32,9 +32,7 @@ return require('packer').startup(function()
   }
 
   -- Git
-  use {
-    'rhysd/committia.vim'
-  }
+  use 'rhysd/committia.vim'
 
   use {
     'lewis6991/gitsigns.nvim',
@@ -78,9 +76,7 @@ return require('packer').startup(function()
   -- Text formatting
 
   --- Align
-  use {
-    'junegunn/vim-easy-align',
-  }
+  use 'junegunn/vim-easy-align'
 
   --- Commenting
   use {
