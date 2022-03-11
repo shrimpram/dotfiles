@@ -29,7 +29,6 @@ vim.o.title          = true
 vim.o.undofile       = true
 vim.o.wrap           = true
 vim.o.clipboard      = vim.o.clipboard .. 'unnamed,unnamedplus'
-vim.cmd([[colorscheme stella]])
 
 require('plugins')
 
@@ -65,3 +64,5 @@ endfunction
 
 command Write call ToggleWriteMode()
 ]])
+
+vim.cmd([[colorscheme stella-dark]])

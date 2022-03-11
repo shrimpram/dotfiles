@@ -283,7 +283,7 @@ return require('packer').startup(function()
 
   -- Colorschemes
   use {
-    '$HOME/Documents/stella/vim-stella'
+    '$HOME/Documents/stella/vim'
   }
 
   -- use {
