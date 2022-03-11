@@ -293,6 +293,8 @@ return require('packer').startup(function()
   -- Fountain
   use { 'vim-scripts/fountain.vim', ft = 'fountain' }
 
+  -- Mustache/Handlebars
+  use { 'mustache/vim-mustache-handlebars', ft = 'html' }
 
   -- Colorschemes
   use {
