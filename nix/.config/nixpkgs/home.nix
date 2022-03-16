@@ -21,6 +21,7 @@
       EDITOR = "nvim";
       VISUAL = "nvim";
       PAGER = "less -r";
+      MANPAGER = "nvim +Man!";
 
       KEYTIMEOUT = 1;
 
