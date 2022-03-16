@@ -19,6 +19,7 @@ ts_configs.setup {
     'json',
     'jsonc',
     'lua',
+    'make',
     'nix',
     'org',
     'python',
@@ -31,6 +32,6 @@ ts_configs.setup {
   highlight = {
     enable = true,
     use_languagetree = true,
-    additional_vim_regex_highlighting = {'org'},
+    additional_vim_regex_highlighting = { 'org', 'make' },
   },
 }
