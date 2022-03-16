@@ -1,3 +1,7 @@
+sync:
+	brew bundle --global
+	home-manager switch
+
 update: nvim
 	brew update
 	brew upgrade
