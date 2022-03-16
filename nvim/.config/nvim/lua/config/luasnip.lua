@@ -182,10 +182,10 @@ ls.snippets = {
     }),
   },
   org = {
-    s("beg", {
-      t("#+begin_"), i(1),
+    s("src", {
+      t("#+begin_src "), i(1),
       t({"", ""}), i(2),
-      t({"", "#+end_"}), r(1),
+      t({"", "#+end_src"}),
     }),
   },
 }
