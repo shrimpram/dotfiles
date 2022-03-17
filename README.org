@@ -16,7 +16,8 @@ To install/update programs two dependencies are needed:
 The makefile can be used for all regular updating/installing, the rules are explained below.
 
 ** Sync
-Syncs the programs and user environment on your machine with what is written in the =home-manager= and =brew= config files.
+Syncs the programs and user environment on your machine with what is
+written in the =home-manager= and =brew= config files.
 #+begin_src make
 sync:
 	brew bundle --global
@@ -24,7 +25,8 @@ sync:
 #+end_src
 
 ** Update
-Updates all existing programs in your user environment installed through =nix= or =brew=.
+Updates all existing programs in your user environment installed through
+=nix= or =brew=.
 #+begin_src make
 update: nvim
 	brew update
@@ -34,14 +36,24 @@ update: nvim
 #+end_src
 
 ** Nvim
-Runs the command =PackerSync= in a [[https://neovim.io/doc/user/starting.html#--headless][:h headless]] neovim instance. This updates all existing plugins and syncs your neovim plugins with what is in =plugins.lua=, installing/deleting plugins as required.
+Runs the command =PackerSync= in a
+[[https://neovim.io/doc/user/starting.html#--headless][:h headless]]
+neovim instance. This updates all existing plugins and syncs your neovim
+plugins with what is in =plugins.lua=, installing/deleting plugins as
+required.
 #+begin_src make
 nvim: nvim-packer
 	nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 #+end_src
 
 ** Nvim-packer
-Ensures packer is installed on your local machine. If it isn't, this will clone the packer repo to your local nvim [[https://neovim.io/doc/user/options.html#'runtimepath'][:h runtimepath]]. To do this make checks whether the packer.nvim file exists in the directory it's supposed to using the wildcard function, if the wildcard returns empty then it runs the git clone command, else it does nothing since a file existing indicates packer has been installed.
+Ensures packer is installed on your local machine. If it isn't, this
+will clone the packer repo to your local nvim
+[[https://neovim.io/doc/user/options.html#'runtimepath'][:h
+runtimepath]]. To do this make checks whether the packer.nvim directory
+exists in the directory it's supposed to using the wildcard function, if
+the wildcard returns empty then it runs the git clone command, else it
+does nothing since a file existing indicates packer has been installed.
 #+begin_src make
 nvim-packer:
 ifeq (,$(wildcard ~/.local/share/nvim/site/pack/packer/start/packer.nvim))
