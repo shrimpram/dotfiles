@@ -136,6 +136,16 @@ return require('packer').startup(function()
 
   -- Utilities
 
+  --- Scratch buffer
+  use {
+    'mtth/scratch.vim',
+    config = function()
+      vim.g.scratch_no_mappings = 1
+      vim.g.scratch_top = 0
+      vim.g.scratch_persistence_file = "~/.local/share/nvim/scratch"
+    end,
+  }
+
   --- Org Mode
   use {
     'nvim-orgmode/orgmode',

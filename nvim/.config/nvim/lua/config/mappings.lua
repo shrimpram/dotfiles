@@ -39,8 +39,11 @@ nest.applyKeymaps {
     { 'k>', '<C-w>k' },
     { 'l>', '<C-w>l' },
   }},
-  { mode = 'nx', options = { noremap = false, silent = false } , {
+  { mode = 'nx', options = { noremap = false, silent = false }, {
     { 'gl', [[<Plug>(EasyAlign)]] },
+  }},
+  { mode = 'v', {
+    { 'gs', [[:'<,'>ScratchSelection<CR>]] },
   }},
 }
 
@@ -105,4 +108,12 @@ wk.register({
     q = { '<CMD>Telescope quickfix<CR>', 'Quickfix' },
     b = { '<CMD>Telescope buffers show_all_buffers=true sort_lastused=true<CR>', 'Buffers' }
   }
+}, { prefix = '<leader>' })
+
+wk.register({
+  s = {
+    name = '+scratch',
+    s = { '<CMD>Scratch<CR>', 'Open Scratch Buffer' },
+    p = { '<CMD>ScratchPreview<CR>', 'Preview Scratch Buffer' },
+  },
 }, { prefix = '<leader>' })
