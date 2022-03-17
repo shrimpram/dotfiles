@@ -106,6 +106,7 @@
 
         curl
         isync
+        khard
         lynx
         msmtp
         neomutt
