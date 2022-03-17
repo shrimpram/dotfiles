@@ -40,6 +40,7 @@
       kitty_mod = "ctrl+super";
       macos_titlebar_color = "background";
       macos_option_as_alt = "yes";
+      macos_quit_when_last_window_closed = "yes";
       shell_integration = "no-cursor";
     };
   };
