@@ -45,13 +45,13 @@
     };
   };
   home.file = with config; {
-    dark = {
+    kitty-dark = {
       source = builtins.fetchurl {
         url = "https://raw.githubusercontent.com/Shrimpram/stella/master/kitty/stella-dark.conf";
       };
       target = "${home.homeDirectory}/.config/kitty/themes/stella-dark.conf";
     };
-    light = {
+    kitty-light = {
       source = builtins.fetchurl {
         url = "https://raw.githubusercontent.com/Shrimpram/stella/master/kitty/stella-light.conf";
       };
