@@ -5,12 +5,14 @@ tap "homebrew/cask"
 tap "homebrew/core"
 tap "homebrew/services"
 tap "shrimpram/tap"
-
+tap "koekeishiya/formulae"
 
 # Core
 
 brew "gnu-sed"
 brew "pinentry-mac"
+brew "koekeishiya/formulae/yabai"
+brew "koekeishiya/formulae/skhd"
 
 # Cask
 
