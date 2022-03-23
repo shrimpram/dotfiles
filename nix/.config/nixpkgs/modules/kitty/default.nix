@@ -3,8 +3,8 @@
   programs.kitty = {
     enable = true;
     font = {
-      package = pkgs.hasklig;
-      name = "Hasklig";
+      package = pkgs.vistafonts;
+      name = "Consolas NF";
       size = 13;
     };
     extraConfig = ''
