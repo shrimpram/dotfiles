@@ -92,6 +92,7 @@
         rustc
         shellcheck
         stylua
+        texlive.combined.scheme-full
         vim-vint
 
         # Emacs
