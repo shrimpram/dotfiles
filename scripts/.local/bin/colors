@@ -13,6 +13,14 @@ dark()
     sed -Ei '/colorscheme stella-light/ s/light/dark/' "$HOME/dotfiles/nvim/.config/nvim/init.lua"
   fi
 
+  # Wallpaper
+  if [ "$(uname -s)" = "Darwin" ]; then
+    osascript -e "tell application \"Finder\" to set desktop picture to POSIX file \"$HOME/Pictures/celeste-dark.png\""
+  fi
+
+  # Dark Mode
+  osascript -e 'tell app "System Events" to tell appearance preferences to set dark mode to true'
+
   # Spacebar
   cp -a "$HOME/.config/spacebar/themes/stella-dark" "$HOME/.config/spacebar/current-theme"
   brew services restart spacebar
@@ -20,11 +28,6 @@ dark()
   # Yabai
   cp -a "$HOME/.config/yabai/themes/stella-dark" "$HOME/.config/yabai/current-theme"
   brew services restart yabai
-
-  # Wallpaper
-  if [ "$(uname -s)" = "Darwin" ]; then
-    osascript -e "tell application \"Finder\" to set desktop picture to POSIX file \"$HOME/Pictures/complete-7.png\""
-  fi
 }
 
 light()
@@ -40,6 +43,14 @@ light()
     sed -Ei '/colorscheme stella-dark/ s/dark/light/' "$HOME/dotfiles/nvim/.config/nvim/init.lua"
   fi
 
+  # Light Mode
+  osascript -e 'tell app "System Events" to tell appearance preferences to set dark mode to false'
+
+  # Wallpaper
+  if [ "$(uname -s)" = "Darwin" ]; then
+    osascript -e "tell application \"Finder\" to set desktop picture to POSIX file \"$HOME/Pictures/celeste-light.png\""
+  fi
+
   # Spacebar
   cp -a "$HOME/.config/spacebar/themes/stella-light" "$HOME/.config/spacebar/current-theme"
   brew services restart spacebar
@@ -47,11 +58,6 @@ light()
   # Yabai
   cp -a "$HOME/.config/yabai/themes/stella-light" "$HOME/.config/yabai/current-theme"
   brew services restart yabai
-
-  # Wallpaper
-  if [ "$(uname -s)" = "Darwin" ]; then
-    osascript -e "tell application \"Finder\" to set desktop picture to POSIX file \"$HOME/Pictures/complete-1.png\""
-  fi
 }
 
 if [ "$1" = "light" ]; then
