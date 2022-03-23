@@ -2,25 +2,55 @@
 
 dark()
 {
+  # Kitty
   cp "$HOME/.config/kitty/themes/stella-dark.conf" "$HOME/.config/kitty/current-theme.conf"
 
+  # Nvim
   if [ "$(uname -s)" = "Darwin" ]; then
     sed -Ei '.bak' '/colorscheme stella-light/ s/light/dark/' "$HOME/dotfiles/nvim/.config/nvim/init.lua"
     rm "$HOME/dotfiles/nvim/.config/nvim/init.lua.bak"
   elif [ "$(uname -s)" = "Linux" ]; then
     sed -Ei '/colorscheme stella-light/ s/light/dark/' "$HOME/dotfiles/nvim/.config/nvim/init.lua"
   fi
+
+  # Spacebar
+  cp -a "$HOME/.config/spacebar/themes/stella-dark" "$HOME/.config/spacebar/current-theme"
+  brew services restart spacebar
+
+  # Yabai
+  cp -a "$HOME/.config/yabai/themes/stella-dark" "$HOME/.config/yabai/current-theme"
+  brew services restart yabai
+
+  # Wallpaper
+  if [ "$(uname -s)" = "Darwin" ]; then
+    osascript -e "tell application \"Finder\" to set desktop picture to POSIX file \"$HOME/Pictures/complete-7.png\""
+  fi
 }
 
 light()
 {
+  #Kitty
   cp "$HOME/.config/kitty/themes/stella-light.conf" "$HOME/.config/kitty/current-theme.conf"
 
+  # Nvim
   if [ "$(uname -s)" = "Darwin" ]; then
     sed -Ei '.bak' '/colorscheme stella-dark/ s/dark/light/' "$HOME/dotfiles/nvim/.config/nvim/init.lua"
     rm "$HOME/dotfiles/nvim/.config/nvim/init.lua.bak"
   elif [ "$(uname -s)" = "Linux" ]; then
     sed -Ei '/colorscheme stella-dark/ s/dark/light/' "$HOME/dotfiles/nvim/.config/nvim/init.lua"
+  fi
+
+  # Spacebar
+  cp -a "$HOME/.config/spacebar/themes/stella-light" "$HOME/.config/spacebar/current-theme"
+  brew services restart spacebar
+
+  # Yabai
+  cp -a "$HOME/.config/yabai/themes/stella-light" "$HOME/.config/yabai/current-theme"
+  brew services restart yabai
+
+  # Wallpaper
+  if [ "$(uname -s)" = "Darwin" ]; then
+    osascript -e "tell application \"Finder\" to set desktop picture to POSIX file \"$HOME/Pictures/complete-1.png\""
   fi
 }
 
