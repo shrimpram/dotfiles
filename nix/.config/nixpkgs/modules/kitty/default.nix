@@ -30,6 +30,9 @@
       "kitty_mod+s" = "focus_visible_window";
       "kitty_mod+m" = "swap_with_window";
       "kitty_mod+o" = "load_config_file";
+      "kitty_mod+right" = "next_tab";
+      "kitty_mod+left" = "previous_tab";
+      "f5" = "load_config_file";
     };
     settings = {
       cursor_text_color = "background";
