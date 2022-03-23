@@ -42,6 +42,7 @@
       macos_option_as_alt = "yes";
       macos_quit_when_last_window_closed = "yes";
       shell_integration = "no-cursor";
+      window_padding_width = "0 2";
     };
   };
   home.file = with config; {
