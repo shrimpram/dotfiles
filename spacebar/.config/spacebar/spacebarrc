@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+spacebar -m config position             top
+spacebar -m config height               24
+spacebar -m config title                on
+spacebar -m config spaces               on
+spacebar -m config clock                on
+spacebar -m config power                on
+spacebar -m config dnd                  on
+spacebar -m config padding_left         20
+spacebar -m config padding_right        20
+spacebar -m config spacing_left         25
+spacebar -m config spacing_right        15
+spacebar -m config text_font            "Consolas NF:Bold:13.0"
+spacebar -m config icon_font            "Consolas NF:Bold:15.0"
+spacebar -m config power_icon_strip      
+spacebar -m config space_icon_strip     I II III IV V VI VII VIII IX X
+spacebar -m config space_icon           
+spacebar -m config clock_icon           
+spacebar -m config dnd_icon             
+spacebar -m config clock_format         "%a %D %I:%M %p"
+
+# spacebar -m right_shell_command         "defaults read ~/Library/Preferences/com.apple.HIToolbox.plist AppleSelectedInputSources | egrep -w 'KeyboardLayout Name' | sed -E 's/^.+ = \"?([^\"]+)\"?;$/\1/'"
+
+. "$HOME/.config/spacebar/current-theme"

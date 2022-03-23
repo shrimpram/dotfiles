@@ -7,6 +7,7 @@
     ./modules/kitty
     ./modules/nnn
     ./modules/password-store
+    ./modules/spacebar
     ./modules/zsh
   ];
 
