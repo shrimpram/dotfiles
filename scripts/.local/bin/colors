@@ -1,67 +1,44 @@
 #!/usr/bin/env sh
 
-dark()
-{
+color () {
   # Kitty
-  cp "$HOME/.config/kitty/themes/stella-dark.conf" "$HOME/.config/kitty/current-theme.conf"
+  cp "$HOME/.config/kitty/themes/stella-$COLOR.conf" "$HOME/.config/kitty/current-theme.conf"
 
   # Nvim
   if [ "$(uname -s)" = "Darwin" ]; then
-    sed -Ei '.bak' '/colorscheme stella-light/ s/light/dark/' "$HOME/dotfiles/nvim/.config/nvim/init.lua"
+    sed -Ei '.bak' "s/stella-$NOT_COLOR/stella-$COLOR/" "$HOME/dotfiles/nvim/.config/nvim/init.lua"
     rm "$HOME/dotfiles/nvim/.config/nvim/init.lua.bak"
   elif [ "$(uname -s)" = "Linux" ]; then
-    sed -Ei '/colorscheme stella-light/ s/light/dark/' "$HOME/dotfiles/nvim/.config/nvim/init.lua"
+    sed -Ei "s/stella-$NOT_COLOR/stella-$COLOR/" "$HOME/dotfiles/nvim/.config/nvim/init.lua"
   fi
 
   # Wallpaper
   if [ "$(uname -s)" = "Darwin" ]; then
-    osascript -e "tell application \"Finder\" to set desktop picture to POSIX file \"$HOME/Pictures/celeste-dark.png\""
+    osascript -e "tell application \"Finder\" to set desktop picture to POSIX file \"$HOME/Pictures/celeste-$COLOR.png\""
   fi
 
-  # Dark Mode
-  osascript -e 'tell app "System Events" to tell appearance preferences to set dark mode to true'
-
-  # Spacebar
-  cp -a "$HOME/.config/spacebar/themes/stella-dark" "$HOME/.config/spacebar/current-theme"
-  brew services restart spacebar
-
-  # Yabai
-  cp -a "$HOME/.config/yabai/themes/stella-dark" "$HOME/.config/yabai/current-theme"
-  brew services restart yabai
-}
-
-light()
-{
-  #Kitty
-  cp "$HOME/.config/kitty/themes/stella-light.conf" "$HOME/.config/kitty/current-theme.conf"
-
-  # Nvim
-  if [ "$(uname -s)" = "Darwin" ]; then
-    sed -Ei '.bak' '/colorscheme stella-dark/ s/dark/light/' "$HOME/dotfiles/nvim/.config/nvim/init.lua"
-    rm "$HOME/dotfiles/nvim/.config/nvim/init.lua.bak"
-  elif [ "$(uname -s)" = "Linux" ]; then
-    sed -Ei '/colorscheme stella-dark/ s/dark/light/' "$HOME/dotfiles/nvim/.config/nvim/init.lua"
-  fi
-
-  # Light Mode
-  osascript -e 'tell app "System Events" to tell appearance preferences to set dark mode to false'
-
-  # Wallpaper
-  if [ "$(uname -s)" = "Darwin" ]; then
-    osascript -e "tell application \"Finder\" to set desktop picture to POSIX file \"$HOME/Pictures/celeste-light.png\""
+  # Dark/Light Mode
+  if [ "$COLOR" = "dark" ]; then
+    osascript -e 'tell app "System Events" to tell appearance preferences to set dark mode to true'
+  elif [ "$COLOR" = "light" ]; then
+    osascript -e 'tell app "System Events" to tell appearance preferences to set dark mode to false'
   fi
 
   # Spacebar
-  cp -a "$HOME/.config/spacebar/themes/stella-light" "$HOME/.config/spacebar/current-theme"
+  cp -a "$HOME/.config/spacebar/themes/stella-$COLOR" "$HOME/.config/spacebar/current-theme"
   brew services restart spacebar
 
   # Yabai
-  cp -a "$HOME/.config/yabai/themes/stella-light" "$HOME/.config/yabai/current-theme"
+  cp -a "$HOME/.config/yabai/themes/stella-$COLOR" "$HOME/.config/yabai/current-theme"
   brew services restart yabai
 }
 
 if [ "$1" = "light" ]; then
-  light
+  COLOR="light"
+  NOT_COLOR="dark"
+  color
 elif [ "$1" = "dark" ]; then
-  dark
+  COLOR="dark"
+  NOT_COLOR="light"
+  color
 fi
