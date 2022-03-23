@@ -8,6 +8,7 @@
     ./modules/nnn
     ./modules/password-store
     ./modules/spacebar
+    ./modules/yabai
     ./modules/zsh
   ];
 
