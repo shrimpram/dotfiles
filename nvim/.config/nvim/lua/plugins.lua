@@ -170,14 +170,14 @@ return require('packer').startup(function()
         },
         mappings = {
           org = {
-            org_show_help = 'g?',
-            org_edit_src_show_help = 'g?'
+            org_show_help = '<leader>o?',
+            org_edit_src_show_help = '<leader>o?'
           },
           agenda = {
-            org_agenda_show_help = 'g?'
+            org_agenda_show_help = '<leader>o?'
           },
           capture = {
-            org_capture_show_help = 'g?'
+            org_capture_show_help = '<leader>o?'
           },
         },
       }
