@@ -31,6 +31,9 @@ color () {
   # Yabai
   cp -a "$HOME/.config/yabai/themes/stella-$COLOR" "$HOME/.config/yabai/current-theme"
   brew services restart yabai
+
+  # Zathura
+  cp -a "$HOME/.config/zathura/themes/stella-$COLOR" "$HOME/.config/zathura/current-theme"
 }
 
 if [ "$1" = "light" ]; then
