@@ -40,7 +40,7 @@ ls.config.setup({
   store_selection_keys = "<Tab>",
 })
 
-ls.snippets = {
+ls.add_snippets(nil, {
   asciidoc = {
     s([["]], {
       t([["`]]), i(1), t([[`"]])
@@ -188,4 +188,4 @@ ls.snippets = {
       t({"", "#+end_src"}),
     }),
   },
-}
+})
