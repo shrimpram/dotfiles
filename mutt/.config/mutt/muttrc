@@ -49,3 +49,5 @@ set sidebar_indent_string = '  '
 set query_command = "khard email --parsable %s"
 bind editor <Tab> complete-query
 bind editor ^T    complete
+
+macro index,pager T "<pipe-message>mutt2task<enter><save-message>=TODO<enter>" "make mail into a task"
