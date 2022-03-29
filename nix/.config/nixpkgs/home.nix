@@ -87,6 +87,8 @@
 
         asciidoc
         asciidoctor
+        go
+        jq
         lua53Packages.luarocks
         nodePackages.write-good
         python38
