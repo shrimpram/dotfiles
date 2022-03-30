@@ -37,6 +37,7 @@ yabai -m rule --add app="^Disk Utility$" sticky=on layer=above manage=off
 yabai -m rule --add app="^Flux$" manage=off
 yabai -m rule --add app="^Raycast$" manage=off
 yabai -m rule --add app="^Spotify*" display=2
+yabai -m rule --add app="^Discord*" display=2
 yabai -m rule --add app="^System Preferences$" manage=off
 
 . "$HOME/.config/yabai/current-theme"
