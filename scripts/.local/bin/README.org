@@ -1,0 +1,162 @@
+#+title: Scripts
+#+author: Shreeram Modi
+#+OPTIONS: toc:1
+
+This is a collection of scripts that I find useful, they are explained
+below, mostly for my own documentation.
+
+* =mutt2task=
+This script creates a [[https://taskwarrior.org/][taskwarrior]] task
+from an email in [[https://neomutt.org/][neomutt]]. The task format is
+~Email from "<sender>" (<subject>)~, and it is tagged with the ~email~
+tag.
+
+This sets how the script should handle errors and creates a temp file
+for the script to use for sed operations. There's probably a cleaner way
+to do this that doesn't modify the filesystem but alas I am lazy.
+
+#+begin_src bash :tangle mutt2task :shebang "#!/usr/bin/env sh"
+set -e
+
+export TEMP
+TEMP="$(mktemp)"
+#+end_src
+
+This is the line that does all the heavy lifting. It first searches for
+lines in the email starting with =Subject:= or =From:=, then passes them
+on to sed. Here are all the sed operations explained in order:
+
+1. Removes everything in the line up to and including =:=
+2. Removes the email address by searching for an =@= symbol inside =<>=,
+   which leaves just the sender's name in the =From:= field
+3. Places everything in the second (subject) line inside parentheses
+4. Prepends the first line (from) with "Email from"
+
+Sed then passes the two lines to paste, which concatenates them using a
+space as a delimiter, the one line is then echoed to the temp file which
+was created earlier.
+
+#+begin_src bash :tangle mutt2task :shebang "#!/usr/bin/env sh"
+grep -E '^Subject: |^From: ' | sed 's/.*: //; s/ <.*@.*>//; 2s/\(.*\)/(\1)/; 1s/^/Email from /' | paste -d " " - - > "$TEMP"
+#+end_src
+
+Finally the contents of the temp file, just the task, are added to
+taskwarrior with the email tag, and the temp file is removed.
+
+#+begin_src bash :tangle mutt2task :shebang "#!/usr/bin/env sh"
+task add +email "$(cat "$TEMP")"
+
+rm "$TEMP"
+#+end_src
+
+* =org-tangle=
+This script tangles org files from the command line, allowing you to
+generate files without the need to open up emacs. It was taken from
+[[https://orgmode.org/manual/Batch-Execution.html][the org manual]].
+
+#+begin_src bash :tangle org-tangle :shebang "#!/usr/bin/env sh"
+emacs -Q --batch --eval "
+    (progn
+      (require 'ob-tangle)
+      (dolist (file command-line-args-left)
+        (with-current-buffer (find-file-noselect file)
+          (org-babel-tangle))))
+  " "$@"
+#+end_src
+
+* =colors=
+This script changes my desktop and programs between dark and light mode.
+Both use the respective schemes from
+[[https://github.com/shrimpram/stella/][stella]], and the script just
+toggles between the light and dark versions.
+
+This sets how the script should handle errors and defines the color
+function.
+
+#+begin_src bash :tangle colors :shebang "#!/usr/bin/env sh"
+set -e
+
+color () {
+#+end_src
+
+Most programs can be changed by switching the =current-theme= file in
+their configuration directories. Rather than including the color scheme
+rules in their config files, they source the =current-theme= file which
+is changed between stella-dark and stella-light. Services
+([[https://github.com/cmacrae/spacebar][spacebar]] and
+[[https://github.com/koekeishiya/yabai/][yabai]]) need to be restarted
+as well.
+
+#+begin_src bash :tangle colors :shebang "#!/usr/bin/env sh"
+  # Kitty
+  cp "$HOME/.config/kitty/themes/stella-$COLOR.conf" "$HOME/.config/kitty/current-theme.conf"
+
+  # Spacebar
+  cp -a "$HOME/.config/spacebar/themes/stella-$COLOR" "$HOME/.config/spacebar/current-theme"
+  brew services restart spacebar
+
+  # Yabai
+  cp -a "$HOME/.config/yabai/themes/stella-$COLOR" "$HOME/.config/yabai/current-theme"
+  brew services restart yabai
+
+  # Zathura
+  cp -a "$HOME/.config/zathura/themes/stella-$COLOR" "$HOME/.config/zathura/current-theme"
+#+end_src
+
+For neovim the color scheme is set inside =init.lua=, and so sed is
+used to change it between dark and light. However, the version of sed
+existing on Mac systems is different than Linux systems so the commands
+are slightly different. Sed on Mac requires the backup file extension to also
+be passed as an argument, whereas sed on Linux does not.
+
+#+begin_src bash :tangle colors :shebang "#!/usr/bin/env sh"
+  # Nvim
+  if [ "$(uname -s)" = "Darwin" ]; then
+    sed -Ei '.bak' "s/stella-$OLD_COLOR/stella-$COLOR/" "$HOME/dotfiles/nvim/.config/nvim/init.lua"
+    rm "$HOME/dotfiles/nvim/.config/nvim/init.lua.bak"
+  elif [ "$(uname -s)" = "Linux" ]; then
+    sed -Ei "s/stella-$OLD_COLOR/stella-$COLOR/" "$HOME/dotfiles/nvim/.config/nvim/init.lua"
+  fi
+#+end_src
+
+Applescript lets us change the wallpaper, however the main drawback is
+that it only allows us to change the wallpaper of the current desktop.
+
+#+begin_src bash :tangle colors :shebang "#!/usr/bin/env sh"
+  # Wallpaper
+  if [ "$(uname -s)" = "Darwin" ]; then
+    osascript -e "tell application \"Finder\" to set desktop picture to POSIX file \"$HOME/Pictures/celeste-$COLOR.png\""
+  fi
+#+end_src
+
+Applescript also lets us change between the system's dark and light
+modes, which also change apps that allow the colorscheme to be set to
+match the system.
+
+#+begin_src bash :tangle colors :shebang "#!/usr/bin/env sh"
+  # Dark/Light Mode
+  if [ "$COLOR" = "dark" ]; then
+    osascript -e 'tell app "System Events" to tell appearance preferences to set dark mode to true'
+  elif [ "$COLOR" = "light" ]; then
+    osascript -e 'tell app "System Events" to tell appearance preferences to set dark mode to false'
+  fi
+}
+#+end_src
+
+Rather than having different functions for changing to light and dark,
+the script just reads the argument following ~color~. Then it sets the
+~COLOR~ and ~OLD_COLOR~ variables based on what the user has typed and
+changes the colors accordingly since all the parts of the script use
+those variables instead of hardcoded light/dark.
+
+#+begin_src bash :tangle colors :shebang "#!/usr/bin/env sh"
+if [ "$1" = "light" ]; then
+  COLOR="light"
+  OLD_COLOR="dark"
+  color
+elif [ "$1" = "dark" ]; then
+  COLOR="dark"
+  OLD_COLOR="light"
+  color
+fi
+#+end_src

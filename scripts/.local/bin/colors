@@ -1,49 +1,49 @@
 #!/usr/bin/env sh
-
 set -e
 
 color () {
-  # Kitty
-  cp "$HOME/.config/kitty/themes/stella-$COLOR.conf" "$HOME/.config/kitty/current-theme.conf"
 
-  # Nvim
-  if [ "$(uname -s)" = "Darwin" ]; then
-    sed -Ei '.bak' "s/stella-$NOT_COLOR/stella-$COLOR/" "$HOME/dotfiles/nvim/.config/nvim/init.lua"
-    rm "$HOME/dotfiles/nvim/.config/nvim/init.lua.bak"
-  elif [ "$(uname -s)" = "Linux" ]; then
-    sed -Ei "s/stella-$NOT_COLOR/stella-$COLOR/" "$HOME/dotfiles/nvim/.config/nvim/init.lua"
-  fi
+# Kitty
+cp "$HOME/.config/kitty/themes/stella-$COLOR.conf" "$HOME/.config/kitty/current-theme.conf"
 
-  # Wallpaper
-  if [ "$(uname -s)" = "Darwin" ]; then
-    osascript -e "tell application \"Finder\" to set desktop picture to POSIX file \"$HOME/Pictures/celeste-$COLOR.png\""
-  fi
+# Spacebar
+cp -a "$HOME/.config/spacebar/themes/stella-$COLOR" "$HOME/.config/spacebar/current-theme"
+brew services restart spacebar
 
-  # Dark/Light Mode
+# Yabai
+cp -a "$HOME/.config/yabai/themes/stella-$COLOR" "$HOME/.config/yabai/current-theme"
+brew services restart yabai
+
+# Zathura
+cp -a "$HOME/.config/zathura/themes/stella-$COLOR" "$HOME/.config/zathura/current-theme"
+
+# Nvim
+if [ "$(uname -s)" = "Darwin" ]; then
+  sed -Ei '.bak' "s/stella-$OLD_COLOR/stella-$COLOR/" "$HOME/dotfiles/nvim/.config/nvim/init.lua"
+  rm "$HOME/dotfiles/nvim/.config/nvim/init.lua.bak"
+elif [ "$(uname -s)" = "Linux" ]; then
+  sed -Ei "s/stella-$OLD_COLOR/stella-$COLOR/" "$HOME/dotfiles/nvim/.config/nvim/init.lua"
+fi
+
+# Wallpaper
+if [ "$(uname -s)" = "Darwin" ]; then
+  osascript -e "tell application \"Finder\" to set desktop picture to POSIX file \"$HOME/Pictures/celeste-$COLOR.png\""
+fi
+
+# Dark/Light Mode
   if [ "$COLOR" = "dark" ]; then
     osascript -e 'tell app "System Events" to tell appearance preferences to set dark mode to true'
   elif [ "$COLOR" = "light" ]; then
     osascript -e 'tell app "System Events" to tell appearance preferences to set dark mode to false'
   fi
-
-  # Spacebar
-  cp -a "$HOME/.config/spacebar/themes/stella-$COLOR" "$HOME/.config/spacebar/current-theme"
-  brew services restart spacebar
-
-  # Yabai
-  cp -a "$HOME/.config/yabai/themes/stella-$COLOR" "$HOME/.config/yabai/current-theme"
-  brew services restart yabai
-
-  # Zathura
-  cp -a "$HOME/.config/zathura/themes/stella-$COLOR" "$HOME/.config/zathura/current-theme"
 }
 
 if [ "$1" = "light" ]; then
   COLOR="light"
-  NOT_COLOR="dark"
+  OLD_COLOR="dark"
   color
 elif [ "$1" = "dark" ]; then
   COLOR="dark"
-  NOT_COLOR="light"
+  OLD_COLOR="light"
   color
 fi
