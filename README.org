@@ -6,11 +6,13 @@
 1. git clone this repo to =~/<somedir>=, e.g. =~/dotfiles=
 2. cd to the dotfiles directory
 3. You will need [[https://www.gnu.org/software/stow][GNU Stow]]
-4. Use ~stow~ to stow the modules you need, e.g. ~stow nvim~ will stow the neovim config in your local =~/.config/nvim= directory
+4. Use ~stow~ to stow the modules you need, e.g. ~stow nvim~ will stow
+   the neovim config in your local =~/.config/nvim= directory
 
 * Managing Programs
 To install/update programs two dependencies are needed:
-- [[https://nixos.org][Nix]] and [[https://github.com/nix-community/home-manager][Home-manager]]
+- [[https://nixos.org][Nix]] and
+  [[https://github.com/nix-community/home-manager][Home-manager]]
 - [[https://brew.sh][Brew]]
 
 The makefile can be used for all regular updating/installing, the rules are explained below.
