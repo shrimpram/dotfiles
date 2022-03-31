@@ -1,5 +1,7 @@
 #!/usr/bin/env sh
 
+set -e
+
 color () {
   # Kitty
   cp "$HOME/.config/kitty/themes/stella-$COLOR.conf" "$HOME/.config/kitty/current-theme.conf"
