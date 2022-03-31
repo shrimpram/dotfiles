@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+PATH=$HOME/.nix-profile/bin:/opt/homebrew/bin:/bin:/usr/bin:/usr/local/bin:$HOME/.local/bin:/sbin:/usr/sbin:
+set -e
 
 out="$(mailsync)"
 line="$(echo "$out" | tail -n1)"
