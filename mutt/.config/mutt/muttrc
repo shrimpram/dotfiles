@@ -1,7 +1,9 @@
 # vim: filetype=neomuttrc
 source /usr/local/share/mutt-wizard/mutt-wizard.muttrc
-source /Users/shreeram/.config/mutt/accounts/shreerammodi10@gmail.com.muttrc
-macro index,pager i1 '<sync-mailbox><enter-command>source /Users/shreeram/.config/mutt/accounts/shreerammodi10@gmail.com.muttrc<enter><change-folder>!<enter>;<check-stats>' "switch to shreerammodi10@gmail.com"
+source /Users/shreeram/.config/mutt/accounts/shreeram.modi@nyu.edu.muttrc
+
+macro index,pager i1 '<sync-mailbox><enter-command>source /Users/shreeram/.config/mutt/accounts/shreeram.modi@nyu.edu.muttrc<enter><change-folder>!<enter>;<check-stats>' "switch to shreeram.modi@nyu.edu"
+macro index,pager i2 '<sync-mailbox><enter-command>source /Users/shreeram/.config/mutt/accounts/shreerammodi10@gmail.com.muttrc<enter><change-folder>!<enter>;<check-stats>' "switch to shreerammodi10@gmail.com"
 
 
 # Send mail to custom folder
