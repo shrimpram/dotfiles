@@ -23,10 +23,10 @@
 ;;       doom-variable-pitch-font (font-spec :family "sans" :size 13))
 
 (setq
- doom-font (font-spec :family "Hasklig" :size 13 :weight 'regular)
+ doom-font (font-spec :family "Consolas NF" :size 13 :weight 'regular)
  doom-variable-pitch-font (font-spec :family "Courier Prime" :size 16 :weight 'regular)
- doom-big-font (font-spec :family "Lato" :size 16 :weight 'regular)
- )
+ doom-big-font (font-spec :family "Lato" :size 16 :weight 'regular))
+ 
 
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
@@ -83,14 +83,14 @@
   ;; Sending mail
   (setq smtpmail-default-smtp-server "smtp.gmail.com")
   (setq smtpmail-smtp-server "smtp.gmail.com")
-  (setq smtpmail-smtp-service 587)
-  )
+  (setq smtpmail-smtp-service 587))
+  
 
 
 ;; Use mu4e with org mode
 (use-package mu4e-org
-  :defer 20
-  )
+  :defer 20)
+  
 
 
 ;; Org capture templates
