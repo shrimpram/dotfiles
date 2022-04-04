@@ -31,11 +31,11 @@ if [ "$(uname -s)" = "Darwin" ]; then
 fi
 
 # Dark/Light Mode
-  if [ "$COLOR" = "dark" ]; then
-    osascript -e 'tell app "System Events" to tell appearance preferences to set dark mode to true'
-  elif [ "$COLOR" = "light" ]; then
-    osascript -e 'tell app "System Events" to tell appearance preferences to set dark mode to false'
-  fi
+if [ "$COLOR" = "dark" ]; then
+  osascript -e 'tell app "System Events" to tell appearance preferences to set dark mode to true'
+elif [ "$COLOR" = "light" ]; then
+  osascript -e 'tell app "System Events" to tell appearance preferences to set dark mode to false'
+fi
 }
 
 if [ "$1" = "light" ]; then

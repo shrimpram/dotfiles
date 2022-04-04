@@ -88,19 +88,19 @@ is changed between stella-dark and stella-light. Services
 as well.
 
 #+begin_src bash :tangle colors :shebang "#!/usr/bin/env sh"
-  # Kitty
-  cp "$HOME/.config/kitty/themes/stella-$COLOR.conf" "$HOME/.config/kitty/current-theme.conf"
+# Kitty
+cp "$HOME/.config/kitty/themes/stella-$COLOR.conf" "$HOME/.config/kitty/current-theme.conf"
 
-  # Spacebar
-  cp -a "$HOME/.config/spacebar/themes/stella-$COLOR" "$HOME/.config/spacebar/current-theme"
-  brew services restart spacebar
+# Spacebar
+cp -a "$HOME/.config/spacebar/themes/stella-$COLOR" "$HOME/.config/spacebar/current-theme"
+brew services restart spacebar
 
-  # Yabai
-  cp -a "$HOME/.config/yabai/themes/stella-$COLOR" "$HOME/.config/yabai/current-theme"
-  brew services restart yabai
+# Yabai
+cp -a "$HOME/.config/yabai/themes/stella-$COLOR" "$HOME/.config/yabai/current-theme"
+brew services restart yabai
 
-  # Zathura
-  cp -a "$HOME/.config/zathura/themes/stella-$COLOR" "$HOME/.config/zathura/current-theme"
+# Zathura
+cp -a "$HOME/.config/zathura/themes/stella-$COLOR" "$HOME/.config/zathura/current-theme"
 #+end_src
 
 For neovim the color scheme is set inside =init.lua=, and so sed is
@@ -110,23 +110,23 @@ are slightly different. Sed on Mac requires the backup file extension to also
 be passed as an argument, whereas sed on Linux does not.
 
 #+begin_src bash :tangle colors :shebang "#!/usr/bin/env sh"
-  # Nvim
-  if [ "$(uname -s)" = "Darwin" ]; then
-    sed -Ei '.bak' "s/stella-$OLD_COLOR/stella-$COLOR/" "$HOME/dotfiles/nvim/.config/nvim/init.lua"
-    rm "$HOME/dotfiles/nvim/.config/nvim/init.lua.bak"
-  elif [ "$(uname -s)" = "Linux" ]; then
-    sed -Ei "s/stella-$OLD_COLOR/stella-$COLOR/" "$HOME/dotfiles/nvim/.config/nvim/init.lua"
-  fi
+# Nvim
+if [ "$(uname -s)" = "Darwin" ]; then
+  sed -Ei '.bak' "s/stella-$OLD_COLOR/stella-$COLOR/" "$HOME/dotfiles/nvim/.config/nvim/init.lua"
+  rm "$HOME/dotfiles/nvim/.config/nvim/init.lua.bak"
+elif [ "$(uname -s)" = "Linux" ]; then
+  sed -Ei "s/stella-$OLD_COLOR/stella-$COLOR/" "$HOME/dotfiles/nvim/.config/nvim/init.lua"
+fi
 #+end_src
 
 Applescript lets us change the wallpaper, however the main drawback is
 that it only allows us to change the wallpaper of the current desktop.
 
 #+begin_src bash :tangle colors :shebang "#!/usr/bin/env sh"
-  # Wallpaper
-  if [ "$(uname -s)" = "Darwin" ]; then
-    osascript -e "tell application \"Finder\" to set desktop picture to POSIX file \"$HOME/Pictures/celeste-$COLOR.png\""
-  fi
+# Wallpaper
+if [ "$(uname -s)" = "Darwin" ]; then
+  osascript -e "tell application \"Finder\" to set desktop picture to POSIX file \"$HOME/Pictures/celeste-$COLOR.png\""
+fi
 #+end_src
 
 Applescript also lets us change between the system's dark and light
@@ -134,12 +134,12 @@ modes, which also change apps that allow the colorscheme to be set to
 match the system.
 
 #+begin_src bash :tangle colors :shebang "#!/usr/bin/env sh"
-  # Dark/Light Mode
-  if [ "$COLOR" = "dark" ]; then
-    osascript -e 'tell app "System Events" to tell appearance preferences to set dark mode to true'
-  elif [ "$COLOR" = "light" ]; then
-    osascript -e 'tell app "System Events" to tell appearance preferences to set dark mode to false'
-  fi
+# Dark/Light Mode
+if [ "$COLOR" = "dark" ]; then
+  osascript -e 'tell app "System Events" to tell appearance preferences to set dark mode to true'
+elif [ "$COLOR" = "light" ]; then
+  osascript -e 'tell app "System Events" to tell appearance preferences to set dark mode to false'
+fi
 }
 #+end_src
 
