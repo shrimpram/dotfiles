@@ -85,10 +85,12 @@
 
         # Lang
 
+        R
         asciidoc
         asciidoctor
         go
         jq
+        lua
         lua53Packages.luarocks
         nodePackages.write-good
         python38
