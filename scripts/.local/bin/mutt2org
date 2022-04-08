@@ -1,0 +1,21 @@
+#!/usr/bin/env sh
+set -e
+
+export ORGFILE="$HOME/Dropbox/org/inbox.org"
+export TEMP
+TEMP="$(mktemp)"
+
+grep -E '^Subject: |^From: ' | sed 's/.*: //; s/ <.*@.*>//; 2s/\(.*\)/(\1) :email:/; 1s/^/* TODO Email from /' | paste -d " " - - > "$TEMP"
+
+echo "SCHEDULED: <$(date +%Y-%m-%d)>" >> "$TEMP"
+
+if [ -e "$ORGFILE" ]
+then
+  cat "$TEMP" >> "$ORGFILE"
+  rm "$TEMP"
+  exit 0
+else
+  echo "Error \$ORGFILE does not exist!"
+  rm "$TEMP"
+  exit 1
+fi
