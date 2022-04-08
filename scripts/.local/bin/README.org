@@ -1,6 +1,6 @@
 #+title: Scripts
 #+author: Shreeram Modi
-#+OPTIONS: toc:1
+#+options: toc:1
 
 This is a collection of scripts that I find useful, they are explained
 below, mostly for my own documentation.
@@ -47,6 +47,47 @@ taskwarrior with the email tag, and the temp file is removed.
 task add +email "$(cat "$TEMP")"
 
 rm "$TEMP"
+#+end_src
+
+* =mutt2org=
+This script is very similar to =mutt2task= but instead of taskwarrior it
+converts an email into a task for org mode.
+
+Since org mode tasks are stored in specific files the script needs to
+identify the file to save the task to.
+#+begin_src bash :tangle mutt2org :shebang "#!/usr/bin/env sh"
+set -e
+
+export ORGFILE="$HOME/Dropbox/org/inbox.org"
+export TEMP
+TEMP="$(mktemp)"
+#+end_src
+
+This just reuses the =grep= and =sed= commands from =mutt2task= except
+modified to apply better to org files.
+#+begin_src bash :tangle mutt2org :shebang "#!/usr/bin/env sh"
+grep -E '^Subject: |^From: ' | sed 's/.*: //; s/ <.*@.*>//; 2s/\(.*\)/(\1) :email:/; 1s/^/* TODO Email from /' | paste -d " " - - > "$TEMP"
+#+end_src
+
+The task should show up on the current day of the org agenda so it is
+scheduled for today using =date= with the appropriate format for org.
+#+begin_src bash :tangle mutt2org :shebang "#!/usr/bin/env sh"
+echo "SCHEDULED: <$(date +%Y-%m-%d)>" >> "$TEMP"
+#+end_src
+
+The specified org file should exist, if it doesn't then the script
+throws an error.
+#+begin_src bash :tangle mutt2org :shebang "#!/usr/bin/env sh"
+if [ -e "$ORGFILE" ]
+then
+  cat "$TEMP" >> "$ORGFILE"
+  rm "$TEMP"
+  exit 0
+else
+  echo "Error \$ORGFILE does not exist!"
+  rm "$TEMP"
+  exit 1
+fi
 #+end_src
 
 * =org-tangle=
