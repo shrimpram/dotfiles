@@ -33,6 +33,7 @@ cask "jabref"
 cask "logseq"
 cask "mac-mouse-fix"
 cask "malwarebytes"
+cask "mendeley"
 cask "messenger"
 cask "obsidian"
 cask "raycast"
@@ -42,8 +43,6 @@ cask "spotify"
 cask "syncthing"
 cask "visual-studio-code"
 cask "whatsapp"
-cask "zotero"
-
 
 # Optionals for mutt
 
