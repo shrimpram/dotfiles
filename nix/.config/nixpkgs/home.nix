@@ -82,6 +82,7 @@
         terminal-notifier
         tesseract
         youtube-dl
+        zathura
 
         # Lang
 
