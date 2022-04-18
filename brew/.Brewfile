@@ -15,6 +15,7 @@ brew "pinentry-mac"
 brew "koekeishiya/formulae/yabai"
 brew "koekeishiya/formulae/skhd"
 brew "spacebar"
+brew "pueue"
 
 # Cask
 
