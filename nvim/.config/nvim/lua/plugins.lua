@@ -289,6 +289,9 @@ return require('packer').startup(function()
   -- Mustache/Handlebars
   use { 'mustache/vim-mustache-handlebars', ft = 'html' }
 
+  -- Ledger
+  use { 'ledger/vim-ledger', ft = 'ledger' }
+
   -- Colorschemes
   use {
     '$HOME/Documents/stella/vim',
