@@ -13,6 +13,7 @@
       et = "exa --tree --level=2 --long --header --git --icons --classify --all";
       lg = "lazygit";
       ca = "gcalcli";
+      p  = "pueue";
     };
     plugins = with pkgs; [
     {
