@@ -117,3 +117,25 @@ wk.register({
     p = { '<CMD>ScratchPreview<CR>', 'Preview Scratch Buffer' },
   },
 }, { prefix = '<leader>' })
+
+wk.register({
+  o = {
+    name = '+orgmode',
+    c = { 'Org Capture' },
+    a = { 'Org Agenda' },
+    r = { 'Refile subtree' },
+    o = { 'Open hyperlink' },
+    t = { 'Change tags' },
+    A = { 'Toggle archive tag' },
+    K = { 'Move subtree up' },
+    J = { 'Move subtree down' },
+    e = { 'Export' },
+  },
+  oi = {
+    h = { 'Add new headline after subtree' },
+    T = { 'Add new TODO on next line' },
+    t = { 'Add new TODO after subtree' },
+    d = { 'Insert/update deadline' },
+    s = { 'Insert/update scheduled' },
+  }
+}, { prefix = '<leader>' })
