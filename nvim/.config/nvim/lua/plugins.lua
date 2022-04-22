@@ -215,7 +215,6 @@ return require('packer').startup(function()
   use {
     'karb94/neoscroll.nvim',
     config = function() require('neoscroll').setup{} end,
-    event = 'WinScrolled',
   }
 
   --- Statusline
