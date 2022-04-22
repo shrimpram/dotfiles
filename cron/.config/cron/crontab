@@ -1,1 +1,2 @@
 */15 * * * * $HOME/.local/bin/mail-autosync
+*/15 * * * * $HOME/.nix-profile/bin/calcurse-caldav
