@@ -21,5 +21,8 @@ spacebar -m config dnd_icon             
 spacebar -m config clock_format         "%a %D %I:%M %p"
 spacebar -m config left_shell           on
 spacebar -m config left_shell_command   "echo $(whoami)@$(hostname)"
+spacebar -m config right_shell          on
+spacebar -m config right_shell_icon     
+spacebar -m config right_shell_command  "defaults read ~/Library/Preferences/com.apple.HIToolbox.plist AppleSelectedInputSources | egrep -w 'KeyboardLayout Name' | sed -E 's/^.+ = \"?([^\"]+)\"?;$/\1/'"
 
 . "$HOME/.config/spacebar/current-theme"
