@@ -97,6 +97,7 @@
         lua53Packages.luarocks
         nodePackages.write-good
         python38
+        pythonPackages.httplib2
         ruby
         rustc
         shellcheck
