@@ -103,6 +103,7 @@
         stylua
         texlive.combined.scheme-full
         vim-vint
+        yq
 
         # Emacs
 
