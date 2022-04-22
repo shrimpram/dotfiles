@@ -122,6 +122,11 @@ ls.add_snippets(nil, {
     s("/", {
       t("\\frac{"), i(1), t("}"), t("{"), i(2), t("}")
     }),
+    s({trig = "((%d*)(%\\?)(%a*)(%^?)(%_?)(%d*))/", wordTrig = true, regTrig = true}, {
+      t("\\frac{"),
+      f(function(args, snip) return snip.captures[1] end, {}),
+      t("}{"), i(1), t("}"),
+    }),
     s("*", {
       t("\\cdot"),
     }),
