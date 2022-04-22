@@ -58,6 +58,7 @@
         git-crypt
         git-lfs
         gnupg
+        hledger
         htop
         lazygit
         neofetch
