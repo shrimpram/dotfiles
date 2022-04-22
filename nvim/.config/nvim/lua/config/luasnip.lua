@@ -113,11 +113,11 @@ ls.add_snippets(nil, {
     s("sr", {
       t("\\sqrt{"), i(1), t("}")
     }),
-    s("^", {
-      t("^{"), i(1), t("}")
+    s({trig = "^", wordTrig = false}, {
+        t("^{"), i(1), t("}")
     }),
-    s("_", {
-      t("_{"), i(1), t("}")
+    s({trig = "_", wordTrig = false}, {
+        t("_{"), i(1), t("}")
     }),
     s("/", {
       t("\\frac{"), i(1), t("}"), t("{"), i(2), t("}")
