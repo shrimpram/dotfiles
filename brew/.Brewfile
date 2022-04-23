@@ -11,11 +11,11 @@ tap "cmacrae/formulae"
 # Core
 
 brew "gnu-sed"
-brew "pinentry-mac"
-brew "koekeishiya/formulae/yabai"
 brew "koekeishiya/formulae/skhd"
-brew "spacebar"
+brew "koekeishiya/formulae/yabai"
+brew "pinentry-mac"
 brew "pueue"
+brew "spacebar"
 
 # Cask
 
