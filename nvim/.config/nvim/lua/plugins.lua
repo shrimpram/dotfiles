@@ -234,7 +234,7 @@ return require('packer').startup(function()
       vim.g.neomake_tex_enabled_makers = { 'chktex' }
       vim.g.neomake_error_sign = { text = '✖' }
       vim.g.neomake_warning_sign = { text = '‼' }
-      vim.g.neomake_info_sign = { text = '' }
+      vim.g.neomake_info_sign = { text = '' }
       vim.g.neomake_message_sign = { text = '' }
       vim.api.nvim_set_keymap( 'n', ']c', [[<CMD>cnext<CR>]], {noremap = true, silent = true} )
       vim.api.nvim_set_keymap( 'n', '[c', [[<CMD>cprev<CR>]], {noremap = true, silent = true} )
