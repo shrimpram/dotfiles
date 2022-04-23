@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
-
-trackid=$(spt playback --share-track | sed 's/https:\/\/open.spotify.com\/track\///') 
+trackid=$(spt playback --share-track | sed 's/https:\/\/open.spotify.com\/track\///')
 
 trackimage=$(curl -s "https://open.spotify.com/oembed?url=spotify:track:$trackid" | jq '.thumbnail_url')
 
-spt playback --status | spt playback --status | sed 's/^. //' | terminal-notifier -title "Now Playing" -contentImage "$trackimage" -open "$(spt playback --share-album)" -m
+spt playback --status | sed 's/^. //' | terminal-notifier -title "Now Playing" -contentImage "$trackimage" -open "$(spt playback --share-album)" -m

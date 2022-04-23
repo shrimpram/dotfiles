@@ -201,3 +201,40 @@ elif [ "$1" = "dark" ]; then
   color
 fi
 #+end_src
+
+* =spt-np=
+This script gets the currently playing song using
+[[https://github.com/Rigellute/spotify-tui][spt]], fetches the album art
+through the Spotify API and uses
+[[https://github.com/julienXX/terminal-notifier][terminal-notifier]] to
+display the song name, artist, and album art.
+
+To interact with the Spotify API we need just the track id. However, ~spt~
+returns the url of the currently playing track. So the track id is
+parsed from the url using ~sed~.
+
+#+begin_src bash :tangle spt-np :shebang "#!/usr/bin/env bash"
+trackid=$(spt playback --share-track | sed 's/https:\/\/open.spotify.com\/track\///') 
+#+end_src
+
+To get the thumbnail image we can use Spotify's oEmbed service, see
+[[https://stackoverflow.com/a/18294883][this]] stack overflow post for
+more info. Using the track id, we're able to fetch information about the
+currently playing track from Spotify, then parse the thumbnail url using
+[[https://github.com/stedolan/jq][jq]].
+
+#+begin_src bash :tangle spt-np :shebang "#!/usr/bin/env bash"
+trackimage=$(curl -s "https://open.spotify.com/oembed?url=spotify:track:$trackid" | jq '.thumbnail_url')
+#+end_src
+
+This is the final part of the script, the actual notification section.
+The first ~spt~ and ~sed~ commands get just the track and artist name.
+~spt~ prepends this with a playing/paused symbol, so ~sed~ removes the
+first character and the following space. This info is then passed to
+~terminal-notifier~ as the notification message. ~$trackimage~ is used
+as the content image, and the album link is also used so that if the
+notification is clicked the album will open on Spotify.
+
+#+begin_src bash :tangle spt-np :shebang "#!/usr/bin/env bash"
+spt playback --status | sed 's/^. //' | terminal-notifier -title "Now Playing" -contentImage "$trackimage" -open "$(spt playback --share-album)" -m
+#+end_src
