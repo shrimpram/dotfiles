@@ -218,10 +218,10 @@ trackid=$(spt playback --share-track | sed 's/https:\/\/open.spotify.com\/track\
 #+end_src
 
 To get the thumbnail image we can use Spotify's oEmbed service, see
-[[https://stackoverflow.com/a/18294883][this]] stack overflow post for
-more info. Using the track id, we're able to fetch information about the
-currently playing track from Spotify, then parse the thumbnail url using
-[[https://github.com/stedolan/jq][jq]].
+[[https://stackoverflow.com/a/18294883][this]] stack overflow comment
+for more info. Using the track id, we're able to fetch information about
+the currently playing track from Spotify, then parse the thumbnail url
+using [[https://github.com/stedolan/jq][jq]].
 
 #+begin_src bash :tangle spt-np :shebang "#!/usr/bin/env bash"
 trackimage=$(curl -s "https://open.spotify.com/oembed?url=spotify:track:$trackid" | jq '.thumbnail_url')
@@ -237,9 +237,14 @@ album will open on Spotify.
 
 Note that the ~sed~ command only works when ==, =▶= == are the spt
 icons for favorite, playing, and paused, respectively. An idea I had was
-using inverse matching, such as ~spt pb --status | sed
-'s/[^A-Za-z0-9]*//'~, but the issue is that such matching wouldn't work
-with any non-English song titles, which is quite a few songs in my
+using inverse matching, such as:
+
+#+begin_src bash
+spt pb --status | sed 's/[^A-Za-z0-9]*//'
+#+end_src
+
+However, the issue with the above example that such matching wouldn't
+work with any non-English song titles, which is quite a few songs in my
 library.
 
 #+begin_src bash :tangle spt-np :shebang "#!/usr/bin/env bash"
