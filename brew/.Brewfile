@@ -44,10 +44,6 @@ cask "syncthing"
 cask "visual-studio-code"
 cask "whatsapp"
 
-# Optionals for mutt
-
-brew "abook"
-
 # Optionals for nnn previews
 
 brew "ffmpeg"
