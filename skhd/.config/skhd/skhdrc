@@ -150,17 +150,5 @@ ctrl + alt - down  : yabai -m window --stack south
 ctrl + alt - up    : yabai -m window --stack north
 ctrl + alt - right : yabai -m window --stack east
 
-## flip the tree vertically
-#hyper - 4 : yabai -m space --mirror y-axis
-## mirror tree y-axis
-#alt - y : yabai -m space --mirror y-axis
-## mirror tree x-axis
-#alt - x : yabai -m space --mirror x-axis
-
-# Move active window to next space on current display
-# ctrl + alt - 1 : yabai -m query --spaces --space | jq -re ".index" | xargs -I {} bash -c "if [[ '{}' = '1' ]]; then yabai -m window --space 2; elif [[ '{}' = '2' ]]; then yabai -m window --space 1; fi"
-# ctrl + alt - 2 : yabai -m query --spaces --space | jq -re ".index" | xargs -I {} bash -c "if [[ '{}' = '3' ]]; then yabai -m window --space 4; elif [[ '{}' = '4' ]]; then yabai -m window --space 3; fi"
-# ctrl + alt - 3 : yabai -m query --spaces --space | jq -re ".index" | xargs -I {} bash -c "if [[ '{}' = '5' ]]; then yabai -m window --space 6; elif [[ '{}' = '6' ]]; then yabai -m window --space 5; fi"
-
 # Toggle window fullscreen zoom
 ctrl + alt - f : yabai -m window --toggle zoom-fullscreen
