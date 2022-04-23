@@ -165,3 +165,7 @@ ctrl + alt - w : yabai -m space --destroy
 ctrl + alt - 1  : yabai -m display --focus 1
 ctrl + alt - 2  : yabai -m display --focus 2
 ctrl + alt - 3  : yabai -m display --focus 3
+
+# toggle float
+ctrl + alt + shift - space : yabai -m window --toggle float;\
+       yabai -m window --grid 8:8:1:1:6:6
