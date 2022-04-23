@@ -150,5 +150,6 @@ ctrl + alt - down  : yabai -m window --stack south
 ctrl + alt - up    : yabai -m window --stack north
 ctrl + alt - right : yabai -m window --stack east
 
-# Toggle window fullscreen zoom
+# toggle window fullscreen
 ctrl + alt - f : yabai -m window --toggle zoom-fullscreen
+ctrl + alt - space : yabai -m window --toggle native-fullscreen
