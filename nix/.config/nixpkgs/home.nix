@@ -81,6 +81,7 @@
         poppler_utils
         pubs
         python39Packages.argcomplete
+        spotifyd
         spotify-tui
         terminal-notifier
         tesseract
