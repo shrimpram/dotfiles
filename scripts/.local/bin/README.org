@@ -229,12 +229,19 @@ trackimage=$(curl -s "https://open.spotify.com/oembed?url=spotify:track:$trackid
 
 This is the final part of the script, the actual notification section.
 The first ~spt~ and ~sed~ commands get just the track and artist name.
-~spt~ prepends this with a playing/paused symbol, so ~sed~ removes the
-first character and the following space. This info is then passed to
-~terminal-notifier~ as the notification message. ~$trackimage~ is used
-as the content image, and the album link is also used so that if the
-notification is clicked the album will open on Spotify.
+~spt~ prepends this with a playing/paused symbol, so ~sed~ removes those
+characters. This info is then passed to ~terminal-notifier~ as the
+notification message. ~$trackimage~ is used as the content image, and
+the album link is also used so that if the notification is clicked the
+album will open on Spotify.
+
+Note that the ~sed~ command only works when ==, =▶= == are the spt
+icons for favorite, playing, and paused, respectively. An idea I had was
+using inverse matching, such as ~spt pb --status | sed
+'s/[^A-Za-z0-9]*//'~, but the issue is that such matching wouldn't work
+with any non-English song titles, which is quite a few songs in my
+library.
 
 #+begin_src bash :tangle spt-np :shebang "#!/usr/bin/env bash"
-spt playback --status | sed 's/^. //' | terminal-notifier -title "Now Playing" -contentImage "$trackimage" -open "$(spt playback --share-album)" -m
+spt playback --status | sed 's/ //; s/▶ //; s/ //' | terminal-notifier -title "Now Playing" -contentImage "$trackimage" -open "$(spt playback --share-album)" -m
 #+end_src
