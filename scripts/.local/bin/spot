@@ -9,11 +9,18 @@ usage="$(basename "$0") [nowplaying lyrics] -- support program to interact with 
 
 vars () {
 
-enc="$(echo -n "$(pass show Media/spt | gsed -z 's/\n/:/')" | openssl base64 | tr -d '\n')"
+enc="$(echo -n "$(pass show Media/spt \
+  | gsed -z 's/\n/:/')" \
+  | openssl base64 \
+  | tr -d '\n')"
 
-token=$(curl -sX "POST" -H "Authorization: Basic $enc" -d grant_type=client_credentials https://accounts.spotify.com/api/token | jq '.access_token' | tr -d '"')
+token=$(curl -sX "POST" -H "Authorization: Basic $enc" \
+  -d grant_type=client_credentials https://accounts.spotify.com/api/token \
+  | jq '.access_token' \
+  | tr -d '"')
 
-trackid=$(spt playback --share-track | sed 's/https:\/\/open.spotify.com\/track\///')
+trackid=$(spt playback --share-track \
+  | sed 's/https:\/\/open.spotify.com\/track\///')
 
 trackimage=$(curl -s "https://open.spotify.com/oembed?url=spotify:track:$trackid" | jq '.thumbnail_url')
 
@@ -23,7 +30,11 @@ trackinfo=$(curl -sX "GET" "https://api.spotify.com/v1/tracks/$trackid?market=ES
 nowplaying () {
   vars
 
-  terminal-notifier -title "Now Playing" -contentImage "$trackimage" -open "$(spt playback --share-album)" -message "$(echo "$trackinfo" | jq '.name')"
+  terminal-notifier \
+    -title "$(echo "$trackinfo" | jq '.name' | tr -d '"')" \
+    -contentImage "$trackimage" \
+    -open "$(spt playback --share-album)" \
+    -message "$(echo "$trackinfo" | jq '.artists[] .name' | tr -d '"')"
 }
 
 lyrics () {
@@ -32,12 +43,18 @@ lyrics () {
   export GENIUS_ACCESS_TOKEN
   GENIUS_ACCESS_TOKEN="$(pass show Media/Genius | tail -n1)";
 
-  fullname="$(echo "$trackinfo" | jq '.name' | sed 's/^"//; s/"$//') $(echo "$trackinfo" | jq '.artists[] .name' | sed 's/^"//; s/"$//')"
+  fullname="$(echo "$trackinfo" \
+    | jq '.name' \
+    | sed 's/^"//; s/"$//') $(echo "$trackinfo" \
+    | jq '.artists[] .name' \
+    | sed 's/^"//; s/"$//')"
 
   temp="$(mktemp -d)"
   cd "$temp"
   lyricsgenius --save song "$fullname"
-  jq '.lyrics' lyrics*.json | gsed -r '1s/^"//; $s/"$//; $s/[0-9]*Embed$//; s/\\n/\n/g; 1s/(.*Lyrics)(.*)/\1\n\n\2/' | $PAGER
+  jq '.lyrics' lyrics*.json \
+    | gsed -r '1s/^"//; $s/"$//; $s/[0-9]*Embed$//; s/\\n/\n/g; 1s/(.*Lyrics)(.*)/\1\n\n\2/' \
+    | $PAGER
   rm -r "$temp"
 }
 

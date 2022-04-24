@@ -211,7 +211,7 @@ elif [ "$1" = "dark" ]; then
 fi
 #+end_src
 
-* ~spot~
+*** ~spot~
 This script is a helper script for
 [[https://github.com/Rigellute/spotify-tui][spotify-tui]] that provides
 two functions, displaying the currently playing song as a notification
@@ -245,14 +245,20 @@ Spotify client ID and the second being the corresponding Client Secret.
 This is then encoded to be used with the Spotify API.
 
 #+begin_src bash :tangle spot :shebang "#!/usr/bin/env bash"
-enc="$(echo -n "$(pass show Media/spt | gsed -z 's/\n/:/')" | openssl base64 | tr -d '\n')"
+enc="$(echo -n "$(pass show Media/spt \
+  | gsed -z 's/\n/:/')" \
+  | openssl base64 \
+  | tr -d '\n')"
 #+end_src
 
 This requests an access token from Spotify using the encoded ID and
 Secret, the output is json so ~jq~ is used to parse just the token.
 
 #+begin_src bash :tangle spot :shebang "#!/usr/bin/env bash"
-token=$(curl -sX "POST" -H "Authorization: Basic $enc" -d grant_type=client_credentials https://accounts.spotify.com/api/token | jq '.access_token' | tr -d '"')
+token=$(curl -sX "POST" -H "Authorization: Basic $enc" \
+  -d grant_type=client_credentials https://accounts.spotify.com/api/token \
+  | jq '.access_token' \
+  | tr -d '"')
 #+end_src
 
 To interact with the Spotify API we need just the track id. However,
@@ -260,7 +266,8 @@ To interact with the Spotify API we need just the track id. However,
 parsed from the url using ~sed~.
 
 #+begin_src bash :tangle spot :shebang "#!/usr/bin/env bash"
-trackid=$(spt playback --share-track | sed 's/https:\/\/open.spotify.com\/track\///')
+trackid=$(spt playback --share-track \
+  | sed 's/https:\/\/open.spotify.com\/track\///')
 #+end_src
 
 To get the thumbnail image we can use Spotify's oEmbed service, see
@@ -295,7 +302,11 @@ song, ~trackimage~, and opens the album link when clicked.
 nowplaying () {
   vars
 
-  terminal-notifier -title "Now Playing" -contentImage "$trackimage" -open "$(spt playback --share-album)" -message "$(echo "$trackinfo" | jq '.name')"
+  terminal-notifier \
+    -title "$(echo "$trackinfo" | jq '.name' | tr -d '"')" \
+    -contentImage "$trackimage" \
+    -open "$(spt playback --share-album)" \
+    -message "$(echo "$trackinfo" | jq '.artists[] .name' | tr -d '"')"
 }
 #+end_src
 
@@ -329,12 +340,18 @@ lyrics () {
   export GENIUS_ACCESS_TOKEN
   GENIUS_ACCESS_TOKEN="$(pass show Media/Genius | tail -n1)";
 
-  fullname="$(echo "$trackinfo" | jq '.name' | sed 's/^"//; s/"$//') $(echo "$trackinfo" | jq '.artists[] .name' | sed 's/^"//; s/"$//')"
+  fullname="$(echo "$trackinfo" \
+    | jq '.name' \
+    | sed 's/^"//; s/"$//') $(echo "$trackinfo" \
+    | jq '.artists[] .name' \
+    | sed 's/^"//; s/"$//')"
 
   temp="$(mktemp -d)"
   cd "$temp"
   lyricsgenius --save song "$fullname"
-  jq '.lyrics' lyrics*.json | gsed -r '1s/^"//; $s/"$//; $s/[0-9]*Embed$//; s/\\n/\n/g; 1s/(.*Lyrics)(.*)/\1\n\n\2/' | $PAGER
+  jq '.lyrics' lyrics*.json \
+    | gsed -r '1s/^"//; $s/"$//; $s/[0-9]*Embed$//; s/\\n/\n/g; 1s/(.*Lyrics)(.*)/\1\n\n\2/' \
+    | $PAGER
   rm -r "$temp"
 }
 #+end_src
