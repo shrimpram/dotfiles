@@ -1,9 +1,16 @@
 #+title: Scripts
 #+author: Shreeram Modi
 #+options: toc:1
+#+property: header-args:bash :noweb yes
 
 This is a collection of scripts that I find useful, they are explained
 below, mostly for my own documentation.
+
+All scripts include this to exit on error
+#+name: error-handling
+#+begin_src bash
+set -e
+#+end_src
 
 * =mutt2task=
 This script creates a [[https://taskwarrior.org/][taskwarrior]] task
@@ -11,12 +18,12 @@ from an email in [[https://neomutt.org/][neomutt]]. The task format is
 ~Email from "<sender>" (<subject>)~, and it is tagged with the ~email~
 tag.
 
-This sets how the script should handle errors and creates a temp file
-for the script to use for sed operations. There's probably a cleaner way
-to do this that doesn't modify the filesystem but alas I am lazy.
+This creates a temp file for the script to use for sed operations.
+There's probably a cleaner way to do this that doesn't modify the
+filesystem but alas I am lazy.
 
 #+begin_src bash :tangle mutt2task :shebang "#!/usr/bin/env sh"
-set -e
+<<error-handling>>
 
 export TEMP
 TEMP="$(mktemp)"
@@ -55,8 +62,9 @@ converts an email into a task for org mode.
 
 Since org mode tasks are stored in specific files the script needs to
 identify the file to save the task to.
+
 #+begin_src bash :tangle mutt2org :shebang "#!/usr/bin/env sh"
-set -e
+<<error-handling>>
 
 export ORGFILE="$HOME/Dropbox/org/inbox.org"
 export TEMP
@@ -111,11 +119,10 @@ Both use the respective schemes from
 [[https://github.com/shrimpram/stella/][stella]], and the script just
 toggles between the light and dark versions.
 
-This sets how the script should handle errors and defines the color
-function.
+This defines the color function.
 
 #+begin_src bash :tangle colors :shebang "#!/usr/bin/env sh"
-set -e
+<<error-handling>>
 
 color () {
 #+end_src
