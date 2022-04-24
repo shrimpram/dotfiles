@@ -232,6 +232,13 @@ usage="$(basename "$0") [nowplaying lyrics] -- support program to interact with 
 "
 #+end_src
 
+All of the miscellaneous variables are wrapped in a function so that the
+respective commands aren't run unnecessarily.
+
+#+begin_src bash :tangle spot :shebang "#!/usr/bin/env bash"
+vars () {
+#+end_src
+
 To access the Spotify API we need an OAuth token, which is generated
 below. =Media/spt= should be a file with two lines, the first being a
 Spotify client ID and the second being the corresponding Client Secret.
@@ -272,6 +279,7 @@ needed.
 
 #+begin_src bash :tangle spot :shebang "#!/usr/bin/env bash"
 trackinfo=$(curl -sX "GET" "https://api.spotify.com/v1/tracks/$trackid?market=ES" -H "Accept: application/json" -H "Content-Type: application/json" -H "Authorization: Bearer $token")
+}
 #+end_src
 
 The nowplaying function shows the currently playing song as a
@@ -285,6 +293,8 @@ song, ~trackimage~, and opens the album link when clicked.
 
 #+begin_src bash :tangle spot :shebang "#!/usr/bin/env bash"
 nowplaying () {
+  vars
+
   terminal-notifier -title "Now Playing" -contentImage "$trackimage" -open "$(spt playback --share-album)" -message "$(echo "$trackinfo" | jq '.name')"
 }
 #+end_src
@@ -314,6 +324,8 @@ The temp directory is deleted and the output is piped to ~$PAGER~.
 
 #+begin_src bash :tangle spot :shebang "#!/usr/bin/env bash"
 lyrics () {
+  vars
+
   export GENIUS_ACCESS_TOKEN
   GENIUS_ACCESS_TOKEN="$(pass show Media/Genius | tail -n1)";
 
