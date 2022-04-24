@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -e
 
-usage="$(basename "$0") [nowplaying lyrics] -- support program to interact with spotify-tui
+usage="usage: $(basename "$0") <command>
 
   nowplaying (np)       show the currently playing song as a terminal-notifier notification
   lyrics (lr)           display the currently playing song's lyrics in \$PAGER
