@@ -4,7 +4,9 @@
 #+property: header-args:bash :noweb yes
 
 This is a collection of scripts that I find useful, they are explained
-below, mostly for my own documentation.
+below, mostly for my own documentation. All the scripts here are written
+literately and compiled using =org-babel-tangle=, see [[#org-tangle][the
+org-tangle script]].
 
 All scripts include this to exit on error
 #+name: error-handling
@@ -12,7 +14,7 @@ All scripts include this to exit on error
 set -e
 #+end_src
 
-* =mutt2task=
+* ~mutt2task~
 This script creates a [[https://taskwarrior.org/][taskwarrior]] task
 from an email in [[https://neomutt.org/][neomutt]]. The task format is
 ~Email from "<sender>" (<subject>)~, and it is tagged with the ~email~
@@ -56,7 +58,7 @@ task add +email "$(cat "$TEMP")"
 rm "$TEMP"
 #+end_src
 
-* =mutt2org=
+* ~mutt2org~
 This script is very similar to =mutt2task= but instead of taskwarrior it
 converts an email into a task for org mode.
 
@@ -98,7 +100,7 @@ else
 fi
 #+end_src
 
-* =org-tangle=
+* ~org-tangle~
 This script tangles org files from the command line, allowing you to
 generate files without the need to open up emacs. It was taken from
 [[https://orgmode.org/manual/Batch-Execution.html][the org manual]].
@@ -113,7 +115,7 @@ emacs -Q --batch --eval "
   " "$@"
 #+end_src
 
-* =colors=
+* ~colors~
 This script changes my desktop and programs between dark and light mode.
 Both use the respective schemes from
 [[https://github.com/shrimpram/stella/][stella]], and the script just
@@ -209,7 +211,7 @@ elif [ "$1" = "dark" ]; then
 fi
 #+end_src
 
-* =spot=
+* ~spot~
 This script is a helper script for
 [[https://github.com/Rigellute/spotify-tui][spotify-tui]] that provides
 two functions, displaying the currently playing song as a notification
