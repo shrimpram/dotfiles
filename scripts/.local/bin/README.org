@@ -250,7 +250,6 @@ To interact with the Spotify API we need just the track id. However,
 ~spt~ returns the url of the currently playing track. So the track id is
 parsed from the url using ~sed~.
 
-#+name: trackid
 #+begin_src bash :tangle spot :shebang "#!/usr/bin/env bash"
 trackid=$(spt playback --share-track | sed 's/https:\/\/open.spotify.com\/track\///')
 #+end_src
@@ -261,7 +260,6 @@ for more info. Using the track id, we're able to fetch information about
 the currently playing track from Spotify, then parse the thumbnail url
 using [[https://github.com/stedolan/jq][jq]].
 
-#+name: trackimage
 #+begin_src bash :tangle spot :shebang "#!/usr/bin/env bash"
 trackimage=$(curl -s "https://open.spotify.com/oembed?url=spotify:track:$trackid" | jq '.thumbnail_url')
 #+end_src
@@ -270,7 +268,6 @@ The curl command sends a get request to the tracks Spotify API using
 ~trackid~, and returns json output, which will be parsed later as
 needed.
 
-#+name: trackinfo
 #+begin_src bash :tangle spot :shebang "#!/usr/bin/env bash"
 trackinfo=$(curl -sX "GET" "https://api.spotify.com/v1/tracks/$trackid?market=ES" -H "Accept: application/json" -H "Content-Type: application/json" -H "Authorization: Bearer $token")
 #+end_src
@@ -286,14 +283,7 @@ song, ~trackimage~, and opens the album link when clicked.
 
 #+begin_src bash :tangle spot :shebang "#!/usr/bin/env bash"
 nowplaying () {
-#+end_src
-
-#+name: nowplaying
-#+begin_src bash :tangle spot :shebang "#!/usr/bin/env bash"
-terminal-notifier -title "Now Playing" -contentImage "$trackimage" -open "$(spt playback --share-album)" -message "$(echo "$trackinfo" | jq '.name')"
-#+end_src
-
-#+begin_src bash :tangle spot :shebang "#!/usr/bin/env bash"
+  terminal-notifier -title "Now Playing" -contentImage "$trackimage" -open "$(spt playback --share-album)" -message "$(echo "$trackinfo" | jq '.name')"
 }
 #+end_src
 
@@ -322,8 +312,8 @@ directory for ~lyricsgenius~ to save the song info json file to. Then jq
 parses the lyrics from the json file. The sed operations are explained
 in order, the ~r~ flag makes ~gsed~ use extended regular expressions,
 which are needed for capturing parentheses.
-1. Remove the ="= at the beginning of the first line
-2. Remove the ="= at the end of the last line
+1. Remove the double-quotes at the beginning of the first line
+2. Remove the double-quotes at the end of the last line
 3. Remove the numbers and "Embed" at the end of the last line
 4. Replace all =\n= with the proper newline characters
 5. Add two newlines after the song title
@@ -340,7 +330,7 @@ The temp directory is deleted and the output is piped to ~$PAGER~.
 #+end_src
 
 This just determines which command to run based on the first argument
-passed.
+passed. If no/undefined arguments are passed it shows usage help.
 
 #+begin_src bash :tangle spot :shebang "#!/usr/bin/env bash"
 case "$1" in
