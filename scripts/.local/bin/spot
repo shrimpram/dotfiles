@@ -25,9 +25,9 @@ lyrics () {
   export GENIUS_ACCESS_TOKEN
   GENIUS_ACCESS_TOKEN="$(pass show Media/Genius | tail -n1)";
 
-fullname="$(echo "$trackinfo" | jq '.name' | sed 's/^"//; s/"$//') $(echo "$trackinfo" | jq '.artists[] .name' | sed 's/^"//; s/"$//')"
+  fullname="$(echo "$trackinfo" | jq '.name' | sed 's/^"//; s/"$//') $(echo "$trackinfo" | jq '.artists[] .name' | sed 's/^"//; s/"$//')"
 
-temp="$(mktemp -d)"
+  temp="$(mktemp -d)"
   cd "$temp"
   lyricsgenius --save song "$fullname"
   jq '.lyrics' lyrics*.json | gsed -r '1s/^"//; $s/"$//; $s/[0-9]*Embed$//; s/\\n/\n/g; 1s/(.*Lyrics)(.*)/\1\n\n\2/' | $PAGER

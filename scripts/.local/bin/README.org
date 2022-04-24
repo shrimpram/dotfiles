@@ -294,19 +294,9 @@ The lyrics function needs a Genius API token, which is also gotten
 through pass and can be generated
 [[https://genius.com/api-clients][here]].
 
-#+begin_src bash :tangle spot :shebang "#!/usr/bin/env bash"
-lyrics () {
-  export GENIUS_ACCESS_TOKEN
-  GENIUS_ACCESS_TOKEN="$(pass show Media/Genius | tail -n1)";
-#+end_src
-
 ~fullname~ is just the name of the track and the name of the artist
 concatenated, which allows for a more accurate search using
 [[https://github.com/johnwmillr/LyricsGenius][lyricsgenius]].
-
-#+begin_src bash :tangle spot :shebang "#!/usr/bin/env bash"
-  fullname="$(echo "$trackinfo" | jq '.name' | sed 's/^"//; s/"$//') $(echo "$trackinfo" | jq '.artists[] .name' | sed 's/^"//; s/"$//')"
-#+end_src
 
 There's /probably/ a way to do this without requiring disk operations
 but I'm also /fairly/ lazy, PR's welcome though ;). We create a temp
@@ -323,6 +313,12 @@ which are needed for capturing parentheses.
 The temp directory is deleted and the output is piped to ~$PAGER~.
 
 #+begin_src bash :tangle spot :shebang "#!/usr/bin/env bash"
+lyrics () {
+  export GENIUS_ACCESS_TOKEN
+  GENIUS_ACCESS_TOKEN="$(pass show Media/Genius | tail -n1)";
+
+  fullname="$(echo "$trackinfo" | jq '.name' | sed 's/^"//; s/"$//') $(echo "$trackinfo" | jq '.artists[] .name' | sed 's/^"//; s/"$//')"
+
   temp="$(mktemp -d)"
   cd "$temp"
   lyricsgenius --save song "$fullname"
