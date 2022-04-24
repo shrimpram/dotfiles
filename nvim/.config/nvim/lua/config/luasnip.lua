@@ -197,5 +197,13 @@ ls.add_snippets(nil, {
       i(2),
       t({"", "#+end_"}), r(1),
     }),
+    s("cal", {
+      t({"", "--", "Location:"}), i(1),
+      t({"", "Import: TZID=America/"}),
+      c(2, {
+        t("Los_Angeles"),
+        t("New_York"),
+      }),
+    }),
   },
 })
