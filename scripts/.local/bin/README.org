@@ -209,19 +209,50 @@ elif [ "$1" = "dark" ]; then
 fi
 #+end_src
 
-* =spt-np=
-This script gets the currently playing song using
-[[https://github.com/Rigellute/spotify-tui][spt]], fetches the album art
-through the Spotify API and uses
-[[https://github.com/julienXX/terminal-notifier][terminal-notifier]] to
-display the song name, artist, and album art.
+* =spot=
+This script is a helper script for
+[[https://github.com/Rigellute/spotify-tui][spotify-tui]] that provides
+two functions, displaying the currently playing song as a notification
+through
+[[https://github.com/julienXX/terminal-notifier][terminal-notifier]],
+and fetching the song's lyrics through [[https://genius.com/][Genius]]
+and displaying them in ~$PAGER~.
 
-To interact with the Spotify API we need just the track id. However, ~spt~
-returns the url of the currently playing track. So the track id is
+This is just usage information for the script.
+
+#+begin_src bash :tangle spot :shebang "#!/usr/bin/env bash"
+<<error-handling>>
+
+usage="$(basename "$0") [nowplaying lyrics] -- support program to interact with spotify-tui
+
+  nowplaying (np)       show the currently playing song as a terminal-notifier notification
+  lyrics (lr)           display the currently playing song's lyrics in \$PAGER
+"
+#+end_src
+
+To access the Spotify API we need an OAuth token, which is generated
+below. =Media/spt= should be a file with two lines, the first being a
+Spotify client ID and the second being the corresponding Client Secret.
+This is then encoded to be used with the Spotify API.
+
+#+begin_src bash :tangle spot :shebang "#!/usr/bin/env bash"
+enc="$(echo -n "$(pass show Media/spt | gsed -z 's/\n/:/')" | openssl base64 | tr -d '\n')"
+#+end_src
+
+This requests an access token from Spotify using the encoded ID and
+Secret, the output is json so ~jq~ is used to parse just the token.
+
+#+begin_src bash :tangle spot :shebang "#!/usr/bin/env bash"
+token=$(curl -sX "POST" -H "Authorization: Basic $enc" -d grant_type=client_credentials https://accounts.spotify.com/api/token | jq '.access_token' | tr -d '"')
+#+end_src
+
+To interact with the Spotify API we need just the track id. However,
+~spt~ returns the url of the currently playing track. So the track id is
 parsed from the url using ~sed~.
 
-#+begin_src bash :tangle spt-np :shebang "#!/usr/bin/env bash"
-trackid=$(spt playback --share-track | sed 's/https:\/\/open.spotify.com\/track\///') 
+#+name: trackid
+#+begin_src bash :tangle spot :shebang "#!/usr/bin/env bash"
+trackid=$(spt playback --share-track | sed 's/https:\/\/open.spotify.com\/track\///')
 #+end_src
 
 To get the thumbnail image we can use Spotify's oEmbed service, see
@@ -230,30 +261,97 @@ for more info. Using the track id, we're able to fetch information about
 the currently playing track from Spotify, then parse the thumbnail url
 using [[https://github.com/stedolan/jq][jq]].
 
-#+begin_src bash :tangle spt-np :shebang "#!/usr/bin/env bash"
+#+name: trackimage
+#+begin_src bash :tangle spot :shebang "#!/usr/bin/env bash"
 trackimage=$(curl -s "https://open.spotify.com/oembed?url=spotify:track:$trackid" | jq '.thumbnail_url')
 #+end_src
 
-This is the final part of the script, the actual notification section.
-The first ~spt~ and ~sed~ commands get just the track and artist name.
-~spt~ prepends this with a playing/paused symbol, so ~sed~ removes those
-characters. This info is then passed to ~terminal-notifier~ as the
-notification message. ~$trackimage~ is used as the content image, and
-the album link is also used so that if the notification is clicked the
-album will open on Spotify.
+The curl command sends a get request to the tracks Spotify API using
+~trackid~, and returns json output, which will be parsed later as
+needed.
 
-Note that the ~sed~ command only works when ==, =▶= == are the spt
-icons for favorite, playing, and paused, respectively. An idea I had was
-using inverse matching, such as:
-
-#+begin_src bash
-spt pb --status | sed 's/[^A-Za-z0-9]*//'
+#+name: trackinfo
+#+begin_src bash :tangle spot :shebang "#!/usr/bin/env bash"
+trackinfo=$(curl -sX "GET" "https://api.spotify.com/v1/tracks/$trackid?market=ES" -H "Accept: application/json" -H "Content-Type: application/json" -H "Authorization: Bearer $token")
 #+end_src
 
-However, the issue with the above example that such matching wouldn't
-work with any non-English song titles, which is quite a few songs in my
-library.
+The nowplaying function shows the currently playing song as a
+notification using
+[[https://github.com/julienXX/terminal-notifier][terminal-notifier]]. In
+this version of the script, since we have the song information in json
+format, we don't need hacky ~sed~ commands to get the name and can just
+parse it from ~trackinfo~, seen at the end. The rest of the
+~terminal-notifier~ command is filled using other information about the
+song, ~trackimage~, and opens the album link when clicked.
 
-#+begin_src bash :tangle spt-np :shebang "#!/usr/bin/env bash"
-spt playback --status | sed 's/ //; s/▶ //; s/ //' | terminal-notifier -title "Now Playing" -contentImage "$trackimage" -open "$(spt playback --share-album)" -m
+#+begin_src bash :tangle spot :shebang "#!/usr/bin/env bash"
+nowplaying () {
+#+end_src
+
+#+name: nowplaying
+#+begin_src bash :tangle spot :shebang "#!/usr/bin/env bash"
+terminal-notifier -title "Now Playing" -contentImage "$trackimage" -open "$(spt playback --share-album)" -message "$(echo "$trackinfo" | jq '.name')"
+#+end_src
+
+#+begin_src bash :tangle spot :shebang "#!/usr/bin/env bash"
+}
+#+end_src
+
+
+The lyrics function needs a Genius API token, which is also gotten
+through pass and can be generated
+[[https://genius.com/api-clients][here]].
+
+#+begin_src bash :tangle spot :shebang "#!/usr/bin/env bash"
+lyrics () {
+  export GENIUS_ACCESS_TOKEN
+  GENIUS_ACCESS_TOKEN="$(pass show Media/Genius | tail -n1)";
+#+end_src
+
+~fullname~ is just the name of the track and the name of the artist
+concatenated, which allows for a more accurate search using
+[[https://github.com/johnwmillr/LyricsGenius][lyricsgenius]].
+
+#+begin_src bash :tangle spot :shebang "#!/usr/bin/env bash"
+  fullname="$(echo "$trackinfo" | jq '.name' | sed 's/^"//; s/"$//') $(echo "$trackinfo" | jq '.artists[] .name' | sed 's/^"//; s/"$//')"
+#+end_src
+
+There's /probably/ a way to do this without requiring disk operations
+but I'm also /fairly/ lazy, PR's welcome though ;). We create a temp
+directory for ~lyricsgenius~ to save the song info json file to. Then jq
+parses the lyrics from the json file. The sed operations are explained
+in order, the ~r~ flag makes ~gsed~ use extended regular expressions,
+which are needed for capturing parentheses.
+1. Remove the ="= at the beginning of the first line
+2. Remove the ="= at the end of the last line
+3. Remove the numbers and "Embed" at the end of the last line
+4. Replace all =\n= with the proper newline characters
+5. Add two newlines after the song title
+
+The temp directory is deleted and the output is piped to ~$PAGER~.
+
+#+begin_src bash :tangle spot :shebang "#!/usr/bin/env bash"
+  temp="$(mktemp -d)"
+  cd "$temp"
+  lyricsgenius --save song "$fullname"
+  jq '.lyrics' lyrics*.json | gsed -r '1s/^"//; $s/"$//; $s/[0-9]*Embed$//; s/\\n/\n/g; 1s/(.*Lyrics)(.*)/\1\n\n\2/' | $PAGER
+  rm -r "$temp"
+}
+#+end_src
+
+This just determines which command to run based on the first argument
+passed.
+
+#+begin_src bash :tangle spot :shebang "#!/usr/bin/env bash"
+case "$1" in
+  "np"|"nowplaying")
+    nowplaying
+    ;;
+  "lr"|"lyrics")
+    lyrics
+    ;;
+  *)
+    echo "$usage" >&2
+    ;;
+esac
 #+end_src

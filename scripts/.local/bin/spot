@@ -1,0 +1,49 @@
+#!/usr/bin/env bash
+set -e
+
+usage="$(basename "$0") [nowplaying lyrics] -- support program to interact with spotify-tui
+
+  nowplaying (np)       show the currently playing song as a terminal-notifier notification
+  lyrics (lr)           display the currently playing song's lyrics in \$PAGER
+"
+
+enc="$(echo -n "$(pass show Media/spt | gsed -z 's/\n/:/')" | openssl base64 | tr -d '\n')"
+
+token=$(curl -sX "POST" -H "Authorization: Basic $enc" -d grant_type=client_credentials https://accounts.spotify.com/api/token | jq '.access_token' | tr -d '"')
+
+trackid=$(spt playback --share-track | sed 's/https:\/\/open.spotify.com\/track\///')
+
+trackimage=$(curl -s "https://open.spotify.com/oembed?url=spotify:track:$trackid" | jq '.thumbnail_url')
+
+trackinfo=$(curl -sX "GET" "https://api.spotify.com/v1/tracks/$trackid?market=ES" -H "Accept: application/json" -H "Content-Type: application/json" -H "Authorization: Bearer $token")
+
+nowplaying () {
+
+terminal-notifier -title "Now Playing" -contentImage "$trackimage" -open "$(spt playback --share-album)" -message "$(echo "$trackinfo" | jq '.name')"
+
+}
+
+lyrics () {
+  export GENIUS_ACCESS_TOKEN
+  GENIUS_ACCESS_TOKEN="$(pass show Media/Genius | tail -n1)";
+
+fullname="$(echo "$trackinfo" | jq '.name' | sed 's/^"//; s/"$//') $(echo "$trackinfo" | jq '.artists[] .name' | sed 's/^"//; s/"$//')"
+
+temp="$(mktemp -d)"
+  cd "$temp"
+  lyricsgenius --save song "$fullname"
+  jq '.lyrics' lyrics*.json | gsed -r '1s/^"//; $s/"$//; $s/[0-9]*Embed$//; s/\\n/\n/g; 1s/(.*Lyrics)(.*)/\1\n\n\2/' | $PAGER
+  rm -r "$temp"
+}
+
+case "$1" in
+  "np"|"nowplaying")
+    nowplaying
+    ;;
+  "lr"|"lyrics")
+    lyrics
+    ;;
+  *)
+    echo "$usage" >&2
+    ;;
+esac
