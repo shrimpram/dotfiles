@@ -85,7 +85,6 @@
         spotify-tui
         terminal-notifier
         tesseract
-        youtube-dl
         zathura
 
         # Lang
