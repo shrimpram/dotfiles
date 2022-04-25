@@ -217,18 +217,18 @@ This script is a helper script for
 two functions, displaying the currently playing song as a notification
 through
 [[https://github.com/julienXX/terminal-notifier][terminal-notifier]],
-and fetching the song's lyrics through [[https://genius.com/][Genius]]
-and displaying them in ~$PAGER~.
+and fetching song lyrics through [[https://genius.com/][Genius]] and
+displaying them in ~$PAGER~.
 
 This is just usage information for the script.
 
 #+begin_src bash :tangle spot :shebang "#!/usr/bin/env bash"
 <<error-handling>>
 
-usage="usage: $(basename "$0") <command>
+usage="usage: $(basename "$0") [nowplaying | lyrics <args>]
 
   nowplaying (np)       show the currently playing song as a terminal-notifier notification
-  lyrics (lr)           display the currently playing song's lyrics in \$PAGER
+  lyrics (lr)           display the currently playing song's lyrics in \$PAGER, also accepts a string to search for as an argument
 "
 #+end_src
 
@@ -333,6 +333,11 @@ which are needed for capturing parentheses.
 
 The temp directory is deleted and the output is piped to ~$PAGER~.
 
+Additionally, the user can pass another argument to ~spot~ after
+~lyrics~ to search for lyrics for a particular song. This takes priority
+over the currently playing song gotten from ~spt~, which is the default
+behavior when no additional arguments are passed.
+
 #+begin_src bash :tangle spot :shebang "#!/usr/bin/env bash"
 lyrics () {
   vars
@@ -348,7 +353,13 @@ lyrics () {
 
   temp="$(mktemp -d)"
   cd "$temp"
-  lyricsgenius --save song "$fullname"
+
+  if [ "$2" != "" ]; then
+    lyricsgenius --save song "$2"
+  else
+    lyricsgenius --save song "$fullname"
+  fi
+
   jq '.lyrics' lyrics*.json \
     | gsed -r '1s/^"//; $s/"$//; $s/[0-9]*Embed$//; s/\\n/\n/g; 1s/(.*Lyrics)(.*)/\1\n\n\2/' \
     | $PAGER
@@ -365,10 +376,10 @@ case "$1" in
     nowplaying
     ;;
   "lr"|"lyrics")
-    lyrics
+    lyrics "$@"
     ;;
   *)
-    echo "$usage" >&2
+    echo "$usage"
     ;;
 esac
 #+end_src

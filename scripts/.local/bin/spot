@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 set -e
 
-usage="usage: $(basename "$0") <command>
+usage="usage: $(basename "$0") [nowplaying | lyrics <args>]
 
   nowplaying (np)       show the currently playing song as a terminal-notifier notification
-  lyrics (lr)           display the currently playing song's lyrics in \$PAGER
+  lyrics (lr)           display the currently playing song's lyrics in \$PAGER, also accepts a string to search for as an argument
 "
 
 vars () {
@@ -51,7 +51,13 @@ lyrics () {
 
   temp="$(mktemp -d)"
   cd "$temp"
-  lyricsgenius --save song "$fullname"
+
+  if [ "$2" != "" ]; then
+    lyricsgenius --save song "$2"
+  else
+    lyricsgenius --save song "$fullname"
+  fi
+
   jq '.lyrics' lyrics*.json \
     | gsed -r '1s/^"//; $s/"$//; $s/[0-9]*Embed$//; s/\\n/\n/g; 1s/(.*Lyrics)(.*)/\1\n\n\2/' \
     | $PAGER
@@ -63,9 +69,9 @@ case "$1" in
     nowplaying
     ;;
   "lr"|"lyrics")
-    lyrics
+    lyrics "$@"
     ;;
   *)
-    echo "$usage" >&2
+    echo "$usage"
     ;;
 esac
