@@ -162,12 +162,12 @@ ctrl + alt - t : yabai -m space --create && \
 ctrl + alt - w : yabai -m space --destroy
 
 # focus desktops
-ctrl + alt - 1  : yabai -m display --focus 1
-ctrl + alt - 2  : yabai -m display --focus 2
-ctrl + alt - 3  : yabai -m display --focus 3
-ctrl + alt - 0x53  : yabai -m display --focus 1
-ctrl + alt - 0x54  : yabai -m display --focus 2
-ctrl + alt - 0x55  : yabai -m display --focus 3
+ctrl + alt - 1 : yabai -m display --focus 1
+ctrl + alt - 2 : yabai -m display --focus 2
+ctrl + alt - 3 : yabai -m display --focus 3
+ctrl + alt - 0x53 : yabai -m display --focus 1
+ctrl + alt - 0x54 : yabai -m display --focus 2
+ctrl + alt - 0x55 : yabai -m display --focus 3
 
 # toggle float
 ctrl + alt + shift - space : yabai -m window --toggle float;\
