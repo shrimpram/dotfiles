@@ -131,3 +131,9 @@
           (lambda ()
             (with-current-buffer ispell-choices-buffer
               (centaur-tabs-local-mode))))
+
+;; Org mode -> man file
+(require 'ox-man)
+
+;; Org mode -> reveal.js
+(require 'ox-reveal)
