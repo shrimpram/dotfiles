@@ -1,6 +1,5 @@
 #+title: Scripts
 #+author: Shreeram Modi
-#+options: toc:1
 #+property: header-args:bash :noweb yes
 
 This is a collection of scripts that I find useful, they are explained
