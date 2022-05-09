@@ -1,7 +1,4 @@
-local ts_configs = require('nvim-treesitter.configs')
-local parser_config = require('nvim-treesitter.parsers').get_parser_configs()
-
-ts_configs.setup {
+require('nvim-treesitter.configs').setup {
   ensure_installed = {
     'bash',
     'bibtex',
