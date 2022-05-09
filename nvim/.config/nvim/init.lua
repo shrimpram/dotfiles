@@ -1,5 +1,3 @@
-require('impatient')
-
 vim.g.mapleader      = ' '
 vim.g.maplocalleader = ' '
 
