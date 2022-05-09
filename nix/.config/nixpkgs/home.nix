@@ -81,8 +81,8 @@
         poppler_utils
         pubs
         python39Packages.argcomplete
-        spotifyd
         spotify-tui
+        spotifyd
         terminal-notifier
         tesseract
         zathura
