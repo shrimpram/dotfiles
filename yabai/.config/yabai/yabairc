@@ -36,8 +36,8 @@ yabai -m config external_bar all:"$(spacebar -m config height)":0
 yabai -m rule --add app="^Disk Utility$" sticky=on layer=above manage=off
 yabai -m rule --add app="^Flux$" manage=off
 yabai -m rule --add app="^Raycast$" manage=off
-yabai -m rule --add app="^Spotify*" space=^last
-yabai -m rule --add app="^Discord*" space=^last
+yabai -m rule --add app="^Spotify*" space=last
+yabai -m rule --add app="^Discord*" space=last
 yabai -m rule --add app="^System Preferences$" manage=off
 yabai -m rule --add app="^Emacs$" manage=on
 
