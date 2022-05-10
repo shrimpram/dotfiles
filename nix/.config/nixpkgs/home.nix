@@ -98,6 +98,7 @@
         lua
         lua53Packages.luarocks
         nodePackages.write-good
+        nodejs
         python38
         pythonPackages.httplib2
         ruby
