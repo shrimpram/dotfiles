@@ -1,1 +1,2 @@
 nvim/.config/nvim/spell/** filter=git-crypt diff=git-crypt
+khal/** filter=git-crypt diff=git-crypt
