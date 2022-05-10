@@ -71,6 +71,7 @@
 
         # Opt
 
+        aria2
         gnuplot
         haste-client
         hugo
