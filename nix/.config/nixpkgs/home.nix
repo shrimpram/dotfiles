@@ -86,6 +86,7 @@
         spotifyd
         terminal-notifier
         tesseract
+        vdirsyncer
         zathura
 
         # Lang

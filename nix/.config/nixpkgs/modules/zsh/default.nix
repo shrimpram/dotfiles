@@ -12,7 +12,7 @@
       el = "exa --long --header --git --icons --classify --all";
       et = "exa --tree --level=2 --long --header --git --icons --classify --all";
       lg = "lazygit";
-      ca = "calcurse";
+      ca = "khal calendar";
       p  = "pueue";
     };
     plugins = with pkgs; [
