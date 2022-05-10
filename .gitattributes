@@ -1,2 +1,1 @@
 nvim/.config/nvim/spell/** filter=git-crypt diff=git-crypt
-mutt/.config/mutt/Gmail_CA.cert filter=git-crypt diff=git-crypt
