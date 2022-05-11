@@ -78,10 +78,12 @@ modified to apply better to org files.
 grep -E '^Subject: |^From: ' | sed 's/.*: //; s/ <.*@.*>//; 2s/\(.*\)/(\1) :email:/; 1s/^/* TODO Email from /' | paste -d " " - - > "$TEMP"
 #+end_src
 
-The task should show up on the current day of the org agenda so it is
-scheduled for today using =date= with the appropriate format for org.
+The task should show up on the current day of the org agenda so it is scheduled
+for today using =date= with the appropriate format for org. This also adds an
+inactive timestamp to the task.
 #+begin_src bash :tangle mutt2org :shebang "#!/usr/bin/env sh"
 echo "SCHEDULED: <$(date +%Y-%m-%d)>" >> "$TEMP"
+echo "[$(date +%Y-%m-%d)]" >> "$TEMP"
 #+end_src
 
 The specified org file should exist, if it doesn't then the script

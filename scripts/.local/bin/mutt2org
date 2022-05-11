@@ -8,6 +8,7 @@ TEMP="$(mktemp)"
 grep -E '^Subject: |^From: ' | sed 's/.*: //; s/ <.*@.*>//; 2s/\(.*\)/(\1) :email:/; 1s/^/* TODO Email from /' | paste -d " " - - > "$TEMP"
 
 echo "SCHEDULED: <$(date +%Y-%m-%d)>" >> "$TEMP"
+echo "[$(date +%Y-%m-%d)]" >> "$TEMP"
 
 if [ -e "$ORGFILE" ]
 then
