@@ -22,7 +22,7 @@
     sessionVariables = {
       EDITOR = "nvim";
       VISUAL = "nvim";
-      PAGER = "less -r";
+      PAGER = "less";
       MANPAGER = "nvim +Man!";
 
       KEYTIMEOUT = 1;
