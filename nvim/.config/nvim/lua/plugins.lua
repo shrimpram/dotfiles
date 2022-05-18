@@ -126,12 +126,6 @@ return require('packer').startup(function()
     event = 'InsertEnter'
   }
 
-  --- Lisp
-  use {
-    'eraserhd/parinfer-rust',
-    run = "cargo build --release",
-  }
-
   -- Utilities
 
   --- Scratch buffer
