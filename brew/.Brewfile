@@ -11,7 +11,6 @@ tap "cmacrae/formulae"
 # Core
 
 brew "gnu-sed"
-brew "khal"
 brew "koekeishiya/formulae/skhd"
 brew "koekeishiya/formulae/yabai"
 brew "pinentry-mac"
