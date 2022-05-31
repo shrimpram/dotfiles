@@ -59,6 +59,7 @@
         gnupg
         hledger
         htop
+        khal
         lazygit
         neofetch
         neovim
@@ -129,4 +130,22 @@
         urlview
         ];
   };
+  nixpkgs.overlays = [ (self: super: {
+      khal = super.khal.overridePythonAttrs (attrs: rec {
+# fixes https://github.com/pimutils/khal/issues/1092
+          tzlocal21 = super.python39Packages.tzlocal.overridePythonAttrs (old: rec {
+              pname = "tzlocal";
+              version = "2.1";
+              propagatedBuildInputs = [ super.python39Packages.pytz ];
+              src = super.python39Packages.fetchPypi {
+              inherit pname version;
+              sha256 = "sha256-ZDyXxSlK7cc3eApJ2d8wiJMhy+EgTqwsLsYTQDWpLkQ=";
+              };
+              doCheck = false;
+              pythonImportsCheck = [ "tzlocal" ];
+              });
+          propagatedBuildInputs = (builtins.filter (i: i.pname != "tzlocal")
+              attrs.propagatedBuildInputs) ++ [ tzlocal21 ];
+          });
+      })];
 }
