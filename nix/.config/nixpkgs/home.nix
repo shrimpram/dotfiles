@@ -48,7 +48,6 @@
     packages = with pkgs; [
         # Core
 
-        calcurse
         coreutils
         emacs
         exa
