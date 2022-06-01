@@ -15,6 +15,7 @@ brew "koekeishiya/formulae/skhd"
 brew "koekeishiya/formulae/yabai"
 brew "pinentry-mac"
 brew "pueue"
+brew "shrimpram/tap/spot"
 brew "spacebar"
 
 # Cask
