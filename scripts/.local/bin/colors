@@ -27,7 +27,7 @@ fi
 
 # Wallpaper
 if [ "$(uname -s)" = "Darwin" ]; then
-  osascript -e "tell application \"Finder\" to set desktop picture to POSIX file \"$HOME/Pictures/celeste-$COLOR.png\""
+  osascript -e "tell application \"Finder\" to set desktop picture to POSIX file \"$HOME/Pictures/stella-$COLOR.png\""
 fi
 
 # Dark/Light Mode
