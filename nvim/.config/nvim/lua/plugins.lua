@@ -281,8 +281,12 @@ return require('packer').startup(function()
 
   -- Colorschemes
   use {
-    '$HOME/Documents/stella/vim',
-    as = 'stella'
+    'shrimpram/stella',
+    rtp = 'vim',
+    as = 'stella',
+    config = function()
+      vim.cmd([[colorscheme stella-dark]])
+    end,
   }
 
   -- use {

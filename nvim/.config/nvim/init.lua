@@ -64,5 +64,3 @@ endfunction
 
 command Write call ToggleWriteMode()
 ]])
-
-vim.cmd([[colorscheme stella-dark]])
