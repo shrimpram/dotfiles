@@ -33,7 +33,7 @@ yabai -m config window_gap                   12
 yabai -m config external_bar all:"$(spacebar -m config height)":0
 
 # Disable management of specific apps
-yabai -m rule --add app="^Disk Utility$" sticky=on layer=above manage=off
+yabai -m rule --add app="^Disk Utility$" manage=off
 yabai -m rule --add app="^Flux$" manage=off
 yabai -m rule --add app="^Raycast$" manage=off
 yabai -m rule --add app="^Spotify*" space=last
