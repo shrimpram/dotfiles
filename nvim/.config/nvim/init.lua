@@ -52,7 +52,7 @@ function! ToggleWriteMode()
   if &textwidth
     setlocal textwidth=0
   else
-    setlocal textwidth=80
+    setlocal textwidth=72
   endif
 
   if &spell
