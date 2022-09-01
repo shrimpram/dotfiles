@@ -43,7 +43,6 @@ color sidebar_highlight brightcyan default
 
 set postponed = "+[Gmail]/Drafts"
 set trash = "+[Gmail]/Trash"
-set record = "+[Gmail]/Sent Mail"
 
 set sidebar_delim_chars = '/'
 set sidebar_divider_char = '|'
