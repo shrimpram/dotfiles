@@ -177,9 +177,3 @@ ctrl + alt + cmd - l : /Users/shreeram/.nix-profile/bin/spt playback --next
 ctrl + alt + cmd - h : /Users/shreeram/.nix-profile/bin/spt playback --previous
 ctrl + alt + cmd - j : /Users/shreeram/.nix-profile/bin/spt playback --seek=+10
 ctrl + alt + cmd - k : /Users/shreeram/.nix-profile/bin/spt playback --seek=-10
-
-# toggle picture-in-picture
-ctrl + alt - c : yabai -m window --toggle sticky;\
-       yabai -m window --toggle border;\
-       yabai -m window --toggle topmost;\
-       yabai -m window --toggle pip
