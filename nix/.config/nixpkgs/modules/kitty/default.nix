@@ -41,7 +41,7 @@
       allow_remote_control = "yes";
       listen_on = "unix:/tmp/mykitty";
       kitty_mod = "ctrl+super";
-      macos_titlebar_color = "background";
+      hide_window_decorations = "yes";
       macos_option_as_alt = "yes";
       macos_quit_when_last_window_closed = "yes";
       shell_integration = "no-cursor";
