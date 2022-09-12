@@ -38,12 +38,12 @@ elif [ "$COLOR" = "light" ]; then
 fi
 }
 
-if [ "$1" = "light" ]; then
-  COLOR="light"
-  OLD_COLOR="dark"
-  color
-elif [ "$1" = "dark" ]; then
+if [ "$1" = "dark" ]; then
   COLOR="dark"
   OLD_COLOR="light"
+  color
+elif [ "$1" = "light" ]; then
+  COLOR="light"
+  OLD_COLOR="dark"
   color
 fi
