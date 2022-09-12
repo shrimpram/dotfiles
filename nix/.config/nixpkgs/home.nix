@@ -81,7 +81,6 @@
         pandoc
         pdftk
         poppler_utils
-        pubs
         python39Packages.argcomplete
         spotify-tui
         spotifyd
