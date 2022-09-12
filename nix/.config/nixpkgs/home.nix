@@ -81,7 +81,6 @@
         pandoc
         pdftk
         poppler_utils
-        python39Packages.argcomplete
         spotify-tui
         spotifyd
         terminal-notifier
@@ -101,7 +100,6 @@
         nodePackages.write-good
         nodejs
         python38
-        pythonPackages.httplib2
         ruby
         rustc
         shellcheck
