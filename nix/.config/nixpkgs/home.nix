@@ -65,6 +65,7 @@
         neovim
         ripgrep
         stow
+        taskwarrior
         tree
         wget
 
