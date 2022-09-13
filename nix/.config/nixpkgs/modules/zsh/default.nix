@@ -14,6 +14,9 @@
       lg = "lazygit";
       ca = "khal calendar";
       p  = "pueue";
+      tpw = "task due.before:eow or scheduled.before:eow";
+      tls = "task $(task +LATEST uuids) annotate subtask: ";
+      tld = "task add dep:$(task +LATEST uuids)";
     };
     plugins = with pkgs; [
     {
