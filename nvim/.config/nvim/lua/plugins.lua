@@ -6,6 +6,8 @@ return require('packer').startup(function()
 
   use 'wbthomason/packer.nvim'
 
+  use { 'nvim-lua/plenary.nvim' }
+
   -- Keybindings
   use {
     'folke/which-key.nvim',
