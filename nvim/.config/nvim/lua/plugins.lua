@@ -17,7 +17,6 @@ return require('packer').startup(function()
     end,
     requires = {
       'LionC/nest.nvim',
-      opt = true,
     },
   }
 
