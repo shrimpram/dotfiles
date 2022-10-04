@@ -33,6 +33,8 @@
 
       GPG_TTY = "$TTY";
       KEYID = "0x163B16EE76ED24CE";
+
+      LEDGER_FILE = "$HOME/Documents/finances/hledger.journal";
     };
     sessionPath = [
       "/usr/local/bin"
