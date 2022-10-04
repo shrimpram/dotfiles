@@ -188,6 +188,8 @@ ls.add_snippets(nil, {
       }),
       t("{"), i(2), t("}"),
     }),
+    s("td", {
+      t("\\textdel{"), i(1), t("}"),
     }),
     s({trig = "qe(%*?)", wordTrig = true, regTrig = true}, {
       t("\\enquote"),
