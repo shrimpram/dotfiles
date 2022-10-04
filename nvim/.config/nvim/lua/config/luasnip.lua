@@ -180,6 +180,14 @@ ls.add_snippets(nil, {
     s("tq", {
       t("\\textcquote["), i(1), t("]"), t("{"), i(2), t("}"), t("["), i(3), t("]"), t("{"), i(4), t("}")
     }),
+    s("ti", {
+      t("\\textins"),
+      c(1, {
+        t(""),
+        t("*"),
+      }),
+      t("{"), i(2), t("}"),
+    }),
     }),
     s({trig = "qe(%*?)", wordTrig = true, regTrig = true}, {
       t("\\enquote"),
