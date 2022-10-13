@@ -35,6 +35,7 @@
       KEYID = "0x163B16EE76ED24CE";
 
       LEDGER_FILE = "$HOME/Documents/finances/hledger.journal";
+      BEANCOUNT_FILE = "$HOME/Documents/finances/personal.beancount";
     };
     sessionPath = [
       "/usr/local/bin"
