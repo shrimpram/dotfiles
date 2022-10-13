@@ -64,3 +64,13 @@ endfunction
 
 command Write call ToggleWriteMode()
 ]])
+
+vim.cmd([[
+function! HledgerToBean()
+  s/\(^\s*\)\([a-z]\)/\1\u\2/
+  s/:\([a-z]\)/:\u\1/g
+  s/-\([a-z]\)/-\u\1/g
+  s/\$/
+  s/\([0-9]\)$/\1 USD
+endfunction
+]])
