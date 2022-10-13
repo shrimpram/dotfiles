@@ -2,3 +2,4 @@ PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/Users/shreera
 
 */15 * * * * $HOME/.local/bin/mail-autosync
 */15 * * * * $HOME/.nix-profile/bin/vdirsyncer sync
+*/15 * * * * $HOME/.nix-profile/bin/todoist sync
