@@ -280,6 +280,9 @@ return require('packer').startup(function()
   -- Ledger
   use { 'ledger/vim-ledger', ft = 'ledger' }
 
+  -- Beancount
+  use { 'nathangrigg/vim-beancount', ft = 'beancount' }
+
   -- Colorschemes
   use {
     'shrimpram/stella',
