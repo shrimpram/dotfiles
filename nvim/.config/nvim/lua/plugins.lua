@@ -259,14 +259,11 @@ return require('packer').startup(function()
 
   --- Focus window
   use {
-    'junegunn/goyo.vim',
-    cmd = { 'Goyo' },
+    "folke/zen-mode.nvim",
     config = function()
-      vim.cmd('Gitsigns toggle_signs')
-      vim.cmd('set linebreak')
+      require("zen-mode").setup {}
     end,
   }
-
 
   -- Latex
   use { 'lervag/vimtex', ft = 'tex' }
