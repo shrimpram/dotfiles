@@ -1,1 +1,1 @@
-autocmd BufRead,BufNewFile *.cron set filetype=crontab
+autocmd BufRead,BufNewFile *.cron setlocal filetype=crontab

@@ -1,1 +1,1 @@
-autocmd BufRead,BufNewFile *.fountain set filetype=fountain
+autocmd BufRead,BufNewFile *.fountain setlocal filetype=fountain

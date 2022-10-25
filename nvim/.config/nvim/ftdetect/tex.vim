@@ -1,1 +1,1 @@
-autocmd BufRead,BufNewFile *.devnag set filetype=tex
+autocmd BufRead,BufNewFile *.devnag setlocal filetype=tex

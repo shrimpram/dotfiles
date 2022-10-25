@@ -12,4 +12,4 @@ elseif os ==? 'Linux'
   let g:vimtex_view_method='zathura'
 endif
 
-set conceallevel=0
+setlocal conceallevel=0

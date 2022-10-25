@@ -1,1 +1,1 @@
-set ft=sh
+setlocal ft=sh

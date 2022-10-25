@@ -1,2 +1,2 @@
-set nowrap
-set conceallevel=2
+setlocal nowrap
+setlocal conceallevel=2

@@ -1,1 +1,1 @@
-set foldmethod=manual
+setlocal foldmethod=manual

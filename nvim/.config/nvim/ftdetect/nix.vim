@@ -1,1 +1,1 @@
-autocmd BufRead,BufNewFile *.nix set filetype=nix
+autocmd BufRead,BufNewFile *.nix setlocal filetype=nix

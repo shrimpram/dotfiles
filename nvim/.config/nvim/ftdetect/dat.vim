@@ -1,1 +1,1 @@
-autocmd BufRead,BufNewFile *.dat set filetype=dat
+autocmd BufRead,BufNewFile *.dat setlocal filetype=dat
