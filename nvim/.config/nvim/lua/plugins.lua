@@ -129,6 +129,10 @@ return require('packer').startup(function()
 
   -- Utilities
 
+  -- GPG
+  use {
+    'jamessan/vim-gnupg'
+  }
   --- Scratch buffer
   use {
     'mtth/scratch.vim',
