@@ -133,6 +133,19 @@ return require('packer').startup(function()
   use {
     'jamessan/vim-gnupg'
   }
+
+  -- Notes
+  use {
+    'xolox/vim-notes',
+    requires = { 'xolox/vim-misc' },
+    config = function()
+      vim.g.notes_conceal_url = 0
+      vim.g.notes_directories = { '~/Documents/com~apple~CloudDocs/notes' }
+      vim.g.notes_suffix = '.md'
+      vim.g.notes_unicode_enabled = 0
+    end,
+  }
+
   --- Scratch buffer
   use {
     'mtth/scratch.vim',
