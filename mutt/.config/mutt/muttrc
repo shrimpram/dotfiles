@@ -54,3 +54,5 @@ bind editor <Tab> complete-query
 bind editor ^T    complete
 
 macro index,pager T "<pipe-message>mutt2task<enter><copy-message>=TODO<enter>" "make mail into a task"
+
+set signature = "~/.config/mutt/signature"
