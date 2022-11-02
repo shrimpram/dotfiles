@@ -35,7 +35,7 @@
       KEYID = "0x163B16EE76ED24CE";
 
       LEDGER_FILE = "$HOME/Documents/finances/hledger.journal";
-      BEANCOUNT_FILE = "$HOME/Documents/finances/personal.beancount";
+      BEANCOUNT_FILE = "$HOME/Documents/finances/personal.bean";
     };
     sessionPath = [
       "/usr/local/bin"
@@ -51,9 +51,11 @@
     packages = with pkgs; [
         # Core
 
+        beancount
         coreutils
         emacs
         exa
+        fava
         fd
         gawk
         gdu
@@ -88,7 +90,9 @@
         spotifyd
         terminal-notifier
         tesseract
+        todoist
         vdirsyncer
+        youtube-dl
         zathura
 
         # Lang
