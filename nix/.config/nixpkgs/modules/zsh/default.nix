@@ -63,7 +63,6 @@
     initExtra =  ''
       autoload edit-command-line; zle -N edit-command-line
       bindkey '^e' edit-command-line
-      eval "$(register-python-argcomplete pubs)"
 
       bindkey "^xt" fzf-todoist-item
       bindkey "^xp" fzf-todoist-project
