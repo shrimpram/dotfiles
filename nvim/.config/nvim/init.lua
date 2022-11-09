@@ -29,6 +29,7 @@ vim.o.title          = true
 vim.o.undofile       = true
 vim.o.wrap           = true
 vim.o.clipboard      = vim.o.clipboard .. 'unnamed,unnamedplus'
+vim.o.mouse          = ''
 
 require('plugins')
 
