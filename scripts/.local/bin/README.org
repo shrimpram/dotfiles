@@ -57,6 +57,53 @@ task add +email "$(cat "$TEMP")"
 rm "$TEMP"
 #+end_src
 
+* ~mutt2todoist~
+The same as =mutt2task= but instead of taskwarrior it converts an email
+into a todoist task using
+[[https://github.com/sachaos/todoist][todoist-cli]]
+
+#+begin_src bash :tangle mutt2todoist :shebang "#!/usr/bin/env sh"
+<<error-handling>>
+
+export TEMP
+TEMP="$(mktemp)"
+#+end_src
+
+Since todoist labels have unique IDs, a config file is needed for the
+user to input the label ID for whatever they use as the email label. The
+config file should be located at
+=$XDG_CONFIG_HOME/mutt2todoist/config.yml= and the id should be
+specified using the following format:
+
+#+begin_src yaml
+label-id: "1234"
+#+end_src
+
+#+begin_src bash :tangle mutt2todoist :shebang "#!/usr/bin/env sh"
+config_file="${XDG_CONFIG_HOME:-$HOME/.config}/mutt2todoist/config.yml"
+
+if [[ "$(yq -r '.label-id' "$config_file")" != "null" ]]; then
+  TODOIST_EMAIL_LABEL_ID="$(yq -r '.label-id' "$config_file")"
+else
+  echo "Please specify a Todoist label ID in your config file" >&2
+  exit 1
+fi
+#+end_src
+
+This just reuses the =grep= and =sed= commands from =mutt2task=.
+
+#+begin_src bash :tangle mutt2todoist :shebang "#!/usr/bin/env sh"
+grep -E '^Subject: |^From: ' | sed 's/.*: //; s/ <.*@.*>//; 2s/\(.*\)/(\1)/; 1s/^/Email from /' | paste -d " " - - > "$TEMP"
+#+end_src
+
+Adds the task to todoist with the emails label, passed through
+
+#+begin_src bash :tangle mutt2todoist :shebang "#!/usr/bin/env sh"
+todoist add "$(cat "$TEMP")" --label-ids "$TODOIST_EMAIL_LABEL_ID"
+
+rm "$TEMP"
+#+end_src
+
 * ~mutt2org~
 This script is very similar to =mutt2task= but instead of taskwarrior it
 converts an email into a task for org mode.
@@ -72,8 +119,7 @@ export TEMP
 TEMP="$(mktemp)"
 #+end_src
 
-This just reuses the =grep= and =sed= commands from =mutt2task= except
-modified to apply better to org files.
+This just reuses the =grep= and =sed= commands from =mutt2task=.
 #+begin_src bash :tangle mutt2org :shebang "#!/usr/bin/env sh"
 grep -E '^Subject: |^From: ' | sed 's/.*: //; s/ <.*@.*>//; 2s/\(.*\)/(\1) :email:/; 1s/^/* TODO Email from /' | paste -d " " - - > "$TEMP"
 #+end_src
