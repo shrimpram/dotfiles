@@ -180,13 +180,10 @@ ls.add_snippets(nil, {
     s("tq", {
       t("\\textcquote["), i(1), t("]"), t("{"), i(2), t("}"), t("["), i(3), t("]"), t("{"), i(4), t("}")
     }),
-    s("ti", {
-      t("\\textins"),
-      c(1, {
-        t(""),
-        t("*"),
-      }),
-      t("{"), i(2), t("}"),
+    s({trig = "ti(%*?)", wordTrig = true, regTrig = true}, {
+      t({"\\textins"}),
+      f(function(args, snip) return snip.captures[1] end, {}),
+      t("{"), i(1), t("}"),
     }),
     s("td", {
       t("\\textdel{"), i(1), t("}"),
