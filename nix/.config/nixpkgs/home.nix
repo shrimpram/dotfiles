@@ -68,6 +68,7 @@
         lazygit
         neofetch
         neovim
+        passff-host
         ripgrep
         stow
         taskwarrior
