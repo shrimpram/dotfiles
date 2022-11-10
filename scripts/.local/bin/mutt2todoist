@@ -6,8 +6,8 @@ TEMP="$(mktemp)"
 
 config_file="${XDG_CONFIG_HOME:-$HOME/.config}/mutt2todoist/config.yml"
 
-if [[ "$(yq -r '.label-id' "$config_file")" != "null" ]]; then
-  TODOIST_EMAIL_LABEL_ID="$(yq -r '.label-id' "$config_file")"
+if [[ "$(yq -r '.label' "$config_file")" != "null" ]]; then
+  TODOIST_EMAIL_LABEL_ID="$(yq -r '.label' "$config_file")"
 else
   echo "Please specify a Todoist label ID in your config file" >&2
   exit 1

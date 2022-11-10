@@ -76,14 +76,14 @@ config file should be located at
 specified using the following format:
 
 #+begin_src yaml
-label-id: "1234"
+label: "1234"
 #+end_src
 
 #+begin_src bash :tangle mutt2todoist :shebang "#!/usr/bin/env sh"
 config_file="${XDG_CONFIG_HOME:-$HOME/.config}/mutt2todoist/config.yml"
 
-if [[ "$(yq -r '.label-id' "$config_file")" != "null" ]]; then
-  TODOIST_EMAIL_LABEL_ID="$(yq -r '.label-id' "$config_file")"
+if [[ "$(yq -r '.label' "$config_file")" != "null" ]]; then
+  TODOIST_EMAIL_LABEL_ID="$(yq -r '.label' "$config_file")"
 else
   echo "Please specify a Todoist label ID in your config file" >&2
   exit 1
