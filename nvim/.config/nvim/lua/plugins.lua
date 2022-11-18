@@ -164,8 +164,8 @@ return require('packer').startup(function()
 
       require('orgmode').setup {
         org_indent_mode = 'noindent',
-        org_agenda_files = { '~/Dropbox/org/**/*' },
-        org_default_notes_file = '~/Dropbox/org/inbox.org',
+        org_agenda_files = { '~/Library/CloudStorage/Dropbox/org/**/*' },
+        org_default_notes_file = '~/Library/CloudStorage/Dropbox/org/inbox.org',
         org_deadline_warning_days = 2,
         org_use_tag_inheritance = true,
         org_agenda_span = 'day',
