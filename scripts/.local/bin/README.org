@@ -227,7 +227,7 @@ that it only allows us to change the wallpaper of the current desktop.
 #+begin_src bash :tangle colors :shebang "#!/usr/bin/env sh"
 # Wallpaper
 if [ "$(uname -s)" = "Darwin" ]; then
-  osascript -e "tell application \"Finder\" to set desktop picture to POSIX file \"$HOME/Pictures/celeste-$COLOR.png\""
+  osascript -e "tell application \"Finder\" to set desktop picture to POSIX file \"$HOME/Pictures/stella-$COLOR.png\""
 fi
 #+end_src
 
@@ -252,13 +252,13 @@ changes the colors accordingly since all the parts of the script use
 those variables instead of hardcoded light/dark.
 
 #+begin_src bash :tangle colors :shebang "#!/usr/bin/env sh"
-if [ "$1" = "light" ]; then
-  COLOR="light"
-  OLD_COLOR="dark"
-  color
-elif [ "$1" = "dark" ]; then
+if [ "$1" = "dark" ]; then
   COLOR="dark"
   OLD_COLOR="light"
+  color
+elif [ "$1" = "light" ]; then
+  COLOR="light"
+  OLD_COLOR="dark"
   color
 fi
 #+end_src
