@@ -1,7 +1,11 @@
 #!/usr/bin/env sh
 set -e
 
-export ORGFILE="$HOME/Dropbox/org/inbox.org"
+if [[ "$ORGFILE" == "" ]]; then
+  echo "Please export your org inbox's path as \$ORGFILE" >&2
+  exit 1
+fi
+
 export TEMP
 TEMP="$(mktemp)"
 

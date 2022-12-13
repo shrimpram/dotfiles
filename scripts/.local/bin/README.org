@@ -109,12 +109,17 @@ This script is very similar to =mutt2task= but instead of taskwarrior it
 converts an email into a task for org mode.
 
 Since org mode tasks are stored in specific files the script needs to
-identify the file to save the task to.
+identify the file to save the task to. This should be exported by the
+user as the environment variable ~ORGFILE~.
 
 #+begin_src bash :tangle mutt2org :shebang "#!/usr/bin/env sh"
 <<error-handling>>
 
-export ORGFILE="$HOME/Dropbox/org/inbox.org"
+if [[ "$ORGFILE" == "" ]]; then
+  echo "Please export your org inbox's path as \$ORGFILE" >&2
+  exit 1
+fi
+
 export TEMP
 TEMP="$(mktemp)"
 #+end_src
