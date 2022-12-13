@@ -53,6 +53,6 @@ set query_command = "khard email --parsable %s"
 bind editor <Tab> complete-query
 bind editor ^T    complete
 
-macro index,pager T "<pipe-message>mutt2todoist<enter><copy-message>=TODO<enter>" "make mail into a task"
+macro index,pager T "<pipe-message>mutt2org<enter><copy-message>=TODO<enter>" "make mail into a task"
 
 set signature = "~/.config/mutt/signature"
