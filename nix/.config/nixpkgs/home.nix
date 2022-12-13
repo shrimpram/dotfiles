@@ -36,6 +36,8 @@
 
       LEDGER_FILE = "$HOME/Documents/finances/hledger.journal";
       BEANCOUNT_FILE = "$HOME/Documents/finances/personal.bean";
+
+      ORGFILE = "$HOME/Library/CloudStorage/Dropbox/org/inbox.org";
     };
     sessionPath = [
       "/usr/local/bin"
