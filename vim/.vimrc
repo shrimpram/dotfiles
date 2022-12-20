@@ -91,4 +91,4 @@ command! Dark set background=dark
 "}}}
 
 set background=dark
-colorscheme desert
+colorscheme default
