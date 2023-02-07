@@ -19,6 +19,7 @@ brew "pinentry-mac"
 brew "pueue"
 brew "shrimpram/tap/spot"
 brew "spacebar"
+brew "vdirsyncer"
 
 # Cask
 
