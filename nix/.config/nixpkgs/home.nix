@@ -39,6 +39,8 @@
       BEANCOUNT_FILE = "$HOME/Documents/finances/personal.bean";
 
       ORGFILE = "$HOME/Library/CloudStorage/Dropbox/org/inbox.org";
+
+      FZF_DEFAULT_COMMAND="/Users/shreeram/.nix-profile/bin/fd .";
     };
     sessionPath = [
       "/usr/local/bin"
