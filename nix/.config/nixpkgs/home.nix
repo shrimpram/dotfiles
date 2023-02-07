@@ -132,7 +132,6 @@
         isync
         khard
         lynx
-        msmtp
         neomutt
         notmuch
         urlview
