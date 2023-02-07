@@ -26,6 +26,7 @@
       tls = "task $(task +LATEST uuids) annotate subtask: ";
       tld = "task add dep:$(task +LATEST uuids)";
       t = "todoist";
+      rfd = "nvim '/Users/shreeram/Library/CloudStorage/Dropbox/LD - Shreeram/NYU/2022-23 - Legal Personhood/2022-23-RFDs.org' +'norm Gzz$'";
     };
     plugins = with pkgs; [
     {
