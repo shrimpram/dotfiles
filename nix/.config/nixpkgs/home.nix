@@ -64,7 +64,6 @@
         git-crypt
         git-lfs
         gnupg
-        htop
         khal
         lazygit
         neofetch
