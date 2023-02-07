@@ -93,7 +93,6 @@
         spotifyd
         terminal-notifier
         tesseract
-        vdirsyncer
         youtube-dl
         zathura
 
