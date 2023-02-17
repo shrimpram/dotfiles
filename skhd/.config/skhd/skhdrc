@@ -177,3 +177,6 @@ ctrl + alt + cmd - l : /Users/shreeram/.nix-profile/bin/spt playback --next
 ctrl + alt + cmd - h : /Users/shreeram/.nix-profile/bin/spt playback --previous
 ctrl + alt + cmd - j : /Users/shreeram/.nix-profile/bin/spt playback --seek=+10
 ctrl + alt + cmd - k : /Users/shreeram/.nix-profile/bin/spt playback --seek=-10
+
+# file search
+ctrl - space : /Users/shreeram/.nix-profile/bin/kitty --session debate.conf
