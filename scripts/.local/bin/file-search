@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+SEARCH=$(echo "
+$HOME/Library/CloudStorage/Dropbox/
+$HOME/dotfiles/
+$HOME/Downloads/
+$HOME/Documents/
+" | "$HOME/.nix-profile/bin/fzf" --prompt="Directory to search: ")
+
+cd "$SEARCH" || exit
+
+FILE=$("$HOME/.nix-profile/bin/fzf")
+
+if [[ "$FILE" != "" ]]; then
+  open "$FILE"
+fi
