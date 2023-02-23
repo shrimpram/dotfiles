@@ -132,6 +132,7 @@
         lynx
         neomutt
         notmuch
+        urlscan
         urlview
         ];
   };
