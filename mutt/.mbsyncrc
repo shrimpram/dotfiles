@@ -1,0 +1,77 @@
+IMAPStore shreeram.modi@nyu.edu-remote
+Host imap.gmail.com
+Port 993
+User sm10912@nyu.edu
+PassCmd "pass Neomutt/shreeram.modi@nyu.edu"
+AuthMechs LOGIN
+SSLType IMAPS
+CertificateFile /etc/ssl/cert.pem
+
+MaildirStore shreeram.modi@nyu.edu-local
+Subfolders Verbatim
+Path /Users/shreeram/.local/share/mail/shreeram.modi@nyu.edu/
+Inbox /Users/shreeram/.local/share/mail/shreeram.modi@nyu.edu/INBOX
+
+Channel shreeram.modi@nyu.edu
+Expunge Both
+Far :shreeram.modi@nyu.edu-remote:
+Near :shreeram.modi@nyu.edu-local:
+Patterns * !"[Gmail]/All Mail"
+Create Both
+SyncState *
+MaxMessages 0
+ExpireUnread no
+# End profile
+
+
+IMAPStore shreerammodi10@gmail.com-remote
+Host imap.gmail.com
+Port 993
+User shreerammodi10@gmail.com
+PassCmd "pass Neomutt/shreerammodi10@gmail.com"
+AuthMechs LOGIN
+SSLType IMAPS
+CertificateFile /etc/ssl/cert.pem
+
+MaildirStore shreerammodi10@gmail.com-local
+Subfolders Verbatim
+Path /Users/shreeram/.local/share/mail/shreerammodi10@gmail.com/
+Inbox /Users/shreeram/.local/share/mail/shreerammodi10@gmail.com/INBOX
+
+Channel shreerammodi10@gmail.com
+Expunge Both
+Far :shreerammodi10@gmail.com-remote:
+Near :shreerammodi10@gmail.com-local:
+Patterns * !"[Gmail]/All Mail"
+Create Both
+SyncState *
+MaxMessages 0
+ExpireUnread no
+# End profile
+
+
+IMAPStore shreeram@shreerammodi.com-remote
+Host imap.fastmail.com
+Port 993
+User shreeram@shreerammodi.com
+PassCmd "pass Neomutt/shreeram@shreerammodi.com"
+AuthMechs LOGIN
+SSLType IMAPS
+SSLVersions TLSv1.2
+CertificateFile /etc/ssl/cert.pem
+
+MaildirStore shreeram@shreerammodi.com-local
+Subfolders Verbatim
+Path /Users/shreeram/.local/share/mail/shreeram@shreerammodi.com/
+Inbox /Users/shreeram/.local/share/mail/shreeram@shreerammodi.com/INBOX
+
+Channel shreeram@shreerammodi.com
+Expunge Both
+Far :shreeram@shreerammodi.com-remote:
+Near :shreeram@shreerammodi.com-local:
+Patterns *
+Create Both
+SyncState *
+MaxMessages 0
+ExpireUnread no
+# End profile
