@@ -5,7 +5,7 @@ status_path = "~/.local/share/vdirsyncer/status/"
 a = "local_calendar"
 b = "google_calendar"
 collections = ["from a", "from b"]
-conflict_resolution = null
+conflict_resolution = ["command", "/Users/shreeram/.nix-profile/bin/nvim -d"]
 
 [storage google_calendar]
 type = "google_calendar"
@@ -22,7 +22,7 @@ fileext = ".ics"
 a = "local_contacts"
 b = "google_contacts"
 collections = ["from a", "from b"]
-conflict_resolution = null
+conflict_resolution = ["command", "/Users/shreeram/.nix-profile/bin/nvim -d"]
 
 [storage google_contacts]
 type = "google_contacts"
