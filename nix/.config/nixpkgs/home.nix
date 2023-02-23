@@ -75,6 +75,7 @@
         ripgrep
         stow
         taskopen
+        tasksh
         taskwarrior
         tree
         wget
