@@ -74,6 +74,7 @@
         passff-host
         ripgrep
         stow
+        taskopen
         taskwarrior
         tree
         wget
