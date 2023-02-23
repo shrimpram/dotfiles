@@ -23,7 +23,6 @@ brew "vdirsyncer"
 
 # Cask
 
-cask "anki"
 cask "appcleaner"
 cask "authy"
 cask "contexts"
