@@ -5,6 +5,7 @@ $HOME/Library/CloudStorage/Dropbox/
 $HOME/dotfiles/
 $HOME/Downloads/
 $HOME/Documents/
+$HOME/OneDrive/
 " | "$HOME/.nix-profile/bin/fzf" --prompt="Directory to search: ")
 
 cd "$SEARCH" || exit
