@@ -105,8 +105,6 @@
         jq
         lua
         lua53Packages.luarocks
-        nodejs
-        python38
         ruby
         rustc
         shellcheck
