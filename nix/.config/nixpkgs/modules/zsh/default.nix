@@ -26,7 +26,7 @@
       tls = "task $(task +LATEST uuids) annotate subtask: ";
       tld = "task add dep:$(task +LATEST uuids)";
       t = "task";
-      rfd = "nvim '/Users/shreeram/Library/CloudStorage/Dropbox/LD - Shreeram/NYU/2022-23 - Legal Personhood/2022-23-RFDs.org' +'norm Gzz$'";
+      rfd = "nvim '/Users/shreeram/OneDrive/Debate/LD - Shreeram/NYU/2022-23 - Legal Personhood/2022-23-RFDs.org' +'norm Gzz$'";
     };
     plugins = with pkgs; [
     {
