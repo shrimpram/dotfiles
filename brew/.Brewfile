@@ -25,7 +25,6 @@ brew "vdirsyncer"
 
 cask "appcleaner"
 cask "authy"
-cask "contexts"
 cask "dropbox"
 cask "flux"
 cask "gnucash"
