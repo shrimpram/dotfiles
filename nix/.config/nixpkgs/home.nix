@@ -58,7 +58,6 @@
 
         beancount
         coreutils
-        emacs
         exa
         fava
         fd
