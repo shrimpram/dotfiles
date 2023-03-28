@@ -44,5 +44,6 @@ yabai -m rule --add app="^System Preferences$" manage=off
 yabai -m rule --add app="^Emacs$" manage=on
 yabai -m rule --add app="^Steam$" manage=off
 yabai -m rule --add app="^Finda$" manage=off
+yabai -m rule --add app="^IINA$" manage=off
 
 . "$HOME/.config/yabai/current-theme"
