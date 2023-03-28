@@ -177,7 +177,8 @@ return require('packer').startup(function()
         mappings = {
           org = {
             org_show_help = '<leader>o?',
-            org_edit_src_show_help = '<leader>o?'
+            org_edit_src_show_help = '<leader>o?',
+            org_toggle_checkbox = 'cix',
           },
           agenda = {
             org_agenda_show_help = '<leader>o?'
