@@ -38,7 +38,7 @@ bind index,pager P print-message
 unbind attach g
 bind attach R group-reply
 
-set use_threads=yes
+set sort="reverse-threads"
 
 color sidebar_highlight brightcyan default
 
