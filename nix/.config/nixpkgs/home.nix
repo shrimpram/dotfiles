@@ -68,7 +68,6 @@
         git-crypt
         git-lfs
         gnupg
-        khal
         lazygit
         neofetch
         neovim
