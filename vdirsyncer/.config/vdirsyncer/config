@@ -1,23 +1,6 @@
 [general]
 status_path = "~/.local/share/vdirsyncer/status/"
 
-[pair cal]
-a = "local_calendar"
-b = "google_calendar"
-collections = ["from a", "from b"]
-conflict_resolution = ["command", "/Users/shreeram/.nix-profile/bin/nvim -d"]
-
-[storage google_calendar]
-type = "google_calendar"
-token_file = "~/.local/share/vdirsyncer/calendar-token"
-client_id.fetch = ["command", "pass", "Vdirsyncer/ID"]
-client_secret.fetch = ["command", "pass", "Vdirsyncer/Secret"]
-
-[storage local_calendar]
-type = "filesystem"
-path = "~/.local/share/khal/calendars/private/"
-fileext = ".ics"
-
 [pair contacts]
 a = "local_contacts"
 b = "google_contacts"
