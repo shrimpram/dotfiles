@@ -3,9 +3,8 @@
   programs.kitty = {
     enable = true;
     font = {
-      package = pkgs.vistafonts;
-      name = "Consolas NF";
-      size = 13;
+      name = "IBM Plex Mono";
+      size = 12;
     };
     extraConfig = ''
       include current-theme.conf
