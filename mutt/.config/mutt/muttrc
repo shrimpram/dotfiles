@@ -5,6 +5,7 @@ source /Users/shreeram/.config/mutt/accounts/shreerammodi10@gmail.com.muttrc
 macro index,pager i1 '<sync-mailbox><enter-command>source /Users/shreeram/.config/mutt/accounts/shreerammodi10@gmail.com.muttrc<enter><change-folder>!<enter>;<check-stats>' "switch to shreerammodi10@gmail.com"
 macro index,pager i2 '<sync-mailbox><enter-command>source /Users/shreeram/.config/mutt/accounts/shreeram.modi@nyu.edu.muttrc<enter><change-folder>!<enter>;<check-stats>' "switch to shreeram.modi@nyu.edu"
 macro index,pager i3 '<sync-mailbox><enter-command>source /Users/shreeram/.config/mutt/accounts/shreeram@shreerammodi.com.muttrc<enter><change-folder>!<enter>;<check-stats>' "switch to shreeram@shreerammodi.com"
+macro index,pager i4 '<sync-mailbox><enter-command>source /Users/shreeram/.config/mutt/accounts/contact@shreerammodi.com.muttrc<enter><change-folder>!<enter>;<check-stats>' "switch to contact@shreerammodi.com"
 
 
 # Send mail to custom folder
