@@ -16,45 +16,10 @@ set -e
 * ~mutt2task~
 This script creates a [[https://taskwarrior.org/][taskwarrior]] task
 from an email in [[https://neomutt.org/][neomutt]]. The task format is
-~Email from "<sender>" (<subject>)~, and it is tagged with the ~email~
-tag.
-
-This creates a temp file for the script to use for sed operations.
-There's probably a cleaner way to do this that doesn't modify the
-filesystem but alas I am lazy.
+~Email: "<subject>"~, and it is tagged with the ~email~ tag.
 
 #+begin_src bash :tangle mutt2task :shebang "#!/usr/bin/env sh"
-<<error-handling>>
-
-export TEMP
-TEMP="$(mktemp)"
-#+end_src
-
-This is the line that does all the heavy lifting. It first searches for
-lines in the email starting with =Subject:= or =From:=, then passes them
-on to sed. Here are all the sed operations explained in order:
-
-1. Removes everything in the line up to and including =:=
-2. Removes the email address by searching for an =@= symbol inside =<>=,
-   which leaves just the sender's name in the =From:= field
-3. Places everything in the second (subject) line inside parentheses
-4. Prepends the first line (from) with "Email from"
-
-Sed then passes the two lines to paste, which concatenates them using a
-space as a delimiter, the one line is then echoed to the temp file which
-was created earlier.
-
-#+begin_src bash :tangle mutt2task :shebang "#!/usr/bin/env sh"
-grep -E '^Subject: |^From: ' | sed 's/.*: //; s/ <.*@.*>//; 2s/\(.*\)/(\1)/; 1s/^/Email from /' | paste -d " " - - > "$TEMP"
-#+end_src
-
-Finally the contents of the temp file, just the task, are added to
-taskwarrior with the email tag, and the temp file is removed.
-
-#+begin_src bash :tangle mutt2task :shebang "#!/usr/bin/env sh"
-task add +email "$(cat "$TEMP")"
-
-rm "$TEMP"
+task add +email Email: $(grep 'Subject' $* | awk -F: '{print $2}')
 #+end_src
 
 * ~mutt2todoist~
