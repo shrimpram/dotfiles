@@ -179,5 +179,5 @@ ctrl + alt + cmd - j : /Users/shreeram/.nix-profile/bin/spt playback --seek=+10
 ctrl + alt + cmd - k : /Users/shreeram/.nix-profile/bin/spt playback --seek=-10
 
 # file search
-ctrl - space : /Users/shreeram/.nix-profile/bin/kitty --session debate.conf
+ctrl - 0x2C : /Users/shreeram/.nix-profile/bin/kitty --session debate.conf
 ctrl - 0x2B : /Users/shreeram/.nix-profile/bin/kitty --session task.conf
