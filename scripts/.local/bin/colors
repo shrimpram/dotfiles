@@ -12,7 +12,7 @@ brew services restart spacebar
 
 # Yabai
 cp -a "$HOME/.config/yabai/themes/stella-$COLOR" "$HOME/.config/yabai/current-theme"
-brew services restart yabai
+yabai --restart-service
 
 # Zathura
 cp -a "$HOME/.config/zathura/themes/stella-$COLOR" "$HOME/.config/zathura/current-theme"
@@ -27,7 +27,8 @@ fi
 
 # Wallpaper
 if [ "$(uname -s)" = "Darwin" ]; then
-  osascript -e "tell application \"Finder\" to set desktop picture to POSIX file \"$HOME/Pictures/stella-$COLOR.png\""
+  sqlite3 "$HOME/Library/Application Support/Dock/desktoppicture.db" "update data set value = '$HOME/Pictures/stella-$COLOR.png'";
+  killall Dock;
 fi
 
 # Dark/Light Mode
