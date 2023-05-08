@@ -7,12 +7,10 @@ tap "homebrew/services"
 tap "shrimpram/tap"
 tap "koekeishiya/formulae"
 tap "cmacrae/formulae"
-tap "khanhas/tap"
 
 # Core
 
 brew "gnu-sed"
-brew "khanhas/tap/spicetify-cli"
 brew "koekeishiya/formulae/skhd"
 brew "koekeishiya/formulae/yabai"
 brew "pinentry-mac"
