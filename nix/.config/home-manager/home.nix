@@ -19,7 +19,7 @@
   home = {
     username = "shreeram";
     homeDirectory = "/Users/shreeram";
-    stateVersion = "21.11";
+    stateVersion = "23.05";
     sessionVariables = {
       EDITOR = "nvim";
       VISUAL = "nvim";
@@ -54,6 +54,7 @@
       "$HOME/.gem/ruby/2.6.0/bin"
       "$HOME/.gem/ruby/2.7.0/bin"
       "$HOME/go/bin"
+      "$HOME/.config/emacs/bin"
     ];
     packages = with pkgs; [
         # Core
@@ -74,7 +75,6 @@
         passff-host
         ripgrep
         stow
-        taskopen
         tasksh
         taskwarrior
         tree
@@ -101,7 +101,7 @@
 
         # Lang
 
-        R
+        fennel
         go
         jq
         lua
@@ -119,7 +119,7 @@
 
         automake
         hunspell
-        mu
+        # mu
         openssl
         pkg-config
 
@@ -129,10 +129,11 @@
         isync
         khard
         lynx
-        neomutt
+        # neomutt
         notmuch
         urlscan
         urlview
+        msmtp
         ];
   };
 }
