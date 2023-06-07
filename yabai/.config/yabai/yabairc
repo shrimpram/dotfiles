@@ -39,11 +39,11 @@ yabai -m rule --add app="^Disk Utility$" manage=off
 yabai -m rule --add app="^Flux$" manage=off
 yabai -m rule --add app="^Raycast$" manage=off
 yabai -m rule --add app="^Spotify*" space=last
+yabai -m rule --add app="^Music*" space=first native-fullscreen=on
 yabai -m rule --add app="^Discord*" space=last
-yabai -m rule --add app="^System Preferences$" manage=off
+yabai -m rule --add app="^System Settings$" manage=on
 yabai -m rule --add app="^Emacs$" manage=on
 yabai -m rule --add app="^Steam$" manage=off
 yabai -m rule --add app="^Finda$" manage=off
-yabai -m rule --add app="^IINA$" manage=off
 
 . "$HOME/.config/yabai/current-theme"
