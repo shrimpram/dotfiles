@@ -115,14 +115,6 @@
         vim-vint
         yq
 
-        # Emacs
-
-        automake
-        hunspell
-        # mu
-        openssl
-        pkg-config
-
         # Mutt
 
         curl
