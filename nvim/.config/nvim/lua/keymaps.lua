@@ -12,6 +12,11 @@ vim.keymap.set("n", "<Leader>w", "<Cmd>write<CR>", {desc = "Write buffer"})
 vim.keymap.set("n", "<Leader>ww", "<Cmd>write<CR>", {desc = "Write buffer"})
 vim.keymap.set("n", "<Leader>wq", "<Cmd>wq<CR>", {desc = "Write buffer and quit"})
 
+vim.keymap.set({"n", "x"}, "<C-l>", "<C-w>l", {desc = "Move to right split"})
+vim.keymap.set({"n", "x"}, "<C-h>", "<C-w>h", {desc = "Move to left split"})
+vim.keymap.set({"n", "x"}, "<C-j>", "<C-w>j", {desc = "Move to below split"})
+vim.keymap.set({"n", "x"}, "<C-k>", "<C-w>k", {desc = "Move to above split"})
+
 vim.keymap.set({"n", "x", "o"}, "gl", "<Plug>(EasyAlign)")
 
 local telescope_hint = [[
@@ -86,22 +91,3 @@ hydra({
     { "<Esc>", nil, { exit = true, nowait = true }},
   }
 })
-
-
--- TODO windows hydra
-
--- nest.applyKeymaps {
---   { mode = 'nv', options = { expr = true }, {
---   }},
---   { '<M-', {
---     { 'j>', [[<CMD>lua require('utils').resize(false, 2)<CR>]] },
---     { 'k>', [[<CMD>lua require('utils').resize(false, -2)<CR>]] },
---     { 'l>', [[<CMD>lua require('utils').resize(true, 2)<CR>]] },
---     { 'h>', [[<CMD>lua require('utils').resize(true, -2)<CR>]] },
---   }},
---   { '<C-', {
---     { 'h>', '<C-w>h' },
---     { 'j>', '<C-w>j' },
---     { 'k>', '<C-w>k' },
---     { 'l>', '<C-w>l' },
---   }},
