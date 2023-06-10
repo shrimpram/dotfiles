@@ -26,7 +26,6 @@ return {
           "lua",
           "make",
           "nix",
-          "norg",
           "org",
           "python",
           "regex",
