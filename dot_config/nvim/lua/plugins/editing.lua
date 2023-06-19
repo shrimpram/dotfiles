@@ -35,5 +35,9 @@ return {
   },
   {
     "preservim/vim-pencil"
+  },
+  {
+    "lervag/vimtex",
+    ft = "tex",
   }
 }
