@@ -31,6 +31,7 @@
       "logseq"
       "obsidian"
       "raycast"
+      "skim"
       "slack"
     ];
   };
