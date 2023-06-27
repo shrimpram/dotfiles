@@ -19,10 +19,10 @@ vim.keymap.set({"n", "x"}, "<C-k>", "<C-w>k", {desc = "Move to above split"})
 
 -- TODO Use v:count for counted remappings
 local resize = require("utils").resize
-vim.keymap.set({"n", "x"}, "<M-j>", function()resize(false, 3) end)
-vim.keymap.set({"n", "x"}, "<M-k>", function()resize(false, -3) end)
-vim.keymap.set({"n", "x"}, "<M-l>", function()resize(true, 3) end)
-vim.keymap.set({"n", "x"}, "<M-h>", function()resize(true, -3) end)
+vim.keymap.set({"n", "x"}, "<M-j>", function() resize(false, 3) end)
+vim.keymap.set({"n", "x"}, "<M-k>", function() resize(false, -3) end)
+vim.keymap.set({"n", "x"}, "<M-l>", function() resize(true, 3) end)
+vim.keymap.set({"n", "x"}, "<M-h>", function() resize(true, -3) end)
 
 vim.keymap.set({"n", "x", "o"}, "gl", "<Plug>(EasyAlign)")
 
