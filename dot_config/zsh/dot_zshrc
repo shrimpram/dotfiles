@@ -1,0 +1,23 @@
+source "$HOME/.local/share/zsh/plugins/fzf-tab/fzf-tab.plugin.zsh"
+source "$HOME/.config/zsh/p10k-source.zsh"
+source "$HOME/.config/zsh/nnn.zsh"
+source "$HOME/.config/zsh/fzf-tab-config.zsh"
+
+alias e="exa"
+alias ea="exa --all"
+alias el="exa --long --header --git --icons --classify --all"
+alias et="exa --tree --level=2 --long --header --git --icons --classify --all"
+alias lg="lazygit"
+
+setopt globdots
+setopt autocd
+
+fpath+=(~/.local/share/zsh/site-functions/)
+fpath+=(/opt/homebrew/share/zsh/site-functions)
+
+autoload -Uz compinit bashcompinit
+compinit
+bashcompinit
+
+autoload edit-command-line; zle -N edit-command-line
+bindkey '^e' edit-command-line
