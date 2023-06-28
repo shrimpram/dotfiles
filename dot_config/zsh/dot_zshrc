@@ -24,3 +24,5 @@ bindkey '^e' edit-command-line
 bindkey -e
 
 eval "$(zoxide init zsh)"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
