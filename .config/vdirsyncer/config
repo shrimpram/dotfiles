@@ -1,0 +1,19 @@
+[general]
+status_path = "~/.local/share/vdirsyncer/status/"
+
+[pair contacts]
+a = "local_contacts"
+b = "google_contacts"
+collections = ["from a", "from b"]
+conflict_resolution = ["command", "~/.nix-profile/bin/nvim", "-d"]
+
+[storage google_contacts]
+type = "google_contacts"
+token_file = "~/.local/share/vdirsyncer/contacts-token"
+client_id.fetch = ["command", "pass", "Vdirsyncer/ID"]
+client_secret.fetch = ["command", "pass", "Vdirsyncer/Secret"]
+
+[storage local_contacts]
+type = "filesystem"
+path = "~/.local/share/khard/"
+fileext = ".vcf"
