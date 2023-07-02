@@ -1,21 +1,29 @@
 return {
-  {
-    "VonHeikemen/lsp-zero.nvim",
-    event = "VeryLazy",
-    branch = "v2.x",
-    dependencies = {
-      {"neovim/nvim-lspconfig"},
-      {"williamboman/mason.nvim"},
-      {"williamboman/mason-lspconfig.nvim"}, -- Optional
 
-      -- Autocompletion
-      {"hrsh7th/nvim-cmp"},     -- Required
-      {"hrsh7th/cmp-nvim-lsp"}, -- Required
-      {"L3MON4D3/LuaSnip"},     -- Required
-    }
+  {
+    "neovim/nvim-lspconfig",
+    event = { "BufReadPre", "BufNewFile" },
+    dependencies = {
+      "williamboman/mason.nvim",
+      "williamboman/mason-lspconfig.nvim",
+      "hrsh7th/cmp-nvim-lsp",
+    },
+    config = function()
+      require("shreeram.conf.lsp")
+    end,
   },
+
   {
     "williamboman/mason.nvim",
-    build = ":MasonUpdate"
+    cmd = "Mason",
+    opts = {
+      ensure_installed = {
+        "bash-language-server",
+        "shellcheck",
+        "tailwindcss",
+        "texlab",
+      },
+    },
   },
+
 }

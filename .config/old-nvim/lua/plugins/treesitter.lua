@@ -1,7 +1,11 @@
 return {
-
+  {
+    "nvim-treesitter/playground",
+    cmd = "TSPlaygroundToggle"
+  },
   {
     "nvim-treesitter/nvim-treesitter",
+    dependencies = {"windwp/nvim-ts-autotag"},
     config = function()
       require "nvim-treesitter.configs".setup {
         ensure_installed = {
@@ -42,13 +46,7 @@ return {
       }
     end
   },
-
   {
-    "windwp/nvim-ts-autotag",
-    config = function()
-      require('nvim-ts-autotag').setup()
-    end,
-    ft = "html",
+    "windwp/nvim-ts-autotag"
   }
-
 }

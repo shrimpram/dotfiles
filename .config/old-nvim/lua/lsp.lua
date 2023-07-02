@@ -5,6 +5,7 @@ lsp.preset("recommended")
 lsp.ensure_installed({
   "lua_ls",
   "rnix",
+  "tailwindcss",
 })
 
 lsp.on_attach(function(client, bufnr)

@@ -1,4 +1,6 @@
 export NNN_FIFO=/tmp/nnn.fifo
+export NNN_OPTS="egxAH"
+export NNN_TRASH=1
 
 n () {
     # Block nesting of nnn in subshells
@@ -22,7 +24,7 @@ n () {
 
     # The command builtin allows one to alias nnn to n, if desired, without
     # making an infinitely recursive alias
-    command nnn -egxAH "$@"
+    command nnn "$@"
 
     [ ! -f "$NNN_TMPFILE" ] || {
         . "$NNN_TMPFILE"

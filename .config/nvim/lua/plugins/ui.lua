@@ -1,4 +1,62 @@
 return {
+
+  {
+    "NvChad/nvim-colorizer.lua",
+    event = { "BufEnter", "BufReadPre" },
+    opts = {
+      user_default_options = {
+        tailwind = true,
+      }
+    }
+  },
+
+  {
+    "romainl/vim-cool",
+    config = function()
+      vim.cmd([[set hlsearch]])
+    end,
+    keys = {"/", "?", "*", "#", "g*", "g#", "n", "N"},
+  },
+
+  {
+    "lukas-reineke/indent-blankline.nvim",
+    event = { "BufReadPost", "BufNewFile" },
+    opts = {
+      filetype_exclude = {
+        "help",
+        "alpha",
+        "dashboard",
+        "neo-tree",
+        "Trouble",
+        "lazy",
+        "mason",
+        "notify",
+        "toggleterm",
+        "lazyterm",
+      },
+      show_current_context = true,
+    },
+  },
+
+  {
+    "nvim-lualine/lualine.nvim",
+    event = "VeryLazy",
+    config = function()
+      require("shreeram.conf.lualine")
+    end,
+  },
+
+  {
+    "karb94/neoscroll.nvim",
+    event = "VeryLazy",
+    config = true,
+  },
+
+  {
+    "PeterRincker/vim-searchlight",
+    keys = {"/", "?", "*", "#", "g*", "g#", "n", "N"},
+  },
+
   {
     "shrimpram/stella",
     config = function(plugin)
@@ -6,48 +64,19 @@ return {
       vim.cmd("colorscheme stella-dark")
     end
   },
+
   {
-    "nvim-lualine/lualine.nvim",
+    "folke/which-key.nvim",
     event = "VeryLazy",
-    config = function()
-
-      local function spell()
-        if vim.o.spell then
-          return string.format("SPELL[%s]", string.upper(vim.o.spelllang))
-        else
-          return ""
-        end
-      end
-
-      local function trailing()
-        local line_nr = vim.fn.search([[\s$]], "nw")
-        if line_nr == 0 then
-          return ""
-        end
-
-        return string.format("T:%d", line_nr)
-      end
-
-      require("lualine").setup {
-        options = {
-          icons_enabled = true,
-          theme = "auto",
-          component_separators = { left = "", right = "" },
-          section_separators = { left = "", right = "" },
-          always_divide_middle = true,
-        },
-        sections = {
-          lualine_a = { "mode", spell },
-          lualine_b = {
-            {
-              "diff",
-              colored = false,
-              symbols = {added = "+", modified = "~", removed = "-"},
-            }
-          },
-          lualine_x = { trailing, "encoding", "fileformat", "filetype" },
-        },
-      }
+    init = function()
+      vim.o.timeout = true
+      vim.o.timeoutlen = 300
     end,
+    opts = {
+      -- your configuration comes here
+      -- or leave it empty to use the default settings
+      -- refer to the configuration section below
+    }
   }
+
 }

@@ -1,22 +1,16 @@
 return {
+
   {
     "andweeb/presence.nvim",
-    event = "VeryLazy",
-  },
-  {
-    "justinmk/vim-dirvish"
-  },
-  {
-    "RRethy/vim-hexokinase",
-    build = "make hexokinase",
     event = "VeryLazy"
   },
+
   {
-    "mickael-menu/zk-nvim",
+    "dstein64/vim-startuptime",
+    cmd = "StartupTime",
     config = function()
-      require("zk").setup({
-        picker = "telescope",
-      })
-    end
-  }
+      vim.g.startuptime_tries = 10
+    end,
+  },
+
 }

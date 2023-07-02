@@ -1,0 +1,61 @@
+# vim: filetype=neomuttrc
+source /usr/local/share/mutt-wizard/mutt-wizard.muttrc
+source /Users/shreeram/.config/mutt/accounts/shreerammodi10@gmail.com.muttrc
+
+macro index,pager i1 '<sync-mailbox><enter-command>source /Users/shreeram/.config/mutt/accounts/shreerammodi10@gmail.com.muttrc<enter><change-folder>!<enter>;<check-stats>' "switch to shreerammodi10@gmail.com"
+macro index,pager i2 '<sync-mailbox><enter-command>source /Users/shreeram/.config/mutt/accounts/shreeram.modi@nyu.edu.muttrc<enter><change-folder>!<enter>;<check-stats>' "switch to shreeram.modi@nyu.edu"
+macro index,pager i3 '<sync-mailbox><enter-command>source /Users/shreeram/.config/mutt/accounts/shreeram@shreerammodi.com.muttrc<enter><change-folder>!<enter>;<check-stats>' "switch to shreeram@shreerammodi.com"
+macro index,pager i4 '<sync-mailbox><enter-command>source /Users/shreeram/.config/mutt/accounts/contact@shreerammodi.com.muttrc<enter><change-folder>!<enter>;<check-stats>' "switch to contact@shreerammodi.com"
+
+
+# Send mail to custom folder
+macro index Me ":set confirmappend=no delete=yes\n<tag-prefix><save-message>=archive\n<sync-mailbox>:set confirmappend=yes delete=ask-yes\n"
+
+macro index,pager Mc ";<save-message>=College<enter>" "move mail to college"
+macro index,pager Cc ";<copy-message>=College<enter>" "copy mail to college"
+
+macro index,pager Mr ";<save-message>=Receipts<enter>" "move mail to receipts"
+macro index,pager Cr ";<copy-message>=Receipts<enter>" "copy mail to receipts"
+
+macro index,pager Mr ";<save-message>=Receipts<enter>" "move mail to receipts"
+macro index,pager Cr ";<copy-message>=Receipts<enter>" "copy mail to receipts"
+
+macro index,pager gt "<change-folder>=TODO<enter>" "go to todo"
+macro index,pager gd "<change-folder>=Trash<enter>" "go to trash"
+
+bind index,pager \Cn next-subthread
+bind index,pager \Cp previous-subthread
+
+bind index,pager \Cl sidebar-open
+
+bind index \Ct tag-pattern
+bind index \Cr untag-pattern
+
+bind index,pager c copy-message
+
+bind index,pager p recall-message
+bind index,pager P print-message
+
+unbind attach g
+bind attach R group-reply
+
+set sort="reverse-threads"
+
+color sidebar_highlight brightcyan default
+
+set postponed = "+[Gmail]/Drafts"
+set trash = "+[Gmail]/Trash"
+
+set sidebar_delim_chars = '/'
+set sidebar_divider_char = '|'
+set sidebar_folder_indent
+set sidebar_indent_string = '  '
+
+set query_command = "khard email --parsable %s"
+bind editor <Tab> complete-query
+bind editor ^T    complete
+
+macro index,pager T "<pipe-message>mutt2task<enter><copy-message>=TODO<enter>" "make mail into a task"
+
+macro index,pager \cb "<pipe-message> urlscan<Enter>" "call urlscan to extract URLs out of a message"
+macro attach,compose \cb "<pipe-entry> urlscan<Enter>" "call urlscan to extract URLs out of a message"
