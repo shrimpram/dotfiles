@@ -1,6 +1,0 @@
-[user]
-	name = Shreeram
-	signingkey = 0x163B16EE76ED24CE
-	email = shreerammodi10@gmail.com
-[core]
-	pager = nvim +Man!
