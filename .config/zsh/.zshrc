@@ -20,8 +20,8 @@ compinit
 bashcompinit
 
 autoload edit-command-line; zle -N edit-command-line
-bindkey '^e' edit-command-line
 bindkey -e
+bindkey '^e' edit-command-line
 
 eval "$(zoxide init zsh)"
 
