@@ -20,19 +20,20 @@ return {
 
   {
     "lukas-reineke/indent-blankline.nvim",
-    event = { "BufReadPost", "BufNewFile" },
+    version = "2.20.7",
     opts = {
       filetype_exclude = {
-        "help",
+        "Trouble",
         "alpha",
         "dashboard",
-        "neo-tree",
-        "Trouble",
+        "harpoon",
+        "help",
         "lazy",
+        "lazyterm",
         "mason",
+        "neo-tree",
         "notify",
         "toggleterm",
-        "lazyterm",
       },
       show_current_context = true,
     },

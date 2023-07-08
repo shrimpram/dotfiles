@@ -1,6 +1,6 @@
 vim.opt.autoindent     = true
-vim.opt.clipboard      = "unnamedplus"
 vim.opt.backup         = false
+vim.opt.clipboard      = "unnamedplus"
 vim.opt.expandtab      = true
 vim.opt.foldmethod     = "marker"
 vim.opt.hlsearch       = false
