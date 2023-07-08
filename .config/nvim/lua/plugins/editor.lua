@@ -62,6 +62,10 @@ return {
   },
 
   {
+    "andymass/vim-matchup",
+  },
+
+  {
     "echasnovski/mini.align",
     event = "VeryLazy",
     config = true,
