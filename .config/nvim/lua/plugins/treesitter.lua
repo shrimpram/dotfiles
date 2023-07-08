@@ -2,8 +2,12 @@ return {
 
   {
     "nvim-treesitter/nvim-treesitter",
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter-textobjects"
+    },
     config = function()
       require "nvim-treesitter.configs".setup {
+        auto_install = true,
         ensure_installed = {
           "bash",
           "bibtex",
@@ -22,6 +26,8 @@ return {
           "jsonc",
           "lua",
           "make",
+          "markdown",
+          "markdown_inline",
           "nix",
           "norg",
           "org",
@@ -31,12 +37,15 @@ return {
           "vim",
           "yaml"
         },
+        autotag = {
+          enable = true,
+        },
         highlight = {
           enable = true,
           use_languagetree = true,
           additional_vim_regex_highlighting = { "org", "make" },
         },
-        autotag = {
+        indent = {
           enable = true,
         },
       }

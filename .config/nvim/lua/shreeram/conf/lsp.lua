@@ -1,6 +1,12 @@
 local lspconfig = require("lspconfig")
 
-require("mason").setup()
+require("mason").setup {
+  ensure_installed = {
+    "prettier",
+    "stylua"
+  }
+}
+
 require("mason-lspconfig").setup({
   ensure_installed =  {
     "lua_ls",

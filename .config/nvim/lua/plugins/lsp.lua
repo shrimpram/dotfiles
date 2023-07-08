@@ -14,6 +14,28 @@ return {
   },
 
   {
+    "glepnir/lspsaga.nvim",
+    dependencies = {
+      {"nvim-tree/nvim-web-devicons"},
+      --Please make sure you install markdown and markdown_inline parser
+      {"nvim-treesitter/nvim-treesitter"}
+    },
+    event = "LspAttach",
+    opts = {},
+  },
+
+  {
+    "jose-elias-alvarez/null-ls.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "neovim/nvim-lspconfig",
+    },
+    config = function()
+      require("shreeram.conf.null-ls")
+    end,
+  },
+
+  {
     "williamboman/mason.nvim",
     cmd = "Mason",
     opts = {
