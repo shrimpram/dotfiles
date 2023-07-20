@@ -1,5 +1,20 @@
 return {
-  "justinmk/vim-dirvish",
+  {
+    "stevearc/oil.nvim",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    keys = {
+      {
+        "-",
+        function()
+          require("oil").open()
+        end,
+        desc = "Open parent directory",
+      },
+    },
+    config = function()
+      require("oil").setup()
+    end,
+  },
 
   {
     "ThePrimeagen/harpoon",
