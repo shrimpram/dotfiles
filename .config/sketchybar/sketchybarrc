@@ -1,0 +1,53 @@
+#!/usr/bin/env sh
+
+DIR="$HOME/.config/sketchybar"
+
+source "$DIR/colors.sh"
+
+FONT="BlexMono Nerd Font"
+PADDING=3
+
+source "$DIR/colors.sh"
+
+sketchybar --bar               \
+  border_color="$BORDER_COLOR" \
+  color=$BAR_COLOR             \
+  height=25                    \
+  margin=0                     \
+  notch_width=0                \
+  position=top                 \
+  sticky=on                    \
+
+
+sketchybar --default                    \
+ background.height=30                   \
+ icon.color=$ICON_COLOR                 \
+ icon.font="$FONT:Regular:18.0"         \
+ icon.padding_left=$PADDING             \
+ icon.padding_right=$PADDING            \
+ label.color=$GREEN                     \
+ label.color=$LABEL_COLOR               \
+ label.font="$FONT:Semibold:13.0"       \
+ label.font="$FONT:Semibold:13.0"       \
+ label.padding_left=$PADDING            \
+ label.padding_right=$PADDING           \
+ popup.background.border_color=$MAGENTA \
+ popup.background.border_width=2        \
+ popup.background.color=$D2             \
+ popup.background.corner_radius=11      \
+ popup.background.shadow.drawing=on     \
+ updates=when_shown                     \
+
+
+# Left Side
+source "$DIR/items/space.sh"
+source "$DIR/items/front_app.sh"
+
+# Right Side
+source "$DIR/items/calendar.sh"
+source "$DIR/items/clock.sh"
+source "$DIR/items/network.sh"
+source "$DIR/items/volume.sh"
+source "$DIR/items/battery.sh"
+
+sketchybar --update
