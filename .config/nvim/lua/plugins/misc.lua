@@ -1,8 +1,7 @@
 return {
-
   {
     "andweeb/presence.nvim",
-    event = "VeryLazy"
+    event = "VeryLazy",
   },
 
   {
@@ -12,5 +11,4 @@ return {
       vim.g.startuptime_tries = 10
     end,
   },
-
 }

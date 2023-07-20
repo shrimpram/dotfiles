@@ -16,23 +16,19 @@ return {
   {
     "glepnir/lspsaga.nvim",
     dependencies = {
-      {"nvim-tree/nvim-web-devicons"},
+      { "nvim-tree/nvim-web-devicons" },
       --Please make sure you install markdown and markdown_inline parser
-      {"nvim-treesitter/nvim-treesitter"}
+      { "nvim-treesitter/nvim-treesitter" },
     },
     event = "LspAttach",
     opts = {},
-  },
-
-  {
-    "jose-elias-alvarez/null-ls.nvim",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "neovim/nvim-lspconfig",
+    keys = {
+      {
+        "K",
+        "<cmd>Lspsaga hover_doc<cr>",
+        desc = "LSP doc",
+      },
     },
-    config = function()
-      require("shreeram.conf.null-ls")
-    end,
   },
 
   {
@@ -48,4 +44,14 @@ return {
     },
   },
 
+  {
+    "jose-elias-alvarez/null-ls.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "neovim/nvim-lspconfig",
+    },
+    config = function()
+      require("shreeram.conf.null-ls")
+    end,
+  },
 }

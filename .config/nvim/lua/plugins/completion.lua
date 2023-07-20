@@ -1,5 +1,4 @@
 return {
-
   {
     "hrsh7th/nvim-cmp",
     event = "InsertEnter",
@@ -9,11 +8,13 @@ return {
       "hrsh7th/cmp-nvim-lsp",
       "hrsh7th/cmp-path",
       "saadparwaiz1/cmp_luasnip",
-      {"roobert/tailwindcss-colorizer-cmp.nvim", config = true},
+      {
+        "roobert/tailwindcss-colorizer-cmp.nvim",
+        opts = {},
+      },
     },
     config = function()
       require("shreeram.conf.cmp")
     end,
   },
-
 }

@@ -1,4 +1,4 @@
-vim.g.mapleader      = " "
+vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 -- bootstrap lazy.nvim
@@ -22,14 +22,14 @@ require("lazy").setup("plugins", {
   performance = {
     rtp = {
       disabled_plugins = {
-        'gzip',
-        'matchit',
-        'matchparen',
-        'netrwPlugin',
-        'tarPlugin',
-        'tohtml',
-        'tutor',
-        'zipPlugin',
+        "gzip",
+        "matchit",
+        "matchparen",
+        "netrwPlugin",
+        "tarPlugin",
+        "tohtml",
+        "tutor",
+        "zipPlugin",
       },
     },
   },

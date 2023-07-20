@@ -1,30 +1,36 @@
 local lspconfig = require("lspconfig")
 
-require("mason").setup {
+require("mason").setup({
   ensure_installed = {
     "prettier",
-    "stylua"
-  }
-}
+    "stylua",
+  },
+})
 
 require("mason-lspconfig").setup({
-  ensure_installed =  {
+  ensure_installed = {
     "lua_ls",
     "texlab",
     "tailwindcss",
     "html",
-  }
+  },
 })
 
-lspconfig.lua_ls.setup {}
-lspconfig.tailwindcss.setup {}
-lspconfig.texlab.setup {}
-lspconfig.html.setup {}
-
+lspconfig.html.setup({})
+lspconfig.lua_ls.setup({
+  settings = {
+    Lua = {
+      diagnostics = {
+        globals = { "vim" },
+      },
+    },
+  },
+})
+lspconfig.tailwindcss.setup({})
+lspconfig.texlab.setup({})
 
 local on_attach = function(_, bufnr)
-  vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
-
+  vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc")
 
   -- vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
   -- vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end,)
