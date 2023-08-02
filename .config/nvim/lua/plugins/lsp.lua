@@ -26,7 +26,27 @@ return {
       {
         "K",
         "<cmd>Lspsaga hover_doc<cr>",
-        desc = "LSP doc",
+        desc = "Lspsaga doc",
+      },
+      {
+        "<leader>la",
+        "<cmd>Lspsaga code_action<cr>",
+        desc = "Lspsaga code action",
+      },
+      {
+        "<leader>lf",
+        "<cmd>Lspsaga finder<cr>",
+        desc = "Lspsaga finder",
+      },
+      {
+        "<leader>lr",
+        "<cmd>Lspsaga rename<cr>",
+        desc = "Lspsaga rename",
+      },
+      {
+        "<leader>lg",
+        "<cmd>Lspsaga goto_definition<cr>",
+        desc = "Lspsaga goto definition",
       },
     },
   },
