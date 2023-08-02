@@ -31,6 +31,3 @@ end)
 vim.keymap.set("n", "<leader>o", vim.cmd.copen, { desc = "Open quickfixlist" })
 vim.keymap.set("n", "<leader>n", vim.cmd.cnext, { desc = "Go to next error" })
 vim.keymap.set("n", "<leader>p", vim.cmd.cprev, { desc = "Go to prev error" })
-
-vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]], { desc = "Yank into + register" })
-vim.keymap.set("n", "<leader>Y", [["+Y]], { desc = "Yank line into + register" })
