@@ -6,8 +6,8 @@ return {
     opts = {
       user_default_options = {
         tailwind = true,
-      }
-    }
+      },
+    },
   },
 
   {
@@ -15,7 +15,7 @@ return {
     config = function()
       vim.cmd([[set hlsearch]])
     end,
-    keys = {"/", "?", "*", "#", "g*", "g#", "n", "N"},
+    keys = { "/", "?", "*", "#", "g*", "g#", "n", "N" },
   },
 
   {
@@ -55,7 +55,7 @@ return {
 
   {
     "PeterRincker/vim-searchlight",
-    keys = {"/", "?", "*", "#", "g*", "g#", "n", "N"},
+    keys = { "/", "?", "*", "#", "g*", "g#", "n", "N" },
   },
 
   {
@@ -63,7 +63,7 @@ return {
     config = function(plugin)
       vim.opt.rtp:append(plugin.dir .. "/vim")
       vim.cmd("colorscheme stella-dark")
-    end
+    end,
   },
 
   {
@@ -77,7 +77,6 @@ return {
       -- your configuration comes here
       -- or leave it empty to use the default settings
       -- refer to the configuration section below
-    }
-  }
-
+    },
+  },
 }
