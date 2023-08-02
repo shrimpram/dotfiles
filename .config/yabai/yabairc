@@ -52,3 +52,8 @@ yabai -m config normal_window_border_color   0xFF4C3F6E
 #SKETCHYBAR EVENTS
 yabai -m signal --add event=window_focused action="sketchybar -m --trigger window_focus &> /dev/null"
 yabai -m signal --add event=window_title_changed action="sketchybar -m --trigger title_change &> /dev/null"
+
+# Rules for Arc
+# see: https://github.com/koekeishiya/yabai/issues/1622
+
+yabai -m rule --add app="^Arc$" title="^$" mouse_follows_focus=off
