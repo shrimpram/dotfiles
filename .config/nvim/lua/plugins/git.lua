@@ -33,7 +33,7 @@ return {
           gs.blame_line({ full = true })
         end, { desc = "Blame Line Full" })
         vim.keymap.set("n", "<leader>gp", gs.preview_hunk, { desc = "Preview Hunk" })
-        vim.keymap.set("n", "<leader>gsh", gs.stage_hunk, { desc = "Stage Hunk" })
+        vim.keymap.set({ "n", "x" }, "<leader>gsh", gs.stage_hunk, { desc = "Stage Hunk" })
         vim.keymap.set("n", "<leader>gsb", gs.stage_buffer, { desc = "Stage Buffer" })
         vim.keymap.set("n", "<leader>gsu", gs.undo_stage_hunk, { desc = "Undo Stage Hunk" })
         vim.keymap.set("n", "<leader>grh", gs.reset_hunk, { desc = "Reset Hunk" })
