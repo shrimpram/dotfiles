@@ -3,10 +3,10 @@ return {
   {
     "nvim-treesitter/nvim-treesitter",
     dependencies = {
-      "nvim-treesitter/nvim-treesitter-textobjects"
+      "nvim-treesitter/nvim-treesitter-textobjects",
     },
     config = function()
-      require "nvim-treesitter.configs".setup {
+      require("nvim-treesitter.configs").setup({
         auto_install = true,
         ensure_installed = {
           "bash",
@@ -35,7 +35,7 @@ return {
           "regex",
           "toml",
           "vim",
-          "yaml"
+          "yaml",
         },
         autotag = {
           enable = true,
@@ -48,16 +48,15 @@ return {
         indent = {
           enable = true,
         },
-      }
-    end
+      })
+    end,
   },
 
   {
     "windwp/nvim-ts-autotag",
     config = function()
-      require('nvim-ts-autotag').setup()
+      require("nvim-ts-autotag").setup()
     end,
     ft = "html",
-  }
-
+  },
 }
