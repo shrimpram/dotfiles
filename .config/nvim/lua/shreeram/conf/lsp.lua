@@ -4,6 +4,7 @@ require("mason").setup({
   ensure_installed = {
     "prettier",
     "stylua",
+    "latexindent",
   },
 })
 
@@ -13,6 +14,7 @@ require("mason-lspconfig").setup({
     "texlab",
     "tailwindcss",
     "html",
+    "tsserver",
   },
 })
 
@@ -28,6 +30,7 @@ lspconfig.lua_ls.setup({
 })
 lspconfig.tailwindcss.setup({})
 lspconfig.texlab.setup({})
+lspconfig.tsserver.setup({})
 
 local on_attach = function(_, bufnr)
   vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc")
