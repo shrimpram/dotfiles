@@ -5,7 +5,7 @@ status_path = "~/.local/share/vdirsyncer/status/"
 a = "local_contacts"
 b = "google_contacts"
 collections = ["from a", "from b"]
-conflict_resolution = ["command", "~/.nix-profile/bin/nvim", "-d"]
+conflict_resolution = ["command", "/opt/homebrew/bin/nvim", "-d"]
 
 [storage google_contacts]
 type = "google_contacts"
