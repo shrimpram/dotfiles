@@ -75,29 +75,3 @@ SyncState *
 MaxMessages 0
 ExpireUnread no
 # End profile
-
-IMAPStore contact@shreerammodi.com-remote
-Host imap.fastmail.com
-Port 993
-User shreeram@shreerammodi.com
-PassCmd "pass Neomutt/shreeram@shreerammodi.com"
-AuthMechs LOGIN
-SSLType IMAPS
-SSLVersions TLSv1.2
-CertificateFile /etc/ssl/cert.pem
-
-MaildirStore contact@shreerammodi.com-local
-Subfolders Verbatim
-Path /Users/shreeram/.local/share/mail/contact@shreerammodi.com/
-Inbox /Users/shreeram/.local/share/mail/contact@shreerammodi.com/INBOX
-
-Channel contact@shreerammodi.com
-Expunge Both
-Far :contact@shreerammodi.com-remote:
-Near :contact@shreerammodi.com-local:
-Patterns *
-Create Both
-SyncState *
-MaxMessages 0
-ExpireUnread no
-# End profile
