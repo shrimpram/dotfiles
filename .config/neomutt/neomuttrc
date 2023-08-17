@@ -1,0 +1,8 @@
+source ~/.config/neomutt/conf/colors.neomuttrc
+source ~/.config/neomutt/conf/mappings.neomuttrc
+source ~/.config/neomutt/conf/settings.neomuttrc
+
+# Accounts
+
+source ~/.config/neomutt/accounts/gmail.neomuttrc
+folder-hook $folder 'source ~/.config/neomutt/accounts/gmail.neomuttrc'

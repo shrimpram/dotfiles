@@ -1,0 +1,14 @@
+unmailboxes *
+
+set folder = "/Users/shreeram/.local/share/mail/shreeram.modi@nyu.edu"
+set from = "shreeram.modi@nyu.edu"
+set hostname = "nyu.edu"
+set mbox_type = Maildir
+set postponed = "+[Gmail]/Drafts"
+set real_name = "Shreeram Modi"
+set record = "+[Gmail]/Sent Mail"
+set sendmail = "msmtp -a shreeram.modi@nyu.edu"
+set spool_file = "+INBOX"
+set trash = "+[Gmail]/Trash"
+
+mailboxes `mdir=/Users/shreeram/.local/share/mail/shreeram.modi@nyu.edu/; find $mdir -mindepth 1 -type d -name cur | sed -e 's:/cur$:":' -e "s:$mdir:\"=:" | sort | tr '\n' ' '`

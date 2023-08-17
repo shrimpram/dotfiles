@@ -1,0 +1,14 @@
+unmailboxes *
+
+set folder = "/Users/shreeram/.local/share/mail/shreeram@shreerammodi.com"
+set from = "shreeram@shreerammodi.com"
+set hostname = "fastmail.com"
+set mbox_type = Maildir
+set postponed = "+Drafts"
+set real_name = "Shreeram Modi"
+set record = "+Sent"
+set sendmail = "msmtp -a shreeram@shreerammodi.com"
+set spool_file = "+INBOX"
+set trash = "+Trash"
+
+mailboxes `mdir=/Users/shreeram/.local/share/mail/shreeram@shreerammodi.com/; find $mdir -mindepth 1 -type d -name cur | sed -e 's:/cur$:":' -e "s:$mdir:\"=:" | sort | tr '\n' ' '`
