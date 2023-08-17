@@ -16,7 +16,7 @@ Channel shreeram.modi@nyu.edu
 Expunge Both
 Far :shreeram.modi@nyu.edu-remote:
 Near :shreeram.modi@nyu.edu-local:
-Patterns * !"[Gmail]/All Mail"
+Patterns *
 Create Both
 SyncState *
 MaxMessages 0
@@ -42,7 +42,7 @@ Channel shreerammodi10@gmail.com
 Expunge Both
 Far :shreerammodi10@gmail.com-remote:
 Near :shreerammodi10@gmail.com-local:
-Patterns * !"[Gmail]/All Mail"
+Patterns *
 Create Both
 SyncState *
 MaxMessages 0
