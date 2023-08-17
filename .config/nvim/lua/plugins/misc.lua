@@ -1,5 +1,9 @@
 return {
   {
+    "neomutt/neomutt.vim",
+  },
+
+  {
     "andweeb/presence.nvim",
     event = "VeryLazy",
   },
