@@ -2,6 +2,7 @@ application/msword; open %s
 application/pdf; open %s
 audio/*; iina %s
 image/*; open %s
+text/html; open %s -a Arc; nametemplate=%s.html
 text/html; w3m -I %{charset} -T text/html; copiousoutput;
 text/plain; $EDITOR %s
 video/*; iina %s
