@@ -61,3 +61,8 @@ bind index,pager i noop
 macro index,pager i1 '<sync-mailbox><enter-command>source ~/.config/neomutt/accounts/gmail.neomuttrc<enter><change-folder>!<enter>'
 macro index,pager i2 '<sync-mailbox><enter-command>source ~/.config/neomutt/accounts/school.neomuttrc<enter><change-folder>!<enter>'
 macro index,pager i3 '<sync-mailbox><enter-command>source ~/.config/neomutt/accounts/personal.neomuttrc<enter><change-folder>!<enter>'
+
+
+# mutt2task
+
+macro index,pager T "<pipe-message>mutt2task<enter>" "make mail into a task"
