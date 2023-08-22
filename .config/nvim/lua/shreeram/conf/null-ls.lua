@@ -4,7 +4,11 @@ local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 null_ls.setup({
   debug = true,
   sources = {
-    null_ls.builtins.formatting.prettier, -- use deno instead
+    null_ls.builtins.formatting.prettier.with({
+      condition = function(utils)
+        return utils.root_has_file({ ".prettierrc" })
+      end,
+    }),
     null_ls.builtins.formatting.stylua,
     null_ls.builtins.formatting.latexindent.with({
       args = { "-m", "-" },

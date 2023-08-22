@@ -57,6 +57,7 @@ return {
     opts = {
       ensure_installed = {
         "bash-language-server",
+        "prettier",
         "shellcheck",
         "tailwindcss",
         "texlab",
