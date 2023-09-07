@@ -6,7 +6,6 @@ return {
     dependencies = {
       "nvim-lua/plenary.nvim",
     },
-    event = "VeryLazy",
     opts = {
       load = {
         ["core.defaults"] = {}, -- Loads default behaviour
