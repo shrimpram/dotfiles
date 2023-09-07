@@ -28,3 +28,7 @@ eval "$(zoxide init zsh)"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 eval "$(/usr/libexec/path_helper)"
+
+
+# Forces openjdk@17 to appear first in path
+export PATH="/opt/homebrew/opt/openjdk@17/bin:$PATH"
