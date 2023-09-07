@@ -31,3 +31,5 @@ end)
 vim.keymap.set("n", "<leader>o", vim.cmd.copen, { desc = "Open quickfixlist" })
 vim.keymap.set("n", "<leader>n", vim.cmd.cnext, { desc = "Go to next error" })
 vim.keymap.set("n", "<leader>p", vim.cmd.cprev, { desc = "Go to prev error" })
+
+vim.keymap.set("i", "<C-l>", "<C-G>u<Esc>[s1z=`]a<C-G>u", { desc = "Correct spelling error" })
