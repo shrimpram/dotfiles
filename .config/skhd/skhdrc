@@ -74,15 +74,6 @@ ctrl + alt - 0x55 : yabai -m display --focus 3
 ctrl + alt + shift - space : yabai -m window --toggle float;\
        yabai -m window --grid 8:8:1:1:6:6
 
-# toggle spotify playback
-ctrl + alt + cmd - space : /Users/shreeram/.nix-profile/bin/spt playback --toggle
-ctrl + alt + cmd - r : /Users/shreeram/.nix-profile/bin/spt playback --repeat
-ctrl + alt + cmd - s : /Users/shreeram/.nix-profile/bin/spt playback --shuffle
-ctrl + alt + cmd - l : /Users/shreeram/.nix-profile/bin/spt playback --next
-ctrl + alt + cmd - h : /Users/shreeram/.nix-profile/bin/spt playback --previous
-ctrl + alt + cmd - j : /Users/shreeram/.nix-profile/bin/spt playback --seek=+10
-ctrl + alt + cmd - k : /Users/shreeram/.nix-profile/bin/spt playback --seek=-10
-
 # file search
 ctrl - 0x2C : /Users/shreeram/.nix-profile/bin/kitty --session debate.conf
 ctrl - 0x2B : /Users/shreeram/.nix-profile/bin/kitty --session task.conf
