@@ -13,7 +13,9 @@ return {
         ["core.dirman"] = { -- Manages Neorg workspaces
           config = {
             workspaces = {
-              media = "~/Documents/10-19 personal/13 media/11.01 media-list",
+              media = "~/Documents/10-19 personal/13 media/",
+              school = "~/Documents/30-39 school",
+              work = "~/Documents/20-29 work",
             },
           },
         },
