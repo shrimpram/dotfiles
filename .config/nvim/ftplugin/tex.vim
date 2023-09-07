@@ -7,3 +7,5 @@ elseif os ==? "Linux"
 endif
 
 setlocal conceallevel=0
+
+setlocal spell
