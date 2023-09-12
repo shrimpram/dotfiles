@@ -66,3 +66,5 @@ macro index,pager i3 '<sync-mailbox><enter-command>source ~/.config/neomutt/acco
 # mutt2task
 
 macro index,pager T "<pipe-message>mutt2task<enter>" "make mail into a task"
+
+macro index a '<limit>all<enter>'
