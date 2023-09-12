@@ -3,10 +3,10 @@
 [ -f ~/.config/zsh/nnn.zsh ] && source ~/.config/zsh/nnn.zsh
 [ -f ~/.config/zsh/fzf-tab-config.zsh ] && source ~/.config/zsh/fzf-tab-config.zsh
 
-alias e="exa"
-alias ea="exa --all"
-alias el="exa --long --header --git --icons --classify --all"
-alias et="exa --tree --level=2 --long --header --git --icons --classify --all"
+alias e="eza"
+alias ea="eza --all"
+alias el="eza --long --header --git --icons --classify --all"
+alias et="eza --tree --level=2 --long --header --git --icons --classify --all"
 alias lg="lazygit"
 
 setopt globdots
