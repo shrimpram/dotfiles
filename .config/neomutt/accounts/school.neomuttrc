@@ -14,7 +14,17 @@ set sendmail = "msmtp -a shreeram.modi@nyu.edu"
 set spool_file = "+INBOX"
 set trash = "+[Gmail]/Trash"
 
-mailboxes `mdir=/Users/shreeram/.local/share/mail/shreeram.modi@nyu.edu/; find $mdir -mindepth 1 -type d -name cur | sed -e 's:/cur$:":' -e "s:$mdir:\"=:" | sort | tr '\n' ' '`
+mailboxes \
+            "+[Gmail]/All Mail"  \
+            "+[Gmail]/Drafts"    \
+            "+[Gmail]/Sent Mail" \
+            "+[Gmail]/Spam"      \
+            "+[Gmail]/Starred"   \
+            "+[Gmail]/Trash"     \
+            =INBOX               \
+            =Receipts            \
+            =Receipts/Housing    \
+            =Receipts/Jobs
 
 # Declares CEDA as a mailing list
 # see: https://neomutt.org/guide/configuration.html#14-%C2%A0mailing-lists

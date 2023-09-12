@@ -11,4 +11,12 @@ set sendmail = "msmtp -a shreeram@shreerammodi.com"
 set spool_file = "+INBOX"
 set trash = "+Trash"
 
-mailboxes `mdir=/Users/shreeram/.local/share/mail/shreeram@shreerammodi.com/; find $mdir -mindepth 1 -type d -name cur | sed -e 's:/cur$:":' -e "s:$mdir:\"=:" | sort | tr '\n' ' '`
+mailboxes \
+            =Archive   \
+            =Drafts    \
+            =INBOX     \
+            =Notes     \
+            =Scheduled \
+            =Sent      \
+            =Spam      \
+            =Trash
