@@ -6,7 +6,10 @@ set hostname = "nyu.edu"
 set mbox_type = Maildir
 set postponed = "+[Gmail]/Drafts"
 set real_name = "Shreeram Modi"
-set record = "+[Gmail]/Sent Mail"
+
+# see: https://www.stellarinfo.com/support/kb/index.php/article/fix-gmail-duplicate-sent-item-in-outlook#:~:text=This%20happens%20because%20of%20the,ISP)%20instead%20of%20the%20Gmail.
+unset record
+
 set sendmail = "msmtp -a shreeram.modi@nyu.edu"
 set spool_file = "+INBOX"
 set trash = "+[Gmail]/Trash"
