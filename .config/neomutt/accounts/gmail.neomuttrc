@@ -28,3 +28,5 @@ mailboxes \
             =Receipts            \
             =Receipts/Apps       \
             =Sangeeta
+
+bind index,pager P purge-message

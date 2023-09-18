@@ -26,6 +26,8 @@ mailboxes \
             =Receipts/Housing    \
             =Receipts/Jobs
 
+bind index,pager P purge-message
+
 # Declares CEDA as a mailing list
 # see: https://neomutt.org/guide/configuration.html#14-%C2%A0mailing-lists
 subscribe ^ceda-debate@nyu.edu$
