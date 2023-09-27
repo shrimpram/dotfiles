@@ -1,5 +1,5 @@
-[ -f ~/.local/share/zsh/plugins/fzf-tab/fzf-tab.plugin.zsh ] && source ~/.local/share/zsh/plugins/fzf-tab/fzf-tab.plugin.zsh
 [ -f ~/.config/zsh/p10k-source.zsh ] && source ~/.config/zsh/p10k-source.zsh
+[ -f ~/.local/share/zsh/plugins/fzf-tab/fzf-tab.plugin.zsh ] && source ~/.local/share/zsh/plugins/fzf-tab/fzf-tab.plugin.zsh
 [ -f ~/.config/zsh/nnn.zsh ] && source ~/.config/zsh/nnn.zsh
 [ -f ~/.config/zsh/fzf-tab-config.zsh ] && source ~/.config/zsh/fzf-tab-config.zsh
 
