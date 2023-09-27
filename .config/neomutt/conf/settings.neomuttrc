@@ -24,6 +24,7 @@ set mark_old       = no        # disable marking unread messages as old on exit
 set reverse_name   = yes       # reply using the address the email was sent to
 set status_on_top  = yes       # display the status bar at the top of the screen
 set sleep_time     = 0         # disable delay
+set strict_threads = yes       # only use "In-Reply-To" and "References:" for threads
 
 set query_command = "khard email --parsable --search-in-source-files '%s'"
 
