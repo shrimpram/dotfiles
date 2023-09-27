@@ -47,6 +47,7 @@ set use_threads="threads" sort=last-date sort_aux=date
 
 # pager view
 
+set attribution_intro = "On %{%F at %R}, %n wrote:" # change quote attribution heading
 set pager_index_lines = 10  # show 10 lines of index when pager is active
 set pager_context     = 3   # show 3 lines of context when page is scrolled, similar to nvim +":h scrolloff"
 set pager_stop        = yes # stop pager from moving to next message when <page-down> is issued at end of message
