@@ -7,7 +7,7 @@ set mbox_type = Maildir
 set postponed = "+[Gmail]/Drafts"
 set real_name = "Shreeram Modi"
 
-# see: https://www.stellarinfo.com/support/kb/index.php/article/fix-gmail-duplicate-sent-item-in-outlook#:~:text=This%20happens%20because%20of%20the,ISP)%20instead%20of%20the%20Gmail.
+# see: https://www.stellarinfo.com/support/kb/index.php/article/fix-gmail-duplicate-sent-item-in-outlook
 unset record
 
 set sendmail = "msmtp -a shreerammodi10@gmail.com"
