@@ -15,18 +15,40 @@ set spool_file = "+INBOX"
 set trash = "+[Gmail]/Trash"
 
 mailboxes \
-            "+[Gmail]/All Mail"  \
-            "+[Gmail]/Drafts"    \
-            "+[Gmail]/Sent Mail" \
-            "+[Gmail]/Spam"      \
-            "+[Gmail]/Starred"   \
-            "+[Gmail]/Trash"     \
-            =College             \
-            =Coupons             \
-            =INBOX               \
-            =NYU                 \
-            =Receipts            \
-            =Receipts/Apps       \
-            =Sangeeta
+            "+[Gmail]/All Mail"          \
+            "+[Gmail]/Drafts"            \
+            "+[Gmail]/Sent Mail"         \
+            "+[Gmail]/Spam"              \
+            "+[Gmail]/Starred"           \
+            "+[Gmail]/Trash"             \
+            "=Break the Outbreak"        \
+            "=YAMM - PPE Donation"       \
+            =2020-Summer                 \
+            =2020-Summer/Excel-SAT-Prep  \
+            =2020-Summer/WVC             \
+            =2021-Summer                 \
+            =2021-Summer/De-Anza         \
+            =2021-Summer/FLVS            \
+            =2021-Summer/FTE             \
+            =2021-Summer/Internship      \
+            =2021-Summer/Kumar           \
+            =2021-Summer/ODI             \
+            =APUSH                       \
+            =College                     \
+            =Coupons                     \
+            =Debate/                     \
+            =Debate/CEDA                 \
+            =Debate/HSLD                 \
+            =Documents                   \
+            =Healthcare                  \
+            =INBOX                       \
+            =Lynbrook                    \
+            =NYU                         \
+            =NYU                         \
+            =Receipts                    \
+            =Receipts/Apps               \
+            =Sangeeta                    \
+            =TODO                        \
+            =Turnitin                    \
 
 bind index,pager P purge-message

@@ -21,10 +21,15 @@ mailboxes \
             "+[Gmail]/Spam"      \
             "+[Gmail]/Starred"   \
             "+[Gmail]/Trash"     \
+            =Clubs/              \
+            =Clubs/CEDA/         \
+            =Clubs/ULR/          \
             =INBOX               \
             =Receipts            \
             =Receipts/Housing    \
-            =Receipts/Jobs
+            =Receipts/Jobs       \
+            =Work/               \
+            =Work/CDS            \
 
 bind index,pager P purge-message
 
