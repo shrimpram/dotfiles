@@ -1,20 +1,26 @@
 #!/usr/bin/env sh
 set -e
 
-export TEMP
-TEMP="$(mktemp)"
-
-config_file="${XDG_CONFIG_HOME:-$HOME/.config}/mutt2todoist/config.yml"
-
-if [[ "$(yq -r '.label' "$config_file")" != "null" ]]; then
-  TODOIST_EMAIL_LABEL_ID="$(yq -r '.label' "$config_file")"
-else
-  echo "Please specify a Todoist label ID in your config file" >&2
+if [[ "$ORGFILE" == "" ]]; then
+  echo "Please export your org inbox's path as \$ORGFILE" >&2
   exit 1
 fi
 
-grep -E '^Subject: |^From: ' | sed 's/.*: //; s/ <.*@.*>//; 2s/\(.*\)/(\1)/; 1s/^/Email from /' | paste -d " " - - > "$TEMP"
+export TEMP
+TEMP="$(mktemp)"
 
-todoist add "$(cat "$TEMP")" --label-ids "$TODOIST_EMAIL_LABEL_ID"
+grep -E '^Subject: |^From: ' | sed 's/.*: //; s/ <.*@.*>//; 2s/\(.*\)/(\1) :email:/; 1s/^/* TODO Email from /' | paste -d " " - - > "$TEMP"
 
-rm "$TEMP"
+echo "SCHEDULED: <$(date +%Y-%m-%d)>" >> "$TEMP"
+echo "[$(date +%Y-%m-%d)]" >> "$TEMP"
+
+if [ -e "$ORGFILE" ]
+then
+  cat "$TEMP" >> "$ORGFILE"
+  rm "$TEMP"
+  exit 0
+else
+  echo "Error \$ORGFILE does not exist!"
+  rm "$TEMP"
+  exit 1
+fi
