@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+set -e
+
+rem add Email "Email: $(grep 'Subject' $* | awk -F: '{print $2}')"
