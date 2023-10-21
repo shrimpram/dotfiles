@@ -25,6 +25,8 @@ set reverse_name   = yes       # reply using the address the email was sent to
 set status_on_top  = yes       # display the status bar at the top of the screen
 set sleep_time     = 0         # disable delay
 set strict_threads = yes       # only use "In-Reply-To" and "References:" for threads
+set charset        = "UTF-8"   # forces mutt to use utf-8 charset
+set send_charset   = "UTF-8"   # forces mutt to use utf-8 charset
 
 set query_command = "khard email --parsable --search-in-source-files '%s'"
 
