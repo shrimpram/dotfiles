@@ -1,6 +1,7 @@
 export NNN_FIFO=/tmp/nnn.fifo
 export NNN_OPTS="egxAH"
 export NNN_TRASH=1
+export NNN_PLUG='p:preview-tui;c:cbcpy'
 
 n () {
     # Block nesting of nnn in subshells
