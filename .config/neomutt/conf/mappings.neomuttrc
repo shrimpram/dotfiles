@@ -63,8 +63,8 @@ macro index,pager i2 '<sync-mailbox><enter-command>source ~/.config/neomutt/acco
 macro index,pager i3 '<sync-mailbox><enter-command>source ~/.config/neomutt/accounts/personal.neomuttrc<enter><change-folder>!<enter>'
 
 
-# mutt2task
+# mutt2rem
 
-macro index,pager T "<pipe-message>mutt2task<enter>" "make mail into a task"
+macro index,pager T "<pipe-message>mutt2rem<enter>" "create reminder from email"
 
 macro index a '<limit>all<enter>'
