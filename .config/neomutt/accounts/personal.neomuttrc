@@ -16,6 +16,7 @@ mailboxes \
             =Drafts    \
             =INBOX     \
             =Notes     \
+            =Receipts  \
             =Scheduled \
             =Sent      \
             =Spam      \
