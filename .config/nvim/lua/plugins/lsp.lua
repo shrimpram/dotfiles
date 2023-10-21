@@ -24,7 +24,7 @@ return {
     opts = {},
     keys = {
       {
-        "K",
+        "gk",
         "<cmd>Lspsaga hover_doc<cr>",
         desc = "Lspsaga doc",
       },
