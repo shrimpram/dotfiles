@@ -54,15 +54,6 @@ return {
   {
     "williamboman/mason.nvim",
     cmd = "Mason",
-    opts = {
-      ensure_installed = {
-        "bash-language-server",
-        "prettier",
-        "shellcheck",
-        "tailwindcss",
-        "texlab",
-      },
-    },
   },
 
   {
