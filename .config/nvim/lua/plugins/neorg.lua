@@ -12,10 +12,12 @@ return {
         ["core.concealer"] = {}, -- Adds pretty icons to your documents
         ["core.dirman"] = { -- Manages Neorg workspaces
           config = {
+            default_workspace = "notes",
             workspaces = {
-              media = "~/Documents/10-19 personal/13 media/",
-              school = "~/Documents/30-39 school",
-              work = "~/Documents/20-29 work",
+              notes = "~/Documents/10-19_personal/11_notes/",
+              media = "~/Documents/10-19_personal/13_media/",
+              school = "~/Documents/30-39_school",
+              work = "~/Documents/20-29_work",
             },
           },
         },
