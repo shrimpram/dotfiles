@@ -50,7 +50,14 @@ return {
   {
     "karb94/neoscroll.nvim",
     event = "VeryLazy",
-    config = true,
+    opts = {
+      pre_hook = function()
+        vim.cmd("TSBufDisable highlight")
+      end,
+      post_hook = function()
+        vim.cmd("TSBufEnable highlight")
+      end,
+    },
   },
 
   {
