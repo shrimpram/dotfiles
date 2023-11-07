@@ -4,3 +4,5 @@
   email = shreerammodi10@gmail.com
 [core]
   pager = nvim +Man!
+[init]
+  defaultBranch = master
