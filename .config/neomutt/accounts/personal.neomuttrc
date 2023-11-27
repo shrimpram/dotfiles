@@ -21,3 +21,7 @@ mailboxes \
             =Sent      \
             =Spam      \
             =Trash
+
+macro index,pager P \
+  "<save-message>=Archive<enter>" \
+  "Save message to Archive mailbox"
