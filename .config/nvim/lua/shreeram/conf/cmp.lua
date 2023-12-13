@@ -14,7 +14,6 @@ cmp.setup({
     ["<C-b>"] = cmp.mapping.scroll_docs(-4),
     ["<C-f>"] = cmp.mapping.scroll_docs(4),
     ["<C-Space>"] = cmp.mapping.complete(),
-    ["<C-e>"] = cmp.mapping.abort(),
     ["<CR>"] = cmp.mapping.confirm({
       behavior = cmp.ConfirmBehavior.Insert,
       select = true,
@@ -30,3 +29,6 @@ cmp.setup({
 cmp.config.formatting = {
   format = require("tailwindcss-colorizer-cmp").formatter,
 }
+
+vim.keymap.set({ "x", "i" }, "<C-e>", "<Plug>luasnip-next-choice")
+vim.keymap.set({ "x", "i" }, "<C-y>", "<Plug>luasnip-prev-choice")
