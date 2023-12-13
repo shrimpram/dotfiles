@@ -77,13 +77,13 @@ return {
   },
 
   {
-    "jose-elias-alvarez/null-ls.nvim",
+    "nvimdev/guard.nvim",
+    -- Builtin configuration, optional
     dependencies = {
-      "nvim-lua/plenary.nvim",
-      "neovim/nvim-lspconfig",
+      "nvimdev/guard-collection",
     },
     config = function()
-      require("shreeram.conf.null-ls")
+      require("shreeram.conf.guard")
     end,
   },
 }
