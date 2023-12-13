@@ -48,6 +48,26 @@ return {
         "<cmd>Lspsaga goto_definition<cr>",
         desc = "Lspsaga goto definition",
       },
+      {
+        "<leader>lo",
+        "<cmd>Lspsaga outline<cr>",
+        desc = "Lspsaga toggle outline",
+      },
+      {
+        "<leader>lt",
+        "<cmd>Lspsaga term_toggle<cr>",
+        desc = "Lspsaga toggle terminal",
+      },
+      {
+        "]d",
+        "<cmd>Lspsaga diagnostic_jump_next<cr>",
+        desc = "Lspsaga jump to next diagnostic",
+      },
+      {
+        "[d",
+        "<cmd>Lspsaga diagnostic_jump_prev<cr>",
+        desc = "Lspsaga jump to previous diagnostic",
+      },
     },
   },
 
