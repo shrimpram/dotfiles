@@ -19,27 +19,6 @@ return {
   },
 
   {
-    "lukas-reineke/indent-blankline.nvim",
-    version = "2.20.7",
-    opts = {
-      filetype_exclude = {
-        "Trouble",
-        "alpha",
-        "dashboard",
-        "harpoon",
-        "help",
-        "lazy",
-        "lazyterm",
-        "mason",
-        "neo-tree",
-        "notify",
-        "toggleterm",
-      },
-      show_current_context = true,
-    },
-  },
-
-  {
     "nvim-lualine/lualine.nvim",
     event = "VeryLazy",
     config = function()
