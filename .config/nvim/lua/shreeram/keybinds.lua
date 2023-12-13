@@ -1,8 +1,8 @@
 vim.keymap.set("v", "<", "<gv")
 vim.keymap.set("v", ">", ">gv")
 
-vim.keymap.set({ "n", "v" }, "j", [[v:count ? "j" : "gj"]], { expr = true })
-vim.keymap.set({ "n", "v" }, "k", [[v:count ? "k" : "gk"]], { expr = true })
+vim.keymap.set({ "n", "x" }, "j", [[v:count ? "j" : "gj"]], { expr = true })
+vim.keymap.set({ "n", "x" }, "k", [[v:count ? "k" : "gk"]], { expr = true })
 
 vim.keymap.set("n", "<Leader>w", vim.cmd.write, { desc = "Write buffer" })
 vim.keymap.set("n", "<Leader>ww", vim.cmd.write, { desc = "Write buffer" })
