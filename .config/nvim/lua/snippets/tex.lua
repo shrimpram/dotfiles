@@ -80,16 +80,18 @@ return {
     t({ "}", "" }),
     i(0),
   }),
-  s("mi", {
-    t("\\( "),
-    i(1),
-    t(" \\)"),
-  }),
-  s("md", {
-    t({ "\\[", "\t" }),
-    i(1),
-    t({ "", "\\]" }),
-  }),
+  s("mi", fmta([[\( <> \)]], { i(1) })),
+  s(
+    "md",
+    fmta(
+      [[
+    \[
+      <>
+    \]
+      ]],
+      { i(1) }
+    )
+  ),
   s("sr", {
     t("\\sqrt{"),
     i(1),
@@ -134,24 +136,36 @@ return {
   s("<=", {
     t("\\impliedby"),
   }),
-  s("enum", {
-    t({ "\\begin{enumerate}", "\t\\item " }),
-    i(1),
-    t({ "", "\\end{enumerate}" }),
-  }),
-  s("item", {
-    t({ "\\begin{itemize}", "\t\\item " }),
-    i(1),
-    t({ "", "\\end{itemize}" }),
-  }),
+  s(
+    "enum",
+    fmta(
+      [[
+    \begin{enumerate}
+      \item <>
+    \end{enumerate}
+      ]],
+      { i(1) }
+    )
+  ),
+  s(
+    "item",
+    fmta(
+      [[
+    \begin{itemize}
+      \item <>
+    \end{itemize}
+      ]],
+      { i(1) }
+    )
+  ),
   s(
     "beg",
     fmta(
       [[
-   \begin{<e>}<>
-   <>
-   \end{<e>}
-  ]],
+    \begin{<e>}<>
+    <>
+    \end{<e>}
+      ]],
       {
         -- i(1) is at nodes[1], i(2) at nodes[2].
         e = i(1),
@@ -163,18 +177,6 @@ return {
       }
     )
   ),
-  -- s("beg",
-  --   fmta(
-  --     [[
-  --   \begin{<e>}
-  --   <i>
-  --   \end{<e>}
-  --   ]], {
-  --       e = i(1),
-  --       i = i(0),
-  --     }, {
-  --       repeat_duplicates = true,
-  --     }),
   s("ci", {
     t("\\"),
     c(1, {
