@@ -22,7 +22,6 @@ mailboxes \
             "+[Gmail]/Starred"           \
             "+[Gmail]/Trash"             \
             "=Break the Outbreak"        \
-            "=YAMM - PPE Donation"       \
             =2020-Summer                 \
             =2020-Summer/Excel-SAT-Prep  \
             =2020-Summer/WVC             \
@@ -36,7 +35,9 @@ mailboxes \
             =2024-Summer/                \
             =2024-Summer/Internships     \
             =APUSH                       \
-            =College-Apps                \
+            =Applications/               \
+            =Applications/Law            \
+            =Applications/Undergraduate  \
             =Coupons                     \
             =Debate/                     \
             =Debate/College              \
