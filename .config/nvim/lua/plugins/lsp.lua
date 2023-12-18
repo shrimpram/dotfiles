@@ -44,7 +44,7 @@ return {
         desc = "Lspsaga rename",
       },
       {
-        "<leader>lg",
+        "<leader>ld",
         "<cmd>Lspsaga goto_definition<cr>",
         desc = "Lspsaga goto definition",
       },
