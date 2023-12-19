@@ -3,6 +3,8 @@ return {
   {
     "nvim-neorg/neorg",
     build = ":Neorg sync-parsers",
+    ft = "norg",
+    event = "VeryLazy",
     dependencies = {
       "nvim-lua/plenary.nvim",
       "nvim-neorg/neorg-telescope",
