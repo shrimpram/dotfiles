@@ -9,6 +9,9 @@ return {
       "nvim-lua/plenary.nvim",
       "nvim-neorg/neorg-telescope",
     },
+    init = function()
+      require("shreeram.conf.norg")
+    end,
     opts = {
       load = {
         ["core.defaults"] = {}, -- Loads default behaviour
