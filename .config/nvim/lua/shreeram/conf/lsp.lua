@@ -39,3 +39,5 @@ lspconfig.jdtls.setup({})
 local on_attach = function(_, bufnr)
   vim.keymap.set("n", "gk", "<cmd>Lspsaga hover_doc")
 end
+
+vim.diagnostic.config({ virtual_text = false })
