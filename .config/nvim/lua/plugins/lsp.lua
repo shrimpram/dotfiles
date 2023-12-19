@@ -14,6 +14,12 @@ return {
   },
 
   {
+    "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+    event = "VeryLazy",
+    opts = {},
+  },
+
+  {
     "glepnir/lspsaga.nvim",
     dependencies = {
       { "nvim-tree/nvim-web-devicons" },
