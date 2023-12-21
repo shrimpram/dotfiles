@@ -31,7 +31,15 @@ lspconfig.lua_ls.setup({
   },
 })
 lspconfig.tailwindcss.setup({})
-lspconfig.texlab.setup({})
+lspconfig.texlab.setup({
+  settings = {
+    texlab = {
+      diagnostics = {
+        ignoredPatterns = { "Undefined reference" },
+      },
+    },
+  },
+})
 lspconfig.tsserver.setup({})
 lspconfig.jdtls.setup({})
 
