@@ -6,7 +6,6 @@ require("mason").setup({
     "prettier",
     "shellcheck",
     "tailwindcss",
-    "texlab",
   },
 })
 
