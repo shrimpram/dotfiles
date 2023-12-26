@@ -140,7 +140,7 @@
       "KC_2",
       "KC_3",
       "KC_PAST",
-      "KC_COMM",
+      "KC_ENT",
       "KC_TRNS",
       "KC_TRNS",
       "KC_TRNS",
@@ -150,8 +150,8 @@
       "KC_TRNS",
       "KC_0",
       "KC_PDOT",
-      "KC_ENT",
-      "KC_PENT"
+      "KC_COMM",
+      "KC_ENT"
     ],
     [
       "KC_GRV",
