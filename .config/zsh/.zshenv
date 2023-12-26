@@ -1,4 +1,5 @@
 eval "$(/opt/homebrew/bin/brew shellenv)"
+eval "$(gpg-connect-agent --quiet /bye)"
 
 export EDITOR="nvim"
 export VISUAL="nvim"
