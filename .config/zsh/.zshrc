@@ -34,3 +34,6 @@ eval "$(/usr/libexec/path_helper)"
 export PATH="/opt/homebrew/opt/openjdk@17/bin:$PATH"
 
 path+=(~/.local/bin/)
+
+# QMK tab completion
+eval "$(register-python-argcomplete --no-defaults qmk)"
