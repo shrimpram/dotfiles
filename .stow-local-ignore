@@ -1,6 +1,5 @@
 .gitignore
 .git
-colemak_planck.json
 .DS_Store
 README.md
 stylua.toml
