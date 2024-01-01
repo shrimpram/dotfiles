@@ -23,6 +23,7 @@ require("mason-lspconfig").setup({
 })
 
 lspconfig.clangd.setup({})
+lspconfig.cssls.setup({})
 lspconfig.html.setup({})
 lspconfig.lua_ls.setup({
   settings = {
