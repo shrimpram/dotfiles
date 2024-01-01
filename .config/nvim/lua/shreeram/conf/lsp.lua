@@ -3,6 +3,7 @@ local lspconfig = require("lspconfig")
 require("mason").setup({
   ensure_installed = {
     "bash_language_server",
+    "clang-format",
     "prettier",
     "shellcheck",
     "tailwindcss",
@@ -11,6 +12,7 @@ require("mason").setup({
 
 require("mason-lspconfig").setup({
   ensure_installed = {
+    "clangd",
     "html",
     "jdtls",
     "lua_ls",
@@ -20,6 +22,7 @@ require("mason-lspconfig").setup({
   },
 })
 
+lspconfig.clangd.setup({})
 lspconfig.html.setup({})
 lspconfig.lua_ls.setup({
   settings = {
