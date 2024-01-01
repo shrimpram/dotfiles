@@ -20,8 +20,8 @@ return {
           config = {
             default_workspace = "notes",
             workspaces = {
-              notes = "~/Documents/MISC---notes/",
-              media = "~/Documents/MISC---media/",
+              notes = "~/Documents/notes/",
+              media = "~/Documents/media/",
             },
           },
         },
