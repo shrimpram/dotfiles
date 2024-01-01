@@ -2,7 +2,6 @@ local lspconfig = require("lspconfig")
 
 require("mason").setup({
   ensure_installed = {
-    "bash_language_server",
     "clang-format",
     "prettier",
     "shellcheck",
@@ -12,6 +11,7 @@ require("mason").setup({
 
 require("mason-lspconfig").setup({
   ensure_installed = {
+    "bashls",
     "clangd",
     "html",
     "jdtls",
