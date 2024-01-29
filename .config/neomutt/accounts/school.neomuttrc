@@ -15,21 +15,27 @@ set spool_file = "+INBOX"
 set trash = "+[Gmail]/Trash"
 
 mailboxes \
-            "+[Gmail]/All Mail"  \
-            "+[Gmail]/Drafts"    \
-            "+[Gmail]/Sent Mail" \
-            "+[Gmail]/Spam"      \
-            "+[Gmail]/Starred"   \
-            "+[Gmail]/Trash"     \
-            =Clubs/              \
-            =Clubs/CEDA/         \
-            =Clubs/ULR/          \
-            =INBOX               \
-            =Receipts            \
-            =Receipts/Housing    \
-            =Receipts/Jobs       \
-            =Work/               \
-            =Work/CDS            \
+            "+[Gmail]/All Mail"            \
+            "+[Gmail]/Drafts"              \
+            "+[Gmail]/Sent Mail"           \
+            "+[Gmail]/Spam"                \
+            "+[Gmail]/Starred"             \
+            "+[Gmail]/Trash"               \
+            =Clubs/                        \
+            =Clubs/CEDA/                   \
+            =Clubs/ULR/                    \
+            =Courses/                      \
+            =Courses/Cultures-and-Contexts \
+            =Courses/Data-Structures       \
+            =Courses/Ethics                \
+            =Courses/Metaphysics           \
+            =INBOX                         \
+            =Internships                   \
+            =Receipts                      \
+            =Receipts/Housing              \
+            =Receipts/Jobs                 \
+            =Work/                         \
+            =Work/CDS                      \
 
 bind index,pager P purge-message
 
