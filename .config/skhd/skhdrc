@@ -4,6 +4,9 @@ ctrl + alt - return : /opt/homebrew/bin/kitty -d ~
 # Restart yabai
 alt + shift - r : yabai --restart-service
 
+# Debate script
+alt + shift - w : ~/.config/skhd/debate-yabai
+
 # change yabai layout
 ctrl + alt - e : yabai -m space --layout bsp
 ctrl + alt - y : yabai -m space --layout stack
