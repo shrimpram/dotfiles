@@ -1,6 +1,9 @@
 # Open kitty
 ctrl + alt - return : /opt/homebrew/bin/kitty -d ~
 
+# Restart yabai
+alt + shift - r : yabai --restart-service
+
 # change yabai layout
 ctrl + alt - e : yabai -m space --layout bsp
 ctrl + alt - y : yabai -m space --layout stack
