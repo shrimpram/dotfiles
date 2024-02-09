@@ -11,3 +11,5 @@ local config = {
   },
 }
 require("jdtls").start_or_attach(config)
+require("jdtls.setup").add_commands()
+require("jdtls").setup_dap()
