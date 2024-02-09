@@ -1,6 +1,9 @@
 return {
   {
     "mfussenegger/nvim-dap",
+    dependencies = {
+      "rcarriga/nvim-dap-ui",
+    },
     keys = {
       {
         "<leader>da",
@@ -19,16 +22,16 @@ return {
       {
         "<leader>di",
         function()
-          require("dap").step_over()
+          require("dap").step_into()
         end,
-        desc = "Step over",
+        desc = "Step into",
       },
       {
         "<leader>do",
         function()
-          require("dap").step_into()
+          require("dap").step_over()
         end,
-        desc = "Step into",
+        desc = "Step over",
       },
       {
         "<leader>dr",
@@ -36,6 +39,26 @@ return {
           require("dap").repl.open()
         end,
         desc = "Open REPL",
+      },
+      {
+        "<leader>dt",
+        function()
+          require("dap").terminate()
+        end,
+        desc = "Terminate DAP",
+      },
+    },
+  },
+  {
+    "rcarriga/nvim-dap-ui",
+    opts = {},
+    keys = {
+      {
+        "<leader>du",
+        function()
+          require("dapui").toggle()
+        end,
+        desc = "Dap UI",
       },
     },
   },
