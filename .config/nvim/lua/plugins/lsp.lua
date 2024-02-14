@@ -98,15 +98,4 @@ return {
     dependencies = { "nvim-tree/nvim-web-devicons" },
     opts = {},
   },
-
-  -- {
-  --   "nvimtools/none-ls.nvim",
-  --   dependencies = {
-  --     "nvim-lua/plenary.nvim",
-  --     "neovim/nvim-lspconfig",
-  --   },
-  --   config = function()
-  --     require("shreeram.conf.null-ls")
-  --   end,
-  -- },
 }
