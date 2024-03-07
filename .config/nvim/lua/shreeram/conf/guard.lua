@@ -2,7 +2,7 @@ local ft = require("guard.filetype")
 
 -- ft("c"):fmt("clang-format")
 
-ft("typescript,javascript,typescriptreact,html"):fmt("prettier")
+ft("css,html,javascript,typescript,typescriptreact"):fmt("prettier")
 
 ft("java"):fmt("google-java-format")
 
