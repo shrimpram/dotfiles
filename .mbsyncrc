@@ -50,25 +50,25 @@ ExpireUnread no
 # End profile
 
 
-IMAPStore shreeram@shreerammodi.com-remote
+IMAPStore shreeram@smodi.net-remote
 Host imap.fastmail.com
 Port 993
-User shreeram@shreerammodi.com
-PassCmd "pass Neomutt/shreeram@shreerammodi.com"
+User shreeram@smodi.net
+PassCmd "pass Neomutt/shreeram@smodi.net"
 AuthMechs LOGIN
 SSLType IMAPS
 SSLVersions TLSv1.2
 CertificateFile /etc/ssl/cert.pem
 
-MaildirStore shreeram@shreerammodi.com-local
+MaildirStore shreeram@smodi.net-local
 Subfolders Verbatim
-Path /Users/shreeram/.local/share/mail/shreeram@shreerammodi.com/
-Inbox /Users/shreeram/.local/share/mail/shreeram@shreerammodi.com/INBOX
+Path /Users/shreeram/.local/share/mail/shreeram@smodi.net/
+Inbox /Users/shreeram/.local/share/mail/shreeram@smodi.net/INBOX
 
-Channel shreeram@shreerammodi.com
+Channel shreeram@smodi.net
 Expunge Both
-Far :shreeram@shreerammodi.com-remote:
-Near :shreeram@shreerammodi.com-local:
+Far :shreeram@smodi.net-remote:
+Near :shreeram@smodi.net-local:
 Patterns *
 Create Both
 SyncState *
