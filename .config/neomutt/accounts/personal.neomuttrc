@@ -1,13 +1,13 @@
 unmailboxes *
 
-set folder = "/Users/shreeram/.local/share/mail/shreeram@shreerammodi.com"
-set from = "shreeram@shreerammodi.com"
+set folder = "/Users/shreeram/.local/share/mail/shreeram@smodi.net"
+set from = "shreeram@smodi.net"
 set hostname = "fastmail.com"
 set mbox_type = Maildir
 set postponed = "+Drafts"
 set real_name = "Shreeram Modi"
 set record = "+Sent"
-set sendmail = "msmtp -a shreeram@shreerammodi.com"
+set sendmail = "msmtp -a shreeram@smodi.net"
 set spool_file = "+INBOX"
 set trash = "+Trash"
 
