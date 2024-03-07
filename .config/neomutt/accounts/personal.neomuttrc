@@ -12,14 +12,15 @@ set spool_file = "+INBOX"
 set trash = "+Trash"
 
 mailboxes \
-            =Archive   \
-            =Drafts    \
-            =INBOX     \
-            =Notes     \
-            =Receipts  \
-            =Scheduled \
-            =Sent      \
-            =Spam      \
+            =Archive            \
+            =Drafts             \
+            =Debate/Lynbrook    \
+            =INBOX              \
+            =Notes              \
+            =Receipts           \
+            =Scheduled          \
+            =Sent               \
+            =Spam               \
             =Trash
 
 macro index,pager P \
