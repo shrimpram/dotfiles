@@ -45,14 +45,14 @@ return {
         desc = "Lspsaga finder",
       },
       {
-        "<leader>lr",
-        "<cmd>Lspsaga rename<cr>",
-        desc = "Lspsaga rename",
-      },
-      {
         "<leader>ld",
         "<cmd>Lspsaga goto_definition<cr>",
         desc = "Lspsaga goto definition",
+      },
+      {
+        "<leader>le",
+        "<cmd>Lspsaga show_line_diagnostics<cr>",
+        desc = "Lspsaga show line diagnostics",
       },
       {
         "<leader>lo",
@@ -60,9 +60,19 @@ return {
         desc = "Lspsaga toggle outline",
       },
       {
+        "<leader>lr",
+        "<cmd>Lspsaga rename<cr>",
+        desc = "Lspsaga rename",
+      },
+      {
         "<leader>lt",
         "<cmd>Lspsaga term_toggle<cr>",
         desc = "Lspsaga toggle terminal",
+      },
+      {
+        "<leader>lw",
+        "<cmd>Lspsaga show_workspace_diagnostics<cr>",
+        desc = "Lspsaga show workspace diagnostics",
       },
       {
         "]d",
