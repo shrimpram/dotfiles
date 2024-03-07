@@ -30,8 +30,8 @@ eval "$(zoxide init zsh)"
 
 eval "$(/usr/libexec/path_helper)"
 
-# Forces openjdk@17 to appear first in path
-export PATH="/opt/homebrew/opt/openjdk@17/bin:$PATH"
+# Forces homebrew apps to appear first in path
+path=("/opt/homebrew/bin" $path)
 
 path+=(~/.local/bin/)
 
