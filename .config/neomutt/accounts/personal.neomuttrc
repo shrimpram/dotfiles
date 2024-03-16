@@ -12,9 +12,10 @@ set spool_file = "+INBOX"
 set trash = "+Trash"
 
 mailboxes \
+            =Applications       \
             =Archive            \
-            =Drafts             \
             =Debate/Lynbrook    \
+            =Drafts             \
             =INBOX              \
             =Notes              \
             =Receipts           \
