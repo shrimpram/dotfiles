@@ -15,6 +15,7 @@ require("mason-lspconfig").setup({
     "clangd",
     "html",
     "jdtls",
+    "kotlin_language_server",
     "lua_ls",
     "tailwindcss",
     "texlab",
@@ -25,6 +26,7 @@ require("mason-lspconfig").setup({
 lspconfig.clangd.setup({})
 lspconfig.cssls.setup({})
 lspconfig.html.setup({})
+lspconfig.kotlin_language_server.setup({})
 lspconfig.lua_ls.setup({
   settings = {
     Lua = {
