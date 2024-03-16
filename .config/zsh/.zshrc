@@ -35,5 +35,8 @@ path=("/opt/homebrew/bin" $path)
 
 path+=(~/.local/bin/)
 
+# Adds homebrew openjdk install to path
+path=("/opt/homebrew/opt/openjdk/bin" $path)
+
 # QMK tab completion
 eval "$(register-python-argcomplete --no-defaults qmk)"
