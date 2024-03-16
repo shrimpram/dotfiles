@@ -22,7 +22,7 @@ return {
     end,
     note_frontmatter_func = function(note)
       -- Add the title of the note as an alias.
-      if note.id then
+      if note.id and string.find(note.id, "-") then
         -- note:add_alias(note.id)
         note:add_alias(note.id:gsub("-", " "))
       end
