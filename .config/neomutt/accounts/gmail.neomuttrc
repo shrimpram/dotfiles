@@ -15,45 +15,45 @@ set spool_file = "+INBOX"
 set trash = "+[Gmail]/Trash"
 
 mailboxes \
-            "+[Gmail]/All Mail"          \
-            "+[Gmail]/Drafts"            \
-            "+[Gmail]/Sent Mail"         \
-            "+[Gmail]/Spam"              \
-            "+[Gmail]/Starred"           \
-            "+[Gmail]/Trash"             \
-            "=Break the Outbreak"        \
-            =2020-Summer                 \
-            =2020-Summer/Excel-SAT-Prep  \
-            =2020-Summer/WVC             \
-            =2021-Summer                 \
-            =2021-Summer/De-Anza         \
-            =2021-Summer/FLVS            \
-            =2021-Summer/FTE             \
-            =2021-Summer/Internship      \
-            =2021-Summer/Kumar           \
-            =2021-Summer/ODI             \
-            =2024-Summer/                \
-            =2024-Summer/Internships     \
-            =Applications/               \
-            =Applications/Law            \
-            =Applications/Scholarships   \
-            =Applications/Undergraduate  \
-            =Debate/                     \
-            =Debate/College              \
-            =Debate/Docs                 \
-            =Debate/High-School          \
-            =Debate/Judging              \
-            =Documents                   \
-            =Healthcare                  \
-            =INBOX                       \
-            =Lynbrook                    \
-            =NYU                         \
-            =NYU                         \
-            =Receipts                    \
-            =Receipts/Apps               \
-            =Sangeeta                    \
-            =Saralam                     \
-            =TODO                        \
-            =Turnitin                    \
+            "+[Gmail]/All Mail"         \
+            "+[Gmail]/Drafts"           \
+            "+[Gmail]/Sent Mail"        \
+            "+[Gmail]/Spam"             \
+            "+[Gmail]/Starred"          \
+            "+[Gmail]/Trash"            \
+            "=Break the Outbreak"       \
+            =2020-Summer                \
+            =2020-Summer/Excel-SAT-Prep \
+            =2020-Summer/WVC            \
+            =2021-Summer                \
+            =2021-Summer/De-Anza        \
+            =2021-Summer/FLVS           \
+            =2021-Summer/FTE            \
+            =2021-Summer/Internship     \
+            =2021-Summer/Kumar          \
+            =2021-Summer/ODI            \
+            =2024-Summer/               \
+            =2024-Summer/Internships    \
+            =Applications/              \
+            =Applications/Law           \
+            =Applications/Scholarships  \
+            =Applications/Undergraduate \
+            =Debate/                    \
+            =Debate/College             \
+            =Debate/Docs                \
+            =Debate/High-School         \
+            =Debate/Judging             \
+            =Documents                  \
+            =Events                     \
+            =INBOX                      \
+            =Lynbrook                   \
+            =NYU                        \
+            =NYU                        \
+            =Receipts                   \
+            =Receipts/Apps              \
+            =Receipts/Turnitin          \
+            =Sangeeta                   \
+            =Saralam                    \
+            =TODO                       \
 
 bind index,pager P purge-message

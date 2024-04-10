@@ -31,6 +31,9 @@ mailboxes \
             =Courses/Metaphysics           \
             =INBOX                         \
             =Internships                   \
+            =Major/                        \
+            =Major/CS-Major/               \
+            =Major/Phil-Major/             \
             =Receipts                      \
             =Receipts/Housing              \
             =Receipts/Jobs                 \
