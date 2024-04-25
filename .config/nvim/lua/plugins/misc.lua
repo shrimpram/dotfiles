@@ -7,6 +7,10 @@ return {
     "andweeb/presence.nvim",
     event = "VeryLazy",
   },
+  {
+    "LintaoAmons/scratch.nvim",
+    event = "VeryLazy",
+  },
 
   {
     "dstein64/vim-startuptime",
