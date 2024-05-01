@@ -13,7 +13,7 @@ return {
     workspaces = {
       {
         name = "notes",
-        path = "~/Documents/notes",
+        path = "~/Library/CloudStorage/Dropbox/0 -- Notes/",
       },
     },
     daily_notes = { folder = "journal" },
