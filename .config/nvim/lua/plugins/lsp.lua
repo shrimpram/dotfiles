@@ -27,7 +27,11 @@ return {
       { "nvim-treesitter/nvim-treesitter" },
     },
     event = "LspAttach",
-    opts = {},
+    opts = {
+      lightbulb = {
+        enable = false
+      }
+    },
     keys = {
       {
         "gk",
