@@ -12,18 +12,20 @@ set spool_file = "+INBOX"
 set trash = "+Trash"
 
 mailboxes \
-            =Applications       \
-            =Archive            \
-            =Debate             \
-            =Debate/Lynbrook    \
-            =Drafts             \
-            =INBOX              \
-            =Notes              \
-            =Receipts           \
-            =Scheduled          \
-            =Sent               \
-            =Spam               \
-            =Trash
+            =Applications    \
+            =Archive         \
+            =Debate          \
+            =Debate/Lynbrook \
+            =Drafts          \
+            =INBOX           \
+            =Notes           \
+            =Receipts        \
+            =Scheduled       \
+            =Sent            \
+            =Spam            \
+            =Trash           \
+            =Work/           \
+            =Work/Poly-Prep
 
 macro index,pager P \
   "<save-message>=Archive<enter>" \
