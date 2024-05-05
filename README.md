@@ -15,4 +15,4 @@ stow
 ```
 
 The `.stow-local-ignore` file ensures that just running `stow` is
-sufficient and files that should be ignored are not symlinked.
+sufficient, and files which should be ignored are not symlinked.
