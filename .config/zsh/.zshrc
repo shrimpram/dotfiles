@@ -33,7 +33,9 @@ eval "$(/usr/libexec/path_helper)"
 # Forces homebrew apps to appear first in path
 path=("/opt/homebrew/bin" $path)
 
-path+=(~/.local/bin/)
+path+=(~/.local/bin)
+
+path+=(~/.cargo/bin)
 
 # Adds homebrew openjdk install to path
 path=("/opt/homebrew/opt/openjdk/bin" $path)
