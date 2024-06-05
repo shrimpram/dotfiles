@@ -19,6 +19,10 @@ require("shreeram.options")
 require("shreeram.keybinds")
 
 require("lazy").setup("plugins", {
+  dev = {
+    path = "~/Documents/src/github.com",
+    fallback = true,
+  },
   performance = {
     rtp = {
       disabled_plugins = {
