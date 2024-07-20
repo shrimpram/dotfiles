@@ -1,0 +1,7 @@
+.gitignore
+.git
+.DS_Store
+README.md
+stylua.toml
+.gitattributes
+.git-crypt

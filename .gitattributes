@@ -1,0 +1,4 @@
+.config/msmtp/** filter=git-crypt diff=git-crypt
+.config/neomutt/accounts/** filter=git-crypt diff=git-crypt
+.config/nvim/spell/** filter=git-crypt diff=git-crypt
+.mbsyncrc filter=git-crypt diff=git-crypt
