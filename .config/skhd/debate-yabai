@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+for f in $(yabai -m query --windows --space | jq -r '.[] | select(.app == "Microsoft Word") | .id');
+do
+  yabai -m window --stack west $f
+done
+
+yabai -m window --focus $(yabai -m query --windows --space | jq -r '.[] | select(.app == "Microsoft Excel") | .id')
+yabai -m window $(yabai -m query --windows --space | jq -r '.[] | select(.app == "Microsoft Excel") | .id') --toggle float
+yabai -m window $(yabai -m query --windows --space | jq -r '.[] | select(.app == "Microsoft Excel") | .id') --toggle float
+
+for i in {1..3};
+do
+  yabai -m space --balance
+done

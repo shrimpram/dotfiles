@@ -1,0 +1,72 @@
+# General rebindings
+
+bind attach              <return> view-mailcap
+bind attach              l        view-mailcap
+bind browser             h        goto-parent
+bind browser             l        select-entry
+bind editor              <Tab>    complete-query
+bind editor              <space>  noop
+bind index               <space>  collapse-thread
+bind index               G        last-entry
+bind index               L        limit
+bind index               \Cr      untag-pattern
+bind index               \Ct      tag-pattern
+bind index               g        noop
+bind index               gg       first-entry
+bind index               h        noop
+bind index               j        next-entry
+bind index               k        previous-entry
+bind index               l        display-message
+bind index,pager         D        delete-message
+bind index,pager         R        group-reply
+bind index,pager         S        sync-mailbox
+bind index,pager         U        undelete-message
+bind index,pager,browser d        half-down
+bind index,pager,browser u        half-up
+bind pager               j        next-line
+bind pager               k        previous-line
+bind pager               l        view-attachments
+bind pager,attach        h        exit
+bind pager,browser       G        bottom-page
+bind pager,browser       gg       top-page
+bind compose             R        rename-attachment
+bind compose             M        rename-file
+
+
+# sidebar mappings
+
+bind index,pager \Ck sidebar-prev
+bind index,pager \Cj sidebar-next
+bind index,pager \Cl sidebar-open
+bind index,pager \Cp sidebar-prev-new
+bind index,pager \Cn sidebar-next-new
+bind index,pager B sidebar-toggle-visible
+
+
+# Email completion bindings
+
+bind editor <Tab> complete-query
+bind editor ^T complete
+
+
+# Press A to add contact to Khard address book
+
+macro index,pager A \
+    "<pipe-message>khard add-email<return>" \
+    "add the sender email address to khard"
+
+
+# mailboxes
+
+bind index,pager i noop
+
+macro index,pager i1 '<sync-mailbox><enter-command>source ~/.config/neomutt/accounts/gmail.neomuttrc<enter><change-folder>!<enter>'
+macro index,pager i2 '<sync-mailbox><enter-command>source ~/.config/neomutt/accounts/school.neomuttrc<enter><change-folder>!<enter>'
+macro index,pager i3 '<sync-mailbox><enter-command>source ~/.config/neomutt/accounts/personal.neomuttrc<enter><change-folder>!<enter>'
+
+
+# mutt2rem
+
+macro index,pager T "<pipe-message>mutt2rem<enter>" "create reminder from email"
+
+macro index a '<limit>all<enter>'

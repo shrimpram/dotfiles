@@ -1,0 +1,95 @@
+# Open kitty
+# ctrl + alt - return : /opt/homebrew/bin/kitty -1 -d ~
+
+# ctrl + alt - return : /opt/homebrew/bin/wezterm start --always-new-process
+ctrl + alt - return : (LABEL=$(uuidgen) && yabai -m signal --add event="window_created" label="$LABEL" app="^kitty$" action="yabai -m window \$YABAI_WINDOW_ID --focus && yabai -m signal --remove $LABEL") && /opt/homebrew/bin/kitty -1 -d ~
+ctrl + alt - m : /opt/homebrew/bin/kitty -1 -d ~ neomutt
+
+# Restart yabai
+alt + shift - r : yabai --restart-service
+
+# Debate script
+alt + shift - w : ~/.config/skhd/debate-yabai
+
+# change yabai layout
+ctrl + alt - e : yabai -m space --layout bsp
+ctrl + alt - y : yabai -m space --layout stack
+
+# shift focus
+ctrl + alt - h : yabai -m window --focus west
+ctrl + alt - j : yabai -m window --focus south
+ctrl + alt - k : yabai -m window --focus north
+ctrl + alt - l : yabai -m window --focus east
+
+# swap window
+shift + alt - h : yabai -m window --swap west
+shift + alt - j : yabai -m window --swap south
+shift + alt - k : yabai -m window --swap north
+shift + alt - l : yabai -m window --swap east
+
+# resize windows
+ctrl + alt + shift - h : yabai -m window --resize left:-50:0; \
+                         yabai -m window --resize right:-50:0
+ctrl + alt + shift - j : yabai -m window --resize bottom:0:50; \
+                         yabai -m window --resize top:0:50
+ctrl + alt + shift - k : yabai -m window --resize top:0:-50; \
+                         yabai -m window --resize bottom:0:-50
+ctrl + alt + shift - l : yabai -m window --resize right:50:0; \
+                         yabai -m window --resize left:50:0
+
+# rotate tree 90
+ctrl + alt - r : yabai -m space --rotate 90
+
+# rotate on x and y axis
+ctrl + alt - s : yabai -m space --mirror x-axis
+ctrl + alt - v : yabai -m space --mirror y-axis
+
+# equalize window sizes
+ctrl + alt - q : yabai -m space --balance
+
+# move window through spaces
+ctrl + alt - n : yabai -m window --space next; yabai -m space --focus next
+ctrl + alt - p : yabai -m window --space prev; yabai -m space --focus prev
+
+# navigate stacks
+alt - tab : yabai -m window --focus stack.next
+alt + shift - tab : yabai -m window --focus stack.prev
+
+# stack windows
+ctrl + alt - left  : yabai -m window --stack west
+ctrl + alt - down  : yabai -m window --stack south
+ctrl + alt - up    : yabai -m window --stack north
+ctrl + alt - right : yabai -m window --stack east
+
+# toggle window fullscreen
+ctrl + alt - f : yabai -m window --toggle zoom-fullscreen
+ctrl + alt - space : yabai -m window --toggle native-fullscreen
+
+# create desktop
+ctrl + alt - t : yabai -m space --create && \
+      yabai -m space --focus last
+
+# destroy desktop
+ctrl + alt - w : yabai -m space --destroy
+
+# focus desktops
+ctrl + alt - 1 : yabai -m display --focus 1
+ctrl + alt - 2 : yabai -m display --focus 2
+ctrl + alt - 3 : yabai -m display --focus 3
+ctrl + alt - 0x53 : yabai -m display --focus 1
+ctrl + alt - 0x54 : yabai -m display --focus 2
+ctrl + alt - 0x55 : yabai -m display --focus 3
+
+# toggle float
+ctrl + alt + shift - space : yabai -m window --toggle float;\
+       yabai -m window --grid 8:8:1:1:6:6
+
+# file search
+ctrl - 0x2C : /Users/shreeram/.nix-profile/bin/kitty --session debate.conf
+ctrl - 0x2B : /Users/shreeram/.nix-profile/bin/kitty --session task.conf
+
+
+# Ignore Spotify
+.blacklist [
+  "spotify"
+]

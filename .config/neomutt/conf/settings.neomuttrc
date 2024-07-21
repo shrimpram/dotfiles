@@ -1,0 +1,74 @@
+set editor = "nvim"
+set real_name = "Shreeram Modi"
+
+# view modes
+
+auto_view text/html text/calendar application/ics # view html automatically
+alternative_order text/html text/plain text/enriched text/*
+
+
+# main settings
+
+set auto_edit      = yes       # skip to compose on new message
+set confirm_append = no        # don't ask for confirmation when appending mail to an existing mailbox
+set edit_headers   = yes       # allow editing headers of message
+set fast_reply     = yes       # skip to compose on reply
+set fcc_attach     = yes       # save attachments with the body
+set forward_format = "Fwd: %s" # format of subject when forwarding
+set forward_quote  = no        # quote forwarded message
+set help           = no        # disable help bar at the top of index
+set include        = yes       # include message in replies
+set mark_old       = no        # disable marking unread messages as old on exit
+set reverse_name   = yes       # reply using the address the email was sent to
+set status_on_top  = no        # display the status bar at the top of the screen
+set sleep_time     = 0         # disable delay
+set strict_threads = yes       # only use "In-Reply-To" and "References:" for threads
+set charset        = "UTF-8"   # forces mutt to use utf-8 charset
+set send_charset   = "UTF-8"   # forces mutt to use utf-8 charset
+
+set mime_forward = ask-no
+set forward_decode = yes
+set mime_forward_decode = no
+
+set query_command = "khard email --parsable --search-in-source-files '%s'"
+
+
+# cache and other dirs
+
+set mailcap_path = "~/.config/neomutt/conf/mailcap"
+set header_cache = "~/.cache/mutt"
+set message_cache_dir = "~/.cache/mutt"
+
+
+# index view
+
+set date_format = "%Y-%m-%d %H:%M:%S"
+set index_format = "%4C [%Z] %{%Y-%m-%d} %-20.20L  %s"
+set status_format = "[ Folder: %f ] [%r%m messages%?n? (%n new)?%?d? (%d to delete)?%?t? (%t tagged)? ]%>─%?p?( %p postponed )?"
+set uncollapse_jump = yes # jump to next unread message when thread is uncollapsed
+set use_threads="threads" sort=last-date sort_aux=date
+
+
+# pager view
+
+set attribution_intro = "On %{%F at %R}, %n wrote:" # change quote attribution heading
+set pager_index_lines = 10  # show 10 lines of index when pager is active
+set pager_context     = 3   # show 3 lines of context when page is scrolled, similar to nvim +":h scrolloff"
+set pager_stop        = yes # stop pager from moving to next message when <page-down> is issued at end of message
+set tilde             = yes # pad blank lines to end of screen with "~"
+set markers           = no  # disable "+" preceding wrapped lines
+
+
+# sidebar
+
+set sidebar_width = 20
+set sidebar_short_path = yes
+set sidebar_next_new_wrap = yes
+set mail_check_stats
+set sidebar_format = '%D%?F? [%F]?%* %?N?%N/? %?S?%S?'
+
+set sidebar_delim_chars = '/'
+set sidebar_divider_char = '|'
+set sidebar_folder_indent
+set sidebar_indent_string = '  '
+set maildir_header_cache_verify=no

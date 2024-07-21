@@ -1,0 +1,39 @@
+# See https://www.ditig.com/publications/256-colors-cheat-sheet for reference
+
+color normal color07 color00
+color indicator default color8
+
+color index      color02 default ~N #           New      Messages are    Green
+color index      color10 default ~O #           New      Messages are    Green
+color index      color03 default ~F #           Flagged  messages are    Olive
+color index      color13 default ~T #           Tagged   Messages are    Purple
+color index      color01 default ~D #           Messages to       delete are Red
+color attachment color05 default #  Attachments are      Pink
+color signature  color08 default #  Signatures  are      Surface  2
+color search     color04 default #  Highlighted results  are      Blue
+
+color status color15 color12
+color error  color01 default # error  messages are     Red
+color tree   color05 default # thread tree     arrows  Subtext 0
+color tilde  color15 default # blank  line     padding Subtext 0
+
+color hdrdefault color14 default
+
+color quoted  color15 default # Subtext 0
+color quoted1 color07 default # Subtext 1
+color quoted2 color08 default # Surface 2
+color quoted3 color00 default # Surface 1
+color quoted4 color00 default
+color quoted5 color00 default
+
+color body color02 default [\-\.+_a-zA-Z0-9]+@[\-\.a-zA-Z0-9]+               # email        addresses Green
+color body color02 default (https?|ftp)://[\-\.,/%~_:?&=\#a-zA-Z0-9]+        # URLs         Green
+color body color04 default (^|[[:space:]])\\*[^[:space:]]+\\*([[:space:]]|$) # *bold*       text      Blue
+color body color04 default (^|[[:space:]])_[^[:space:]]+_([[:space:]]|$)     # _underlined_ text      Blue
+color body color04 default (^|[[:space:]])/[^[:space:]]+/([[:space:]]|$)     # /italic/     text      Blue
+
+color sidebar_flagged   color03 default
+color sidebar_new       color10 default
+color sidebar_divider   default default
+color sidebar_highlight default color08
+color sidebar_indicator color15 default

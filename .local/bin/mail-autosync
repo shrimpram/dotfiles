@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+PATH=$HOME/.nix-profile/bin:/opt/homebrew/bin:/bin:/usr/bin:/usr/local/bin:$HOME/.local/bin:/sbin:/usr/sbin:
+set -e
+
+out="$(mailsync)"
+line="$(echo "$out" | tail -n1)"
+
+case "$line" in
+  *Added*)
+    echo "$line" | terminal-notifier -title "Neomutt" -appIcon "https://neomutt.org/images/mutt-48x48.png" -activate "net.kovidgoyal.kitty"
+    ;;
+esac

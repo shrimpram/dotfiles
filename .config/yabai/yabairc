@@ -1,0 +1,55 @@
+#!/usr/bin/env sh
+
+yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
+sudo yabai --load-sa
+
+yabai -m config mouse_follows_focus          off
+yabai -m config focus_follows_mouse          off
+yabai -m config window_origin_display        default
+yabai -m config window_placement             second_child
+yabai -m config window_shadow                off
+yabai -m config window_opacity               off
+yabai -m config window_opacity_duration      0.0
+yabai -m config active_window_opacity        1.0
+yabai -m config normal_window_opacity        0.90
+yabai -m config insert_feedback_color        0xFFCCA37E
+yabai -m config split_ratio                  0.50
+yabai -m config split_type                   auto
+yabai -m config auto_balance                 off
+yabai -m config mouse_modifier               ctrl
+yabai -m config mouse_action1                move
+yabai -m config mouse_action2                resize
+yabai -m config mouse_drop_action            stack
+yabai -m config window_animation_duration    0.0
+yabai -m config window_animation_frame_rate  120
+
+yabai -m config layout                       bsp
+yabai -m config top_padding                  5
+yabai -m config bottom_padding               5
+yabai -m config left_padding                 5
+yabai -m config right_padding                5
+yabai -m config window_gap                   5
+
+# yabai -m config external_bar all:30:0
+
+# Disable management of specific apps
+yabai -m rule --add app="^Disk Utility$" manage=off
+yabai -m rule --add app="^Flux$" manage=off
+yabai -m rule --add app="^Raycast$" manage=off
+yabai -m rule --add app="^Discord*" space=last
+yabai -m rule --add app="^Emacs$" manage=on
+yabai -m rule --add app="^Steam$" manage=off
+yabai -m rule --add app="^Finda$" manage=off
+
+yabai -m config active_window_border_color   0xFFBE9EE2
+yabai -m config normal_window_border_color   0xFF4C3F6E
+
+
+#SKETCHYBAR EVENTS
+yabai -m signal --add event=window_focused action="sketchybar -m --trigger window_focus &> /dev/null"
+yabai -m signal --add event=window_title_changed action="sketchybar -m --trigger title_change &> /dev/null"
+
+# Rules for Arc
+# see: https://github.com/koekeishiya/yabai/issues/1622
+
+yabai -m rule --add app="^Arc$" title="^$" mouse_follows_focus=off

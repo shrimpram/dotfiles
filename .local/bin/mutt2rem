@@ -1,0 +1,10 @@
+#!/usr/bin/env sh
+
+export TEMP
+TEMP="$(mktemp)"
+
+grep -E '^Subject: |^From: ' | sed 's/.*: //; s/ <.*@.*>//; 2s/\(.*\)/(\1)/; 1s/^/Email from /' | paste -d " " - - > "$TEMP"
+
+reminders add Email "$(cat "$TEMP")"
+
+rm "$TEMP"
