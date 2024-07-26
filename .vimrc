@@ -1,26 +1,51 @@
-set autoindent
-set nobackup
-set clipboard=unnamedplus
-set expandtab
-set foldmethod=marker
-set nohlsearch
-set ignorecase
-set incsearch
-set nomodeline
+syntax on
+filetype plugin indent on
+
+let mapleader = " "
+let maplocalleader = " "
+
+" Don't try to be vi compatible
+set nocompatible
+
+" Enable backspace
+set backspace=indent,eol,start
+
+" Display line numbers
 set number
 set relativenumber
-set ruler
-set scrolloff=3
-set shiftwidth=2
-set noshowmode
+
+" Tab and indent settings
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+set expandtab
+set autoindent
+
+" Search settings
+set nohlsearch
+set incsearch
+set ignorecase
 set smartcase
-set tabstop=8
-set termguicolors
-set timeoutlen=250
-set title
+
+" Persistent undo
 set undofile
 set undodir = "$HOME/.vim/undo"
+set updatetime=500
+
+" Wrapping and display settings
 set nowrap
+set ruler
+set scrolloff=3
+set title
+
+" Disable modeline for security
+set nomodeline
+
+" Enable true color support
+set termguicolors
+
+" Write settings
+set nobackup
 
 let g:netrw_browse_split = 0
 let g:netrw_banner = 0
