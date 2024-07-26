@@ -47,6 +47,9 @@ set termguicolors
 " Write settings
 set nobackup
 
+" Enables command completion menu
+set wildmenu
+
 let g:netrw_browse_split = 0
 let g:netrw_banner = 0
 let g:netrw_winsize = 25
