@@ -37,6 +37,8 @@ set nowrap
 set ruler
 set scrolloff=3
 set title
+set wildmenu
+set showcmd
 
 " Disable modeline for security
 set nomodeline
@@ -46,9 +48,6 @@ set termguicolors
 
 " Write settings
 set nobackup
-
-" Enables command completion menu
-set wildmenu
 
 let g:netrw_browse_split = 0
 let g:netrw_banner = 0
