@@ -90,3 +90,5 @@ nnoremap <leader>Y <CMD>%y +<CR>
 " Delete without overwriting the register
 nnoremap <leader>d "_d
 vnoremap <leader>d "_d
+
+set background=dark
