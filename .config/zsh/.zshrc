@@ -31,9 +31,6 @@ eval "$(zoxide init zsh)"
 
 eval "$(/usr/libexec/path_helper)"
 
-# Forces homebrew apps to appear first in path
-path=("/opt/homebrew/bin" $path)
-
 path+=(~/.local/bin)
 
 path+=(~/.cargo/bin)
