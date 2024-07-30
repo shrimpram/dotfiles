@@ -1,19 +1,19 @@
 [general]
 status_path = "~/.local/share/vdirsyncer/status/"
 
-[pair contacts]
-a = "local_contacts"
-b = "google_contacts"
+[pair fastmail]
+a = "fastmail_remote_card"
+b = "fastmail_local"
 collections = ["from a", "from b"]
 conflict_resolution = ["command", "/opt/homebrew/bin/nvim", "-d"]
 
-[storage google_contacts]
-type = "google_contacts"
-token_file = "~/.local/share/vdirsyncer/contacts-token"
-client_id.fetch = ["command", "pass", "Vdirsyncer/ID"]
-client_secret.fetch = ["command", "pass", "Vdirsyncer/Secret"]
-
-[storage local_contacts]
+[storage fastmail_local]
 type = "filesystem"
-path = "~/.local/share/khard/"
+path = "~/.local/share/khard/fastmail"
 fileext = ".vcf"
+
+[storage fastmail_remote_card]
+type = "carddav"
+url = "https://carddav.fastmail.com/"
+username.fetch = ["command", "pass", "Vdirsyncer/Fastmail-username"]
+password.fetch = ["command", "pass", "Vdirsyncer/Fastmail-password"]
