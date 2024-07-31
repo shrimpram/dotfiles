@@ -5,6 +5,7 @@
 
 [core]
   pager = delta
+  abbrev = 12
 
 [interactive]
   diffFilter = delta --color-only
