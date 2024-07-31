@@ -24,21 +24,21 @@ return {
       {
         "<leader>tb",
         function()
-          require("telescope.builtin").buffers()
+          require("telescope.builtin").buffers({ hidden = true })
         end,
         desc = "Telescope Buffers",
       },
       {
         "<leader>tf",
         function()
-          require("telescope.builtin").find_files()
+          require("telescope.builtin").find_files({ hidden = true })
         end,
         desc = "Telescope Find Files",
       },
       {
         "<leader>tt",
         function()
-          require("telescope.builtin").git_files()
+          require("telescope.builtin").git_files({ hidden = true })
         end,
         desc = "Telescope Git Files",
       },
@@ -46,7 +46,7 @@ return {
         "<leader>tr",
         mode = { "n" },
         function()
-          require("telescope.builtin").live_grep()
+          require("telescope.builtin").live_grep({ hidden = true })
         end,
         desc = "Telescope Grep",
       },
@@ -54,7 +54,7 @@ return {
         "<leader>tr",
         mode = { "x" },
         function()
-          require("telescope.builtin").grep_string()
+          require("telescope.builtin").grep_string({ hidden = true })
         end,
         desc = "Telescope Grep",
       },
