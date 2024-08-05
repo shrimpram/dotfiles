@@ -4,6 +4,7 @@ require("mason").setup({
   ensure_installed = {
     "black",
     "clang-format",
+    "latexindent",
     "prettier",
     "shellcheck",
     "shfmt",
